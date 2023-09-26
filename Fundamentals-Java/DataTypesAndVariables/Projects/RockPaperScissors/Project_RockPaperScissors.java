@@ -93,8 +93,6 @@ public class Project_RockPaperScissors {
                     countPlayerLosses++;
                     System.out.println("You lose this round.");
                 } else {
-                    countComputerWins++;
-                    countPlayerWins++;
                     System.out.println("The round is a draw.");
                 }
 

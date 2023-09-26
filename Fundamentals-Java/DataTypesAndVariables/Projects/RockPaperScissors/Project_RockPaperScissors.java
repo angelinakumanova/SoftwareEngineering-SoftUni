@@ -93,6 +93,8 @@ public class Project_RockPaperScissors {
                     countPlayerLosses++;
                     System.out.println("You lose this round.");
                 } else {
+                    countComputerWins++;
+                    countPlayerWins++;
                     System.out.println("The round is a draw.");
                 }
 
@@ -114,9 +116,15 @@ public class Project_RockPaperScissors {
                 System.out.println("You won! The computer lost.");
             }
 
+
+            // Checking if the player wants to play again
             System.out.println("If you would like to try again, type in START.");
             System.out.println("If you don't want to play anymore, type in END.");
             gameInput = scanner.nextLine();
+            while (!(gameInput.equals("START") || gameInput.equals("END"))) {
+                System.out.println("Incorrect input! You must either type in START or END!");
+                gameInput = scanner.nextLine();
+            }
         }
 
         // Print of final stats of all games played

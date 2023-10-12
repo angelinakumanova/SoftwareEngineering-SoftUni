@@ -18,26 +18,26 @@ public class CardsGame {
                 .collect(Collectors.toList());
 
 
-            for (int i = 0; i < firstDeck.size(); i++) {
-                if (firstDeck.size() == 0 || secondDeck.size() == 0) {
-                    break;
-                }
-                if (firstDeck.get(i) > secondDeck.get(i)) {
-                    firstDeck.add(secondDeck.get(i));
-                    firstDeck.add(firstDeck.get(i));
-                    firstDeck.remove(i);
-                    secondDeck.remove(i);
-                } else if (firstDeck.get(i) < secondDeck.get(i)){
-                    secondDeck.add(firstDeck.get(i));
-                    secondDeck.add(secondDeck.get(i));
-                    firstDeck.remove(i);
-                    secondDeck.remove(i);
-                } else {
-                    firstDeck.remove(i);
-                    secondDeck.remove(i);
-                }
-                i = -1;
+        for (int i = 0; i < firstDeck.size(); i++) {
+            if (firstDeck.size() == 0 || secondDeck.size() == 0) {
+                break;
             }
+            if (firstDeck.get(i) > secondDeck.get(i)) {
+                firstDeck.add(secondDeck.get(i));
+                firstDeck.add(firstDeck.get(i));
+                firstDeck.remove(i);
+                secondDeck.remove(i);
+            }   else if (firstDeck.get(i) < secondDeck.get(i)){
+                secondDeck.add(firstDeck.get(i));
+                secondDeck.add(secondDeck.get(i));
+                firstDeck.remove(i);
+                secondDeck.remove(i);
+            } else {
+                firstDeck.remove(i);
+                secondDeck.remove(i);
+            }
+            i = -1;
+        }
 
         if (firstDeck.size() > 0) {
             int sum = 0;

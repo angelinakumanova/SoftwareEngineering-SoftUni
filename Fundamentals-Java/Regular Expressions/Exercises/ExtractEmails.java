@@ -8,7 +8,7 @@ public class ExtractEmails {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
-        Pattern pattern = Pattern.compile("(^|(?<=\\s))(([a-zA-Z0-9]+)([\\.\\-_]?)([A-Za-z0-9]+)(@)([a-zA-Z]+([\\.\\-_][A-Za-z]+)+))(\\b|(?=\\s))");
+        Pattern pattern = Pattern.compile("((^|)([A-Za-z0-9]+)([.\\-_]*)([A-Za-z0-9]+)@([A-Za-z\\-])+(\\.[a-z]+)+)");
         Matcher matcher = pattern.matcher(input);
 
         while (matcher.find()) {

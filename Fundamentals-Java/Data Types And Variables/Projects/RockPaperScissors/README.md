@@ -1,7 +1,7 @@
 # The "Rock - Paper - Scissors" Game
 <p align="center">A console-based Java implementation of the "Rock - Paper - Scissors" Game</p>
+<p align="center"><img alt="Image" width="600px" height="500px" src="https://miro.medium.com/v2/resize:fit:800/1*8du96SQUQ0NlWmWvVu20Zw.png"></p>
 
-![rock_paper_scissors__2x](https://github.com/angelinakumanova/SoftwareEngineering-SoftUni/assets/136862552/fbfae8e6-e215-4893-9b8b-d0b5521c4432)
 
 
 ## What is the project about?

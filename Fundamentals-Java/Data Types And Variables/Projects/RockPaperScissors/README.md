@@ -33,10 +33,13 @@
 
 ![image](https://github.com/angelinakumanova/SoftwareEngineering-SoftUni/assets/136862552/fb7418b9-d7d8-4285-9e57-299f63d5fb05)
 
-<p>5) If you have played many rounds, after typing "END" you will know how many wins you lead with or not. </p>
+<p>5) If you have played many rounds, after typing "END" you will know how many wins you have the beat the computer with. </p>
 
 ![image](https://github.com/angelinakumanova/SoftwareEngineering-SoftUni/assets/136862552/b186084b-d5c6-41dc-8787-e0c1691e8b7c)
 
+<p> or not...</p>
+
+![image](https://github.com/angelinakumanova/SoftwareEngineering-SoftUni/assets/136862552/3900a8c8-325c-4009-8b86-f88b0977876d)
 
 ### Rules
 

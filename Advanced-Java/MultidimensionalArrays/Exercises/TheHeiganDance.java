@@ -41,12 +41,13 @@ public class TheHeiganDance {
             }
 
             int[][] battleField = new int[15][15];
-            if (spell.equals("Cloud") && playerHitPoints > 0) {
+            if (spell.equals("Cloud")) {
                 lastSpell = "Plague Cloud";
                 battleFieldDamage(battleField, row, col);
 
                 if (battleField[posOfPlayer[0]][posOfPlayer[1]] == -1) {
                     int[] currentPos = movePlayer(battleField);
+
                     if (Arrays.equals(currentPos, posOfPlayer)) {
                         cloudIsActive = true;
                         playerHitPoints -= 3500;
@@ -54,12 +55,13 @@ public class TheHeiganDance {
                         posOfPlayer = currentPos;
                     }
                 }
-            } else if (spell.equals("Eruption") && playerHitPoints > 0) {
+            } else if (spell.equals("Eruption")) {
                 lastSpell = spell;
                 battleFieldDamage(battleField, row, col);
 
                 if (battleField[posOfPlayer[0]][posOfPlayer[1]] == -1) {
                     int[] currentPos = movePlayer(battleField);
+                    
                     if (Arrays.equals(currentPos, posOfPlayer)) {
                         playerHitPoints -= 6000;
                     } else {

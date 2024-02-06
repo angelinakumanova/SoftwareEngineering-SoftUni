@@ -24,6 +24,9 @@ public class Main {
                     String element = tokens[1];
                     System.out.println(list.contains(element));
                     break;
+                case "Sort":
+                    Sorter.sort(list);
+                    break;
                 case "Swap":
                     int firstIdx = Integer.parseInt(tokens[1]);
                     int secondIdx = Integer.parseInt(tokens[2]);

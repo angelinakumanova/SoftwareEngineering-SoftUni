@@ -32,6 +32,7 @@ public class CustomList<T extends Comparable<T>> {
         return false;
     }
 
+
     public void swap(int firstIdx, int secondIdx) {
         validateIndex(firstIdx);
         validateIndex(secondIdx);
@@ -53,6 +54,9 @@ public class CustomList<T extends Comparable<T>> {
         return count;
     }
 
+    public void print() {
+        this.data.forEach(System.out::println);
+    }
     public T getMax() {
         return this.data.stream().max(Comparator.naturalOrder()).get();
     }
@@ -61,8 +65,13 @@ public class CustomList<T extends Comparable<T>> {
         return this.data.stream().min(Comparator.naturalOrder()).get();
     }
 
-    public void print() {
-        this.data.forEach(System.out::println);
+    public T get(int index) {
+        validateIndex(index);
+        return this.data.get(index);
+    }
+
+    public int size() {
+        return this.data.size();
     }
     private void validateIndex(int index) {
         if (index < 0 || index >= this.data.size()) {

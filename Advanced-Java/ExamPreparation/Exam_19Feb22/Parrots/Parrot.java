@@ -1,4 +1,4 @@
-package ExamPreparation.Parrots;
+package ExamPreparation.Exam_19Feb22.Parrots;
 
 public class Parrot {
     private String name;

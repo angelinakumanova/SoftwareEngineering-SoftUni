@@ -1,4 +1,3 @@
-
 package WorkingWithAbstraction.Exercises;
 
 import java.util.Collection;
@@ -21,9 +20,7 @@ public class GreedyTimes {
         for (int i = 0; i < safeContent.length; i += 2) {
             String name = safeContent[i];
             long quantity = Long.parseLong(safeContent[i + 1]);
-            long currentBagQuantity = bag.values().stream()
-                    .map(Map::values).flatMap(Collection::stream)
-                    .mapToLong(e -> e).sum() + quantity;
+            long currentBagQuantity = bag.values().stream().map(Map::values).flatMap(Collection::stream).mapToLong(e -> e).sum() + quantity;
 
             String item = getItem(name);
 
@@ -57,8 +54,7 @@ public class GreedyTimes {
         return item;
     }
 
-    private static void addQuantity(Map<String, LinkedHashMap<String, Long>> bag, String item, String name,
-                                    long quantity, long gold, long gems, long cash) {
+    private static void addQuantity(Map<String, LinkedHashMap<String, Long>> bag, String item, String name, long quantity, long gold, long gems, long cash) {
         bag.get(item).put(name, bag.get(item).get(name) + quantity);
         if (item.equals("Gold")) {
             gold += quantity;
@@ -75,10 +71,7 @@ public class GreedyTimes {
 
             System.out.printf("<%s> $%s%n", items.getKey(), sumValues);
 
-            items.getValue().entrySet()
-                    .stream()
-                    .sorted((e1, e2) -> e2.getKey().compareTo(e1.getKey()))
-                    .forEach(i -> System.out.println("##" + i.getKey() + " - " + i.getValue()));
+            items.getValue().entrySet().stream().sorted((e1, e2) -> e2.getKey().compareTo(e1.getKey())).forEach(i -> System.out.println("##" + i.getKey() + " - " + i.getValue()));
 
         }
     }
@@ -86,33 +79,28 @@ public class GreedyTimes {
     private static boolean isValid(String item, Map<String, LinkedHashMap<String, Long>> bag, long quantity) {
         boolean isValid = true;
         if (item.equals("Gem")) {
-            if (!bag.containsKey(item)) {
-                if (bag.containsKey("Gold")) {
-                    if (quantity > bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
-                        isValid = false;
-                    }
-                } else {
+            if (bag.containsKey(item) && bag.get(item).values().stream().mapToLong(e -> e).sum() + quantity >
+                    bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
+                isValid = false;
+            } else if (bag.containsKey("Gold")){
+                if (quantity > bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
                     isValid = false;
                 }
-            } else if (bag.get(item).values().stream().mapToLong(e -> e).sum() + quantity >
-                    bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
+            } else {
                 isValid = false;
             }
         } else if (item.equals("Cash")) {
-            if (!bag.containsKey(item)) {
-                if (bag.containsKey("Gem")) {
-                    if (quantity > bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
-                        isValid = false;
-                    }
-                } else {
+            if (bag.containsKey(item) && bag.get(item).values().stream().mapToLong(e -> e).sum() + quantity >
+                    bag.get("Gem").values().stream().mapToLong(e -> e).sum()) {
+                isValid = false;
+            } else if (bag.containsKey("Gem")) {
+                if (quantity > bag.get("Gold").values().stream().mapToLong(e -> e).sum()) {
                     isValid = false;
                 }
-            } else if (bag.get(item).values().stream().mapToLong(e -> e).sum() + quantity >
-                    bag.get("Gem").values().stream().mapToLong(e -> e).sum()) {
+            } else {
                 isValid = false;
             }
         }
-
         return isValid;
     }
 }

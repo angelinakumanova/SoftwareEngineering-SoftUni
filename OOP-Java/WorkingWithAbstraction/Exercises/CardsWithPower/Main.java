@@ -1,5 +1,6 @@
 package WorkingWithAbstraction.Exercises.CardsWithPower;
 
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,9 +9,8 @@ public class Main {
 
         String rank = scanner.nextLine();
         String suit = scanner.nextLine();
-        System.out.printf("Card name: %s of %s; Card power: %d%n",
-                rank,
-                suit,
-                Enum.valueOf(Rank.class, rank).getValue() + Enum.valueOf(Suit.class, suit).getValue());
+
+        Card card = new Card(Rank.valueOf(rank), Suit.valueOf(suit));
+        card.printCard();
     }
 }

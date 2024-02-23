@@ -6,7 +6,7 @@ public enum Suit {
     HEARTS(26),
     SPADES(39);
 
-    private int value;
+    private final int value;
 
     Suit(int value) {
         this.value = value;

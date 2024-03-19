@@ -1,0 +1,9 @@
+package Exams.Exam_8April23.BusinessLogic.robotService.entities.supplements;
+
+public class MetalArmor extends BaseSupplement{
+    private static final int DEFAULT_HARDNESS = 5;
+    private static final double DEFAULT_PRICE = 15;
+    public MetalArmor() {
+        super(DEFAULT_HARDNESS, DEFAULT_PRICE);
+    }
+}

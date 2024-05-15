@@ -1,0 +1,33 @@
+h1 {
+    color:darkgoldenrod;
+}
+
+p {
+    font-size: 16px;
+}
+
+.highlight {
+    background-color: gold;
+}
+
+#main-title {
+    color:burlywood;
+}
+
+#special-paragraph {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    color: brown;
+}
+
+
+div {
+    
+    background-color:darkolivegreen !important;
+}

@@ -1,0 +1,32 @@
+a {
+    color:blue;
+    text-decoration: none;
+}
+
+.bolded-text {
+    font-weight: bolder;
+}
+
+
+.italic-text {
+    font-style: italic;
+}
+
+h1 {
+    color: darkred;
+}
+.arrows {
+    color: red;
+    font-weight: bold;
+}
+
+article > p {
+    background-color: rgb(84, 182, 182);
+}
+
+img {
+    width: 15%;
+    border-style: solid;
+    border-width: 10px;
+    border-color: red;
+}

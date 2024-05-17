@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+section p {
+    color: gray;
+}
+
+.highlighted-text {
+    background-color: rgb(248, 193, 189);
+    padding: 3px;
+}
+
+ul > li {
+    list-style-type: none;
+    font-weight: bold;
+}
+.highlighted-item {
+    color: red;
+}
+
+.sublist a, .sublist a:visited {
+    text-decoration: none;
+    color: blue;
+}
+
+.special-link {
+    color: green !important;
+}
+
+h2 ~ p {
+    color: royalblue;
+}

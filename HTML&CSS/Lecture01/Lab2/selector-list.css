@@ -1,0 +1,27 @@
+header, .introduction, .services, footer {
+    border-color: gray;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px;
+    padding: 15px;
+}
+
+h1, h2, p, nav ul a {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul a, nav ul a:visited {
+    text-decoration: none;
+    color: black;
+}

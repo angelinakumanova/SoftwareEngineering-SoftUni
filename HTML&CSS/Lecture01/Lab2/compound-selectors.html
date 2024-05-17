@@ -7,21 +7,23 @@
     <link rel="stylesheet" type="text/css" href="compound-selectors.css">
 </head>
 <body>
-    <p>This is a highlighted paragraph.</p>
+    <p class="text-highlight">This is a highlighted paragraph.</p>
     <p>This is a normal paragraph.</p>
 
-    <div>
+    <div id="special-box" class="box shadow">
         Special content goes here.
     </div>
 
     <ul>
-        <li>Important Item 1</li>
+        <li class="important-item">Important Item 1</li>
         <li>Item 2</li>
-        <li>Important Item 3</li>
+        <li class="special-highlight">Important Item 3</li>
     </ul>
 
-    <p><a href="#">Fancy link that goes to this page</a></p>
-    <p><a href="https://softuni.bg/">Fancy link that goes to the SoftUni website</a></p>
-    <p>Paragraph with multiple classes!</p>
+    <p><a href="#" class="page-link">Fancy link that goes to this page</a></p>
+    <p><a href="https://softuni.bg/" class="external-link">Fancy link that goes to the SoftUni website</a></p>
+    <p class="text-style text-color">Paragraph with multiple classes!</p>
+
+    <input type="text" class="input-text" placeholder="Type here...">
 </body>
 </html>

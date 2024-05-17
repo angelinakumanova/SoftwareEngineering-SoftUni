@@ -1,0 +1,48 @@
+p.text-highlight {
+    color: #007BFF;
+    font-size: 18px;
+}
+
+div#special-box {
+    background-color: #FFC107;
+    padding: 2px;
+    margin-bottom: 10px;
+}
+
+.box.shadow {
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.important-item {
+    color: #17A2B8;
+}
+
+.special-highlight{
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+input[type="text"].input-text {
+    border-color: #ce1717;
+    padding: 5px;
+    display: block;
+}
+
+a.page-link {
+    color:#007BFF;
+    text-decoration:underline;
+}
+
+a.external-link {
+    color:#FFC107;
+    text-decoration: double underline;
+}
+
+.text-style {
+    font-style: italic;
+}
+
+.text-color {
+    color:blue;
+}

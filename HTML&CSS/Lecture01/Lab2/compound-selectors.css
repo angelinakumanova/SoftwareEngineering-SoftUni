@@ -7,10 +7,8 @@ div#special-box {
     background-color: #FFC107;
     padding: 2px;
     margin-bottom: 10px;
-}
-
-.box.shadow {
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    
 }
 
 .important-item {
@@ -23,26 +21,16 @@ div#special-box {
     font-weight: bold;
 }
 
-input[type="text"].input-text {
-    border-color: #ce1717;
-    padding: 5px;
-    display: block;
+.page-link {
+    color: blue;
 }
 
-a.page-link {
-    color:#007BFF;
-    text-decoration:underline;
+a[href^="http"] {
+    border-bottom: 1px solid orange;
+    color: orange;
 }
 
-a.external-link {
-    color:#FFC107;
-    text-decoration: double underline;
-}
-
-.text-style {
+p.text-style.text-color {
     font-style: italic;
-}
-
-.text-color {
     color:blue;
 }

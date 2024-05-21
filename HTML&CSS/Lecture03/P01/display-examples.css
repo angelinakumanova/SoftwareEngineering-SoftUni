@@ -1,0 +1,22 @@
+div {
+    border: 2px solid #000;
+    padding: 1em 2em 1em 2em;
+    margin-bottom: 2em;
+}
+
+p {
+    border: 1px solid #ccc;
+    padding: 1em;
+}
+
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}

@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid #1F9B1F;
+    padding: 2em;
+}
+
+div.site {
+    max-width: 1000px;
+    border: 2px solid #6060FF;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+div.site > * {
+    border: 2px solid black;
+    padding: 2em;
+}
+
+.site > * + * {
+    margin-top: 2em;
+}
+
+p {
+    text-align: center;
+}

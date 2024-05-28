@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    border: 2px solid #1F9B1F;
+    padding: 2em;
+}
+
+.section {
+    border: 2px solid black;
+    padding: 2em;
+}
+
+.section:not(:last-child) {
+    margin-bottom: 2em;
+}
+
+.wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2em;
+    border: 2px solid blue;
+    background-color: #fff;
+}
+

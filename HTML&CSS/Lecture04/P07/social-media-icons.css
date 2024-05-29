@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    padding: 2em;
+}
+
+h1 {
+    margin-left: 0.2em;
+    margin-bottom: 0.5em;
+}
+
+.socials li {
+    display: inline-block;
+    list-style: none outside;
+}
+
+.socials li a {
+    display: block;
+    width: 3em;
+    font-size: 1.5em;
+    line-height: 3em;
+    aspect-ratio: 1/1;
+    text-align: center;
+    background: #eee;
+    border-radius: 50%;
+    color: #000;
+}
+
+.socials li a {
+    color: #000;
+}
+
+.socials li a:hover {
+    background: darkorange;
+    color: #fff;
+}

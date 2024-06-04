@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    padding: 2em;
+}
+
+div {
+    max-width: 1200px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+div > * {
+    border: 1px solid #AAA;
+    padding: 2em;
+    flex: 1 1 auto;
+    border-radius: 0.3em;
+}
+
+div > header,
+div > footer {
+    flex: 1 1 100%;
+}
+
+div > section.main-content {
+    flex-grow: 7;
+}
+
+div > aside {
+    flex-grow: 3;
+}
+
+div + div {
+    margin-top: 4em;
+}
+

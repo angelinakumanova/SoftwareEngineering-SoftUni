@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 2em;
+    background: #eee;
+}
+
+div.site {
+    max-width: 1100px;
+    margin: 2em auto;
+    background: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    padding: 2em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+div.site > * {
+    border: 2px solid #ccc;
+    border-radius: 0.3em;
+    padding: 2em;
+}
+
+div.site > header, div.site > footer {
+    flex: 1 0 100%;
+}
+
+div.site > main {
+    flex: 1 0 60%;
+}
+
+div.site > aside {
+    flex: 1 0 30%;
+}
+
+@media (max-width: 800px) {
+    div.site {
+        flex-direction: column;
+    }
+}

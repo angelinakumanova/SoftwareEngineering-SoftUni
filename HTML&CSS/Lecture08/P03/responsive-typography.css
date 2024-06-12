@@ -1,0 +1,106 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #eee;
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 2em;
+    
+}
+
+div.site {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+}
+
+
+p, ol, ul, ul {
+    padding-bottom: 1.5rem;
+}
+
+ol, ul {
+    padding-left: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+hr {
+    margin: 1em 0;
+}
+
+ul ul, ul ol, ol ul, ol ol  {
+    padding-bottom: 0;
+}
+
+ul {
+    list-style: square;
+}
+
+ul ul {
+    list-style:disc;
+}
+ul ul ul {
+    list-style: circle;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1.2em;
+}
+
+th, td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    padding: 0.5rem 0.5rem;
+}
+
+th {
+    background-color: #b8b3b3;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e7e5e5;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 5px solid #DDD;
+    padding-left: 1.5em;
+    margin: 1.5em;
+    margin-top: 0;
+}
+
+blockquote p:last-of-type {
+    padding-bottom: 0;
+}
+
+blockquote p.author {
+    text-align: right;
+}
+
+@media (min-width: 600px) {
+	html { font-size: 14px; }
+}
+
+@media (min-width: 900px) {
+	html { font-size: 16px; }
+}
+
+@media (min-width: 1200px) {
+	html { font-size: 18px; }
+}

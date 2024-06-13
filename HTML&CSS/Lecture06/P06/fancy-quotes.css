@@ -6,19 +6,20 @@
 
 body {
     padding: 2em;
-    font: 14px/1.5 Lato, sans-serif;
+    font: 14px/1.5 "Lato", Verdana, sans-serif;
     background: #eee;
 }
 
 .site {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1100px;
+    width: 100%;
+    margin: 6em auto;
     display: flex;
     gap: 2em;
 }
 
 .site > main {
-    flex: 0 0 70%;
+    flex: 0 0 65%;
 }
 
 .site > aside {
@@ -29,6 +30,8 @@ body {
 article {
     background: #fff;
     padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
 }
 
 .site > main article {
@@ -36,11 +39,13 @@ article {
     gap: 2em;
 }
 
-article .media {
-    flex: 1 0 12em;
+.site > aside .media {
+    max-height: 8em;
+    margin-top: 2em;
 }
 
-article .avatar {
+
+article .media {
     height: 100%;
     min-height: 6em;
     aspect-ratio: 1/1;
@@ -49,7 +54,10 @@ article .avatar {
     padding: 0.3em;
     box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
     border: 0.3em solid #fff;
+    flex: 1 0 12em;
 }
+
+
 
 article i[class*="fa-"] {
     font-size: 4em;
@@ -58,6 +66,7 @@ article i[class*="fa-"] {
 
 article p {
     padding-bottom: 1.5em;
+    opacity: 0.5;
 }
 
 article + article {

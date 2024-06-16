@@ -1,0 +1,47 @@
+@media (width <= 600px) {
+
+    header nav ul li {
+        display: block;
+        text-align: center;
+        padding-bottom: 0.3em;
+    }
+
+    .header-title {
+        color: white;
+        margin: 0 auto;
+        text-align: center;
+        padding: 1em 0;
+    }
+
+    .header-title h1 {
+        font-size: 38px;
+        padding-bottom: 0.5em;
+    }
+
+    .choose-us ul{
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    .choose-us ul li p {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .about-us p:nth-of-type(2) {
+        width: 100%;
+    }
+
+
+    .team-description ul li img {
+        width: 150px;
+        height: 180px;
+        padding-bottom: 0.3rem;
+    }
+
+    .team-description ul {
+        gap: 3em;
+        justify-content: center;
+    }
+   
+} 

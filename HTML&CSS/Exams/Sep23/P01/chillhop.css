@@ -1,0 +1,63 @@
+*  {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 16px Helvetica, sans-serif;
+    padding: 2em;
+}
+
+img {
+    width: 20rem;
+}
+
+.container {
+    max-width: 1030px;
+    margin: 0 auto;
+    padding: 3em;
+    display: flex;
+    gap: 1em;
+    background: #1881B6;
+    border: 5px solid black;
+    border-radius: 0.5em;
+}
+
+.container > .text-content > header h1{
+    color: white;
+    padding-top: 1em;
+    font-weight: normal;
+}
+
+.container > .text-content > section > p {
+    padding-top: 2em;
+    text-indent: 3em;
+    line-height: 1.8em;
+}
+
+.buttons {
+    display: flex;
+    gap: 6em;
+    justify-content: center;
+    padding-top: 1em;
+}
+
+button.contact-sales {
+    color: white;
+    font-weight: bold;
+    background: #B6416D;
+    padding: 0.8em;
+    border: 1px solid black;
+    border-radius: 0.3em;
+    flex-basis: 20%;
+}
+
+button.learn-more {
+    font-weight: bold;
+    background: #1881B6;
+    padding: 0.8em;
+    border: 1px solid black;
+    border-radius: 0.3em;
+    flex-basis: 20%;
+}

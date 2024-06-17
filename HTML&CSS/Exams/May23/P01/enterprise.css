@@ -57,9 +57,7 @@ div.container div.card div.content > section.description p {
     padding-bottom: 2em;
 }
 
-div.container div.card div.content > footer {
-    position: relative;
-}
+
 
 div.container div.card div.content > footer::before {
     display: block;
@@ -69,6 +67,7 @@ div.container div.card div.content > footer::before {
     background-color: #6C6C6C;
     margin-bottom: 1em;
 }
+
 
 div.container div.card div.content > footer .media {
     display: inline-block;
@@ -82,16 +81,22 @@ div.container div.card div.content > footer .media img {
     width: 100%;
 }
 
-div.container div.card div.content > footer span:nth-of-type(1) {
-    position: absolute;
-    margin-top: 1em;
+div.container div.card div.content > footer .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+div.container div.card div.content > footer .footer-content .avatar-and-name {
+    display: flex;
+    align-items: center;
+}
+
+div.container div.card div.content > footer .footer-content .avatar-and-name span {
     margin-left: 0.5em;
 }
 
-div.container div.card div.content > footer span:nth-of-type(2) {
-    position: absolute;
-    right: 1em;
-    bottom: 1em;
+div.container div.card div.content > footer .footer-content > span {
     opacity: 0.5;
-}
+} 
 

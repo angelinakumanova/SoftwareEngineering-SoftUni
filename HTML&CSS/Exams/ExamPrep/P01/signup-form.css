@@ -1,0 +1,114 @@
+@import url(https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 16px/1.5 "Kode Mono", sans-serif;
+}
+
+body, input, button, textarea {
+    font: inherit;
+}
+
+body {
+    padding: 2em;
+    background-color: #C1BDBA;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #24333C;
+    padding: 2.5em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.5);
+}
+
+form .signup-login {
+    display: flex;
+}
+
+form > .signup-login a {
+    text-decoration: none;
+    color: white;
+    background-color: #1AB188;
+    padding: 1em;
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+form > .signup-login a:first-of-type {
+    flex: 1 1 auto;
+}
+form > .signup-login a:last-of-type {
+    background-color: #435359;
+    flex: 1 1 auto;
+    color: #94A69F;
+}
+
+form > .signup-login a:last-of-type:hover {
+    background-color: #179A77;
+    color: white;
+}
+
+form h1 {
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.flex {
+    display: flex;
+    gap: 2em;
+}
+
+.flex .field {
+    flex: 1 1 auto;
+}
+
+.field {
+    position: relative;
+    padding-bottom: 2em;
+}
+
+.field input {
+    display: block;
+    width: 100%;
+    border: 1px solid #728384;
+    background-color: transparent;
+    padding: 0.3em 0.5em;
+    line-height: 1;
+    outline: none;
+}
+
+.field label {
+    display: block;
+    position: absolute;
+    color: #819198;
+    font-size: 1.2em;
+    top: 0;
+    left: 0;
+    padding: 0.2em 0.5em;
+}
+
+.field input:required ~ label::after {
+    display: inline-block;
+    content: '*';
+    color: #1AB188;
+    padding-left: 0.2em;
+}
+
+form input[type="submit"] {
+    display: block;
+    width: 100%;
+    background-color: #1AB188;
+    color: #fff;
+    text-transform: uppercase;
+    border:none;
+    padding: 0.6rem;
+    font-size: 2em;
+}

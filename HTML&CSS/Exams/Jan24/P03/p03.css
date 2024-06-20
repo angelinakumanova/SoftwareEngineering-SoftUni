@@ -1,0 +1,247 @@
+@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 18px/1.5 'Karla', sans-serif;
+}
+
+.bg-image::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-image, .info {
+    position: relative;
+}
+
+.bg-image {
+    background-image: url(03.Traveler_Resources/images/poster.jpg);
+    background-size: cover;
+    background-position: top 50% center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.site-section {
+    padding: 2em;
+}
+
+.site-section.site-header .site-title a {
+    text-indent: -200vw;
+    display: block;
+    width: 120px;
+    height: 70px;
+    background-image: url(03.Traveler_Resources/images/logo.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 2em;
+    margin-top: -0.8em;
+}
+
+.site-section.site-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-section.site-header nav ul {
+    display: flex;
+    padding-right: 4em;
+}
+
+.site-section.site-header nav li {
+    list-style: none;
+}
+
+.site-section.site-header nav a {
+    text-decoration: none;
+    padding-left: 2em;
+    color: white;
+}
+
+.site-section.banner .container h2 {
+    padding-top: 1.5em;
+    font-size: 5em;
+    text-align: center;
+    color: white;
+}
+
+.site-section.banner .container p {
+    color: white;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0 auto;
+    width: 35em;
+    padding-top: 5em;
+    padding-bottom: 6em;
+}
+
+.site-section.customer {
+    background-color: #F8F0E9;
+}
+
+.site-section.customer .container p {
+    font: 16px 'Cormorant Infant', sans-serif;
+    font-size: 4.6em;
+    font-style: italic;
+    font-weight: bold;
+    color: #352B2A;
+    line-height: 4rem;
+    max-width: 15em;
+    margin: 0 auto;
+    padding-bottom: 1.5em;
+}
+
+.site-section.customer .container h4 {
+    font-size: 1.2em;
+    padding-bottom: 4.5em;
+    margin-left: 4.5em;
+    color: #3C3135;
+    font-weight: normal;
+}
+
+.site-section.support {
+    background-color: #E14747;
+}
+.site-section.support .container h3 {
+    color: white;
+    font-size: 1.6em;
+    text-align: center;
+}
+
+.site-section.support .container p {
+    text-align: center;
+    max-width: 15em;
+    margin: 0 auto;
+    color: white;
+    font-size: 1.2em;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+.site-section.article-info {
+    background-color: #F8F0E9;
+}
+
+.site-section.article-info .article {
+    max-width: 28em;
+    margin: 0 auto;
+    
+}
+
+.site-section.article-info .article img {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 2.5em;
+}
+
+.site-section.article-info .article h3 {
+    font: 76px 'Cormorant Infant', sans-serif;
+    text-align: center;
+    color: #352B2A;
+    font-weight: bold;
+    padding-bottom: 1em;
+}
+
+.site-section.article-info .article p {
+    padding-bottom: 5em;
+}
+
+.site-section.article-info .article a {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+}
+
+.site-section.article-info .button a {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    padding: 0.5em 1em;
+    border: 1px solid black;
+    border-radius: 0.2em;
+    display: inline-block;
+    margin-top: 5em;
+    margin-bottom: 2em;
+}
+
+
+.site-section.article-info .button {
+    text-align: center;
+}
+
+.site-section.local-guide {
+    background-color: #E14747;
+    text-align: center;
+}
+
+.site-section.local-guide h3 {
+    font: 78px 'Cormorant Infant', sans-serif;
+    color: white;
+    font-weight: bold;
+    padding-top: 1em;
+    padding-bottom: 1.5em;
+}
+
+.site-section.local-guide p {
+    font-size: 1.2em;
+    color: white;
+    max-width: 50em;
+    margin: 0 auto;
+    padding-bottom: 5em;
+}
+
+.site-section.local-guide a {
+    display: inline-block;
+    color: black;
+    background-color: #FAD87A;
+    text-decoration: none;
+    padding: 1em 1.5em;
+    border-radius: 2em;
+    margin-bottom: 2em;
+}
+
+.site-section.site-footer {
+    background-color: #352B2A;
+}
+
+.site-section.site-footer a {
+    text-indent: -200vw;
+    display: block;
+    width: 80px;
+    height: 45px;
+    background-image: url(03.Traveler_Resources/images/logo.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.site-section.site-footer p {
+    color: white;
+    margin-top: 2em;
+    max-width: 28em;
+}
+
+.site-section.site-footer p.copyright {
+    opacity: 0.3;
+    margin-bottom: 2em;
+}

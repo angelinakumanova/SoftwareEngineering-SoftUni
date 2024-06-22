@@ -1,0 +1,345 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 20px/1.5 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+.site-section {
+    padding: 2em;
+}
+
+.container {
+    max-width: 1750px;
+    margin: 0 auto;
+}
+
+.site-section.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -0.5em;
+}
+
+.site-section.site-header nav ul {
+    display: flex;
+    margin-left: 6em;
+}
+
+.site-section.site-header nav li {
+    list-style: none;
+}
+
+.site-section.site-header nav a {
+    text-decoration: none;
+    padding-left: 2em;
+    color: black;
+}
+
+.site-section.site-header nav a:hover {
+    color: #ADE2DF;
+}
+
+.site-section.site-header .login-signup {
+    margin-right: 5em;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.site-section.site-header .login-signup .login-btn {
+    text-decoration: none;
+    color: black;
+}
+
+.site-section.site-header .login-signup .signup-btn {
+    text-decoration: none;
+    color: black;
+    background-color: #ADE2DF;
+    padding: 0.5em 1.2em;
+    border-radius: 0.4em;
+}
+
+.site-section.banner {
+    background-color: #ADE2DF;
+}
+
+.site-section.banner h2 {
+    font-size: 4.1em;
+    text-align: center;
+    padding-top: 0.5em;
+}
+
+.site-section.banner p {
+    text-align: center;
+}
+
+.btns {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 3.5em;
+}
+
+.btns .ios-btn, .btns .android-btn {
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1em 1.5em;
+    border-radius: 0.5em;
+}
+
+.site-section.stats .columns-container {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+.site-section.stats .column {
+    height: 12em;
+    border-left: 2px solid rgba(128, 128, 128, 0.2);
+    padding-left: 2em;
+}
+
+.site-section.stats .column:last-of-type  {
+    border-right: 2px solid rgba(128, 128, 128, 0.2);
+    padding-right: 2em;
+    
+}
+
+.site-section.stats h3 {
+    text-align: center;
+    font-size: 2.6em;
+}
+
+.site-section.stats p {
+    max-width: 20em;
+    text-align: center;
+}
+
+.site-section.showcase {
+    background-color: #ADE2DF;
+}
+.site-section.showcase .columns-container {
+    display: flex;
+    justify-content: center;
+}
+
+.site-section.showcase .column:first-of-type {
+    margin-top: -2em;
+    margin-bottom: -2.4em;
+}
+
+.site-section.showcase img {
+    padding: 0.5em 4.5em;
+    border: 3px dashed rgb(128, 128, 128, 0.3);
+}
+
+.site-section.showcase .column.text-area {
+    margin-left: 8em;
+    margin-top: 3em;
+}
+
+.site-section.showcase h2 {
+    font-size: 2.6em;
+    margin-bottom: 0.5em;
+}
+
+.site-section.showcase h4 {
+    margin-bottom: 0.5em;
+}
+
+.site-section.showcase p:first-of-type {
+    max-width: 33em;
+    margin-bottom: 1.5em;
+}
+
+.site-section.showcase p {
+    margin-bottom: 4em;
+}
+
+.site-section.showcase .more-prices-btn {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.4em;
+}
+
+.site-section.pricing {
+    background-color: #F3F5FA;
+    padding: 0;
+    padding-top: 3em;
+    padding-bottom: 4em;
+}
+
+.site-section.pricing .container {
+    max-width:none;
+}
+
+.site-section.pricing .headings {
+    text-align: center;
+}
+
+.site-section.pricing .headings p {
+    display: inline-block;
+    background-color: #ADE2DF;
+    padding: 0.3em 1em;
+    border-radius: 0.8em;
+    margin-bottom: 1.5em;
+}
+
+.site-section.pricing .headings h2 {
+    font-size: 2.6em;
+    margin-bottom: 1.5em;
+}
+
+.site-section.pricing .columns-container {
+    display: flex;
+    background: white;
+    border: 0.1px solid rgb(128, 128, 128, 0.3);
+    border-radius: 1em;
+    gap: 3em;
+    width: 100%;
+}
+
+.site-section.pricing .columns-container .column {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    padding-left: 2em;
+    flex-basis: 30%;
+}
+
+.site-section.pricing .columns-container .expand-column {
+    flex-basis: 65%;
+}
+
+
+.site-section.pricing .columns-container h4 {
+    font-size: 1.25em;
+    
+}
+
+.site-section.pricing .columns-container h2 {
+    display: inline-block;
+    font-size: 2.6em;
+    position: relative;
+    bottom: 0.05em;
+    margin-top: 0.3em;
+}
+
+
+
+.site-section.pricing .columns-container span {
+    display: inline-block;
+}
+
+.site-section.pricing .columns-container .line {
+    border-bottom: 2px solid gray;
+    opacity: 0.3;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+.site-section.pricing .columns-container ul li {
+    list-style: none;
+    font-size: 0.9em;
+    line-height: 2em;
+}
+
+.site-section.pricing .columns-container ul li i {
+    padding-right: 0.3em;
+}
+
+.site-section.pricing .expand-column {
+    background-color: #ADE2DF;
+    padding: 1.5em;
+    padding-right: 0;
+}
+
+.site-section.pricing .expand-column h4 {
+    text-align: center;
+    font-size: 1.25em;
+    
+}
+
+
+.site-section.pricing .expand-column p {
+    font-size: 1.4em;
+    padding-bottom: 1em;
+    font-weight: 500;
+}
+
+.standard-btn, .plus-btn, .premium-btn {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    background-color: #ADE2DF;
+    padding: 1em;
+    font-weight: 500;
+    margin-top: 2em;
+    border-radius: 0.5em;
+}
+
+.contact-btn {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 1em;
+    border-radius: 0.5em;
+    text-align: center;
+    margin-top: 11.2em;
+}
+
+
+.site-section.download {
+    background-color: #ADE2DF;
+}
+
+.site-section.download h2 {
+    font-size: 4em;
+    text-align: center;
+}
+
+.site-section.download p {
+    font-size: 1.25em;
+    max-width: 30em;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.site-section.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding-top: 1.5em;
+    padding-bottom: 1em;
+}
+
+.site-section.site-footer .social-media {
+    display: flex;
+    gap: 1em;
+    align-self: center;
+}
+
+.site-section.site-footer .fa-brands.fa-instagram {
+    background: black;
+    padding: 0.1em;
+    padding-bottom: 0;
+    padding-top: 0;
+    color: white;
+}

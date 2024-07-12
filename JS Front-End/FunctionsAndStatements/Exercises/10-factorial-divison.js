@@ -1,8 +1,8 @@
 function printResult(firstNumber, secondNumber) {
-    let firstFactorial = calculateTheFactorial(firstNumber);
-    let secondFactorial = calculateTheFactorial(secondNumber);
+    const firstFactorial = calculateFactorial(firstNumber);
+    const secondFactorial = calculateFactorial(secondNumber);
 
-    let resultOfFactorialDivision = divideFactorials(firstFactorial, secondFactorial);
+    const resultOfFactorialDivision = divideFactorials(firstFactorial, secondFactorial);
 
     console.log(resultOfFactorialDivision);
     
@@ -10,12 +10,12 @@ function printResult(firstNumber, secondNumber) {
         return (firstNumber / secondNumber).toFixed(2);
     }
     
-    function calculateTheFactorial(number) {
+    function calculateFactorial(number) {
         if (number === 1) {
             return 1;
         }
         
-        return number * calculateTheFactorial(number - 1);
+        return number * calculateFactorial(number - 1);
     }
 }
 

@@ -5,7 +5,9 @@ function solve() {
    function onClick () {
       const textAreaElement = document.querySelector('textarea');
       const input = JSON.parse(textAreaElement.value);
+      const pBestRestaurantElement = document.querySelector('#outputs #bestRestaurant p');
       const pWorkers = document.querySelector('#outputs #workers p');
+
       const restaurants = {};
 
       pWorkers.textContent = '';
@@ -47,21 +49,17 @@ function solve() {
       
       
       const sortedWorkers = bestRestaurant[1].workers.sort((firstWorker, secondWorker) => secondWorker.salary - firstWorker.salary);
-
       const highestSalary = sortedWorkers[0].salary;
+      const avgSalary = (bestRestaurant[1].totalSalary / bestRestaurant[1].workers.length).toFixed(2);
 
-      const bestRestaurantOutput = `Name: ${bestRestaurant[0]} Average Salary: ${(Number(bestRestaurant[1].totalSalary) / bestRestaurant[1].workers.length).toFixed(2)} Best Salary: ${highestSalary.toFixed(2)}`;
 
-      const pBestRestaurantElement = document.querySelector('#outputs #bestRestaurant p');
+      const bestRestaurantOutput = `Name: ${bestRestaurant[0]} Average Salary: ${avgSalary} Best Salary: ${highestSalary.toFixed(2)}`;
       pBestRestaurantElement.textContent = bestRestaurantOutput;
 
       
       for (const worker of sortedWorkers) {
          pWorkers.textContent += `Name: ${worker.name} With Salary: ${worker.salary} `;
       }
-
-      pWorkers.textContent.trim();
-      
 
    }
 }

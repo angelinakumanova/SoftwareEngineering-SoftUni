@@ -4,7 +4,7 @@ function attachGradientEvents() {
 
     gradientElement.addEventListener('mousemove', (e) => {
         const currentPosition = e.offsetX;
-        const elementWidth = gradientElement.clientWidth;
+        const elementWidth = e.currentTarget.clientWidth;
 
         const currentPercentage = Math.floor((currentPosition / elementWidth) * 100);
 

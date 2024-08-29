@@ -1,5 +1,5 @@
 import { hideSections, redirect } from "./router-utils.js";
-import { renderCreate, renderDetails, renderHeader, renderHome, renderLogin, renderLogout, renderRegister, renderSolutions } from "./views.js";
+import { renderCreate, renderDetails, renderEdit, renderHeader, renderHome, renderLogin, renderLogout, renderRegister, renderSolutions } from "./views.js";
 
 
 export const routes = {
@@ -7,6 +7,7 @@ export const routes = {
     '/solutions': renderSolutions,
     '/solutions/add': renderCreate,
     '/solutions/:solutionId/details': renderDetails,
+    '/solutions/:solutionId/edit': renderEdit,
     '/login': renderLogin,
     '/register': renderRegister,
     '/logout': renderLogout,

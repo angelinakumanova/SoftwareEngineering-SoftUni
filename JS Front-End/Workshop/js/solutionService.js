@@ -17,7 +17,6 @@ export async function getAllSolutions() {
 }
 
 export async function addSolution(solution) {
-
     try {
         const response = await fetch(baseUrl, {
             method: 'POST',
@@ -33,5 +32,11 @@ export async function addSolution(solution) {
         console.error(error);
         throw error;
     }
-    
+}
+
+export async function getOne(solutionId) {
+    const response = await fetch(`${baseUrl}/${solutionId}`);
+    const result = await response.json();
+
+    return result;
 }

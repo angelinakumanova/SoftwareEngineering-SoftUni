@@ -1,6 +1,6 @@
-import { isAuthenticated, login, logout, register } from "./authService.js";
+import { getAuthData, isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
-import { addSolution, getAllSolutions } from "./solutionService.js";
+import { addSolution, getAllSolutions, getOne } from "./solutionService.js";
 import { html, render } from 'https://unpkg.com/lit@2?module';
 
 
@@ -137,9 +137,16 @@ export function renderEdit() {
 
 }
 
-export function renderDetails() {
+export async function renderDetails(params) {
     const detailsSection = document.getElementById('details');
     detailsSection.style.display = 'block';
+
+    const solution = await getOne(params.solutionId);
+    
+
+    const solutionTemplate = createDetailsTemplate(solution);
+
+    render(solutionTemplate, detailsSection);
 }
 
 export function renderHeader() {
@@ -170,5 +177,48 @@ function createSolution(data) {
     </div>
     `;
     
+    return template(data);
+}
+
+function createDetailsTemplate(data) {
+    const currentUserId = getAuthData().userId;
+    const isOwner = currentUserId === data._ownerId;
+    
+    const template = (data) => html`
+    <div id="details-wrapper">
+            <img
+              id="details-img"
+              src="${data.imageUrl}"
+              alt="example1"
+            />
+            <div>
+              <p id="details-type">${data.type}</p>
+              <div id="info-wrapper">
+                <div id="details-description">
+                  <p id="description">
+                    ${data.description}
+                  </p>
+                  <p id="more-info">
+                    ${data.learnMore}
+                  </p>
+                </div>
+              </div>
+              <h3>Like Solution:<span id="like">0</span></h3>
+            
+              <div id="action-buttons">
+              ${isOwner ? html `
+                <a href="/solutions/${data._id}/edit" id="edit-btn">Edit</a>
+                <a href="#" id="delete-btn">Delete</a>
+                ` : ''}
+                
+                ${!isOwner ? html `
+                <a href="#" id="like-btn">Like</a>
+                ` : ''}
+                
+              </div>
+            </div>
+          </div>
+    `;
+
     return template(data);
 }

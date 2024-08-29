@@ -1,6 +1,6 @@
 import { isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
-import { getAllSolutions } from "./solutionService.js";
+import { addSolution, getAllSolutions } from "./solutionService.js";
 import { html, render } from 'https://unpkg.com/lit@2?module';
 
 
@@ -114,6 +114,20 @@ export function renderCreate() {
         const description = formData.get('description');
         const moreInfo = formData.get('more-info');
 
+        const solution = {
+            type: solutionType,
+            imageUrl,
+            description,
+            learnMore: moreInfo,
+        };
+
+        try {
+            await addSolution(solution);
+        } catch (error) {
+            console.error(error);
+        }
+
+        formElement.reset();
     }
 }
 

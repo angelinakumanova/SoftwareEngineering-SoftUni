@@ -81,6 +81,16 @@ export function isAuthenticated() {
     return !!localStorage.getItem('email')
 }
 
+export function getAuthData() {
+    const data = {
+        userId: localStorage.getItem('userId'),
+        email: localStorage.getItem('email'),
+        accessToken: localStorage.getItem('accessToken'),
+    }
+
+    return data;
+}
+
 function saveAuthData(data) {
     localStorage.setItem('email', data.email);
     localStorage.setItem('userId', data._id);

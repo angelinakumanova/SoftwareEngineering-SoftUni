@@ -1,6 +1,6 @@
 import { getAuthData, isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
-import { addSolution, getAllSolutions, getOne } from "./solutionService.js";
+import { addSolution, editSolution, getAllSolutions, getOne } from "./solutionService.js";
 import { html, render } from 'https://unpkg.com/lit@2?module';
 
 
@@ -131,9 +131,41 @@ export function renderCreate() {
     }
 }
 
-export function renderEdit() {
+export async function renderEdit(params) {
     const editSection = document.getElementById('edit');
     editSection.style.display = 'block';
+
+    const solution = await getOne(params.solutionId);
+
+    const formElement = editSection.querySelector('.edit-form');
+
+    formElement.addEventListener('submit', editHandler);
+
+    async function editHandler(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const type = formData.get('type');
+        const imageUrl = formData.get('image-url');
+        const description = formData.get('description');
+        const learnMore = formData.get('more-info');
+
+        const newSolution = {
+            type,
+            imageUrl,
+            description,
+            learnMore,
+        };
+
+        try {
+            await editSolution(solution, newSolution);
+            redirect(`/solutions/${solution._id}/details`);
+        } catch(error) {
+            console.error(error);
+            throw error;
+        }
+    }
 
 }
 

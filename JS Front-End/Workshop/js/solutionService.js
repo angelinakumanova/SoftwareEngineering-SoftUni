@@ -34,6 +34,27 @@ export async function addSolution(solution) {
     }
 }
 
+export async function editSolution(solution, newSolution) {
+    try {
+        const response = await fetch(`${baseUrl}/${solution._id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Authorization': getAuthData().accessToken,
+            },
+            body: JSON.stringify(newSolution),
+        });
+
+        const result = await response.json();
+
+        console.log(result);
+        
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 export async function getOne(solutionId) {
     const response = await fetch(`${baseUrl}/${solutionId}`);
     const result = await response.json();

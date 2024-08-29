@@ -1,5 +1,8 @@
 import { isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
+import { getAllSolutions } from "./solutionService.js";
+import { html, render } from 'https://unpkg.com/lit@2?module';
+
 
 export function renderHome() {
     const homeElement = document.getElementById('home');
@@ -7,9 +10,24 @@ export function renderHome() {
 
 }
 
-export function renderSolutions() {
+export async function renderSolutions() {
     const solutionsSection = document.getElementById('solutions');
     solutionsSection.style.display = 'block';
+
+    const solutions = await getAllSolutions();
+
+    if (solutions.length < 1) {
+        const h2Element = document.createElement('h2');
+        h2Element.textContent = 'No Solutions Added.'
+        h2Element.setAttribute('id', 'no-solution');
+
+        solutionsSection.appendChild(h2Element);
+        return;
+    }
+    
+    const solutionsTemplates = solutions.map(solution => createSolution(solution));
+
+    render(html`${solutionsTemplates}`, solutionsSection);
 }
 
 export function renderRegister() {
@@ -81,6 +99,22 @@ export async function renderLogout() {
 export function renderCreate() {
     const createSection = document.getElementById('create');
     createSection.style.display = 'block';
+
+    const formElement = document.querySelector('.create-form');
+
+    formElement.addEventListener('submit', createHandler);
+
+    async function createHandler(e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.currentTarget);
+
+        const solutionType = formData.get('type');
+        const imageUrl = formData.get('image-url');
+        const description = formData.get('description');
+        const moreInfo = formData.get('more-info');
+
+    }
 }
 
 export function renderEdit() {
@@ -106,4 +140,21 @@ export function renderHeader() {
         guestNavigation.style.display = '';
         userNavigation.style.display = 'none';
     }
+}
+
+function createSolution(data) {
+    const template = (data) => html`
+    <div class="solution">
+        <img src="${data.imageUrl}" alt="example1" />
+        <div class="solution-info">
+        <h3 class="type">${data.type}</h3>
+        <p class="description">
+            ${data.description}
+        </p>
+        <a class="details-btn" href="/solutions/${data._id}/details">Learn More</a>
+        </div>
+    </div>
+    `;
+    
+    return template(data);
 }

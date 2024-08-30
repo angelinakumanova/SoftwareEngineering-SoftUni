@@ -1,6 +1,6 @@
 import { getAuthData, isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
-import { addSolution, editSolution, getAllSolutions, getOne } from "./solutionService.js";
+import { addSolution, deleteSolution, editSolution, getAllSolutions, getOne } from "./solutionService.js";
 import { html, render } from 'https://unpkg.com/lit@2?module';
 
 
@@ -169,6 +169,16 @@ export async function renderEdit(params) {
 
 }
 
+export async function renderDelete(params) {
+    try {
+        await deleteSolution(params.solutionId);
+        redirect('/solutions');
+    } catch (error) {
+        console.error('Failed to delete the solution:', error);
+    }
+    
+}
+
 export async function renderDetails(params) {
     const detailsSection = document.getElementById('details');
     detailsSection.style.display = 'block';
@@ -240,7 +250,7 @@ function createDetailsTemplate(data) {
               <div id="action-buttons">
               ${isOwner ? html `
                 <a href="/solutions/${data._id}/edit" id="edit-btn">Edit</a>
-                <a href="#" id="delete-btn">Delete</a>
+                <a href="/solutions/${data._id}/delete" id="delete-btn">Delete</a>
                 ` : ''}
                 
                 ${!isOwner ? html `

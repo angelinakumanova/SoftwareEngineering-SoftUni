@@ -47,10 +47,28 @@ export async function editSolution(solution, newSolution) {
 
         const result = await response.json();
 
-        console.log(result);
         
     } catch (error) {
         console.error(error);
+        throw error;
+    }
+}
+
+export async function deleteSolution(solutionId) {
+    try {
+        const response = await fetch(`${baseUrl}/${solutionId}`, {
+            method: 'DELETE',
+            headers: {
+                'X-Authorization': getAuthData().accessToken,
+            }
+        })
+
+        if (!response.ok) {
+            const errorMessage = `Error: ${response.status} - ${response.statusText}`;
+            throw new Error(errorMessage);
+        }
+    } catch (error) {
+        console.error('An error occurred while deleting the solution:', error);
         throw error;
     }
 }

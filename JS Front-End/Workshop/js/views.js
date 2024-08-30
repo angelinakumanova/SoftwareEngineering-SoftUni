@@ -1,57 +1,57 @@
 import { getAuthData, isAuthenticated, login, logout, register } from "./authService.js";
 import { redirect } from "./router-utils.js";
-import { addSolution, deleteSolution, editSolution, getAllSolutions, getOne } from "./solutionService.js";
+import { addLike, addSolution, deleteSolution, editSolution, getAllSolutions, getLikesCount, getOne, userHasLiked } from "./solutionService.js";
 import { html, render } from 'https://unpkg.com/lit@2?module';
 
 
 export function renderHome() {
     const homeElement = document.getElementById('home');
     homeElement.style.display = 'block';
-
+    
 }
 
 export async function renderSolutions() {
     const solutionsSection = document.getElementById('solutions');
     solutionsSection.style.display = 'block';
-
+    
     const solutions = await getAllSolutions();
-
+    
     if (solutions.length < 1) {
         const h2Element = document.createElement('h2');
         h2Element.textContent = 'No Solutions Added.'
         h2Element.setAttribute('id', 'no-solution');
-
+        
         solutionsSection.appendChild(h2Element);
         return;
     }
     
     const solutionsTemplates = solutions.map(solution => createSolution(solution));
-
+    
     render(html`${solutionsTemplates}`, solutionsSection);
 }
 
 export function renderRegister() {
     const registerSection = document.getElementById('register');
     registerSection.style.display = 'block';
-
+    
     const formElement = registerSection.querySelector('.register-form');
-
+    
     formElement.addEventListener('submit', registerHandler);
-
+    
     async function registerHandler(e) {
         e.preventDefault();
-
+        
         const formData = new FormData(e.currentTarget);
-
+        
         const email = formData.get('email');
         const password = formData.get('password');
         const repeatedPassword = formData.get('re-password');
-
+        
         if (!email || !password || !repeatedPassword || password !== repeatedPassword) {
             window.alert('Fill empty fields!');
             return;
         }
-
+        
         try {
             await register(email, password);
             formElement.reset();
@@ -59,27 +59,27 @@ export function renderRegister() {
         } catch (error) {
             window.alert(error);
         }
-       
+        
     }
-
+    
 }
 
 export function renderLogin() {
     const loginSection = document.getElementById('login');
     loginSection.style.display = 'block';
-
+    
     const formElement = loginSection.querySelector('.login-form');
-
+    
     formElement.addEventListener('submit', loginHandler);
-
+    
     async function loginHandler(e) {
         e.preventDefault();
-
+        
         const formData = new FormData(e.currentTarget);
-
+        
         const email = formData.get('email');
         const password = formData.get('password');
-
+        
         try {
             await login(email, password);
             formElement.reset();
@@ -92,42 +92,42 @@ export function renderLogin() {
 
 export async function renderLogout() {
     await logout();
-
+    
     redirect('/');
 }
 
 export function renderCreate() {
     const createSection = document.getElementById('create');
     createSection.style.display = 'block';
-
+    
     const formElement = document.querySelector('.create-form');
-
+    
     formElement.addEventListener('submit', createHandler);
-
+    
     async function createHandler(e) {
         e.preventDefault();
-
+        
         const formData = new FormData(e.currentTarget);
-
+        
         const solutionType = formData.get('type');
         const imageUrl = formData.get('image-url');
         const description = formData.get('description');
         const moreInfo = formData.get('more-info');
-
+        
         const solution = {
             type: solutionType,
             imageUrl,
             description,
             learnMore: moreInfo,
         };
-
+        
         try {
             await addSolution(solution);
             redirect('/solutions');
         } catch (error) {
             console.error(error);
         }
-
+        
         formElement.reset();
     }
 }
@@ -135,35 +135,35 @@ export function renderCreate() {
 export async function renderEdit(params) {
     const editSection = document.getElementById('edit');
     editSection.style.display = 'block';
-
+    
     const solution = await getOne(params.solutionId);
-
+    
     const formElement = editSection.querySelector('.edit-form');
-
+    
     formElement.querySelector('input[name="type"]').value = solution.type;
     formElement.querySelector('input[name="image-url"]').value = solution.imageUrl;
     formElement.querySelector('textarea[name="description"]').value = solution.description;
     formElement.querySelector('textarea[name="more-info"]').value = solution.learnMore;
-
+    
     formElement.addEventListener('submit', editHandler);
-
+    
     async function editHandler(e) {
         e.preventDefault();
-
+        
         const formData = new FormData(e.currentTarget);
-
+        
         const type = formData.get('type');
         const imageUrl = formData.get('image-url');
         const description = formData.get('description');
         const learnMore = formData.get('more-info');
-
+        
         const newSolution = {
             type,
             imageUrl,
             description,
             learnMore,
         };
-
+        
         try {
             await editSolution(solution, newSolution);
             redirect(`/solutions/${solution._id}/details`);
@@ -172,7 +172,7 @@ export async function renderEdit(params) {
             throw error;
         }
     }
-
+    
 }
 
 export async function renderDelete(params) {
@@ -185,15 +185,15 @@ export async function renderDelete(params) {
     
 }
 
+// TODO !!!
 export async function renderDetails(params) {
     const detailsSection = document.getElementById('details');
     detailsSection.style.display = 'block';
 
-    const solution = await getOne(params.solutionId);
+    const solution = params.solutionId ? await getOne(params.solutionId) : params;
     
-
-    const solutionTemplate = createDetailsTemplate(solution);
-
+    const solutionTemplate = await createDetailsTemplate(solution);
+    
     render(solutionTemplate, detailsSection);
 }
 
@@ -201,7 +201,7 @@ export function renderHeader() {
     const headerElement = document.querySelector('#wrapper > header');
     const userNavigation = headerElement.querySelector('.user');
     const guestNavigation = headerElement.querySelector('.guest');
-
+    
     if (isAuthenticated()) {
         guestNavigation.style.display = 'none';
         userNavigation.style.display = '';
@@ -228,11 +228,11 @@ function createSolution(data) {
     return template(data);
 }
 
-function createDetailsTemplate(data) {
+async function createDetailsTemplate(data) {
     const currentUserId = getAuthData().userId;
     const isOwner = currentUserId === data._ownerId;
     
-    const template = (data) => html`
+    const template = async (data) => html`
     <div id="details-wrapper">
             <img
               id="details-img"
@@ -251,7 +251,7 @@ function createDetailsTemplate(data) {
                   </p>
                 </div>
               </div>
-              <h3>Like Solution:<span id="like">0</span></h3>
+              <h3>Like Solution:<span id="like">${await getLikesCount(data._id)}</span></h3>
             
               <div id="action-buttons">
               ${isOwner ? html `
@@ -259,14 +259,23 @@ function createDetailsTemplate(data) {
                 <a href="/solutions/${data._id}/delete" id="delete-btn">Delete</a>
                 ` : ''}
                 
-                ${!isOwner ? html `
-                <a href="#" id="like-btn">Like</a>
+                ${!isOwner && isAuthenticated() && !(await userHasLiked(data._id, currentUserId)) ? html `
+                <a href="#" id="like-btn" @click=${() => onLike(data._id)}>Like</a>
                 ` : ''}
                 
               </div>
             </div>
           </div>
     `;
-
+    
     return template(data);
+} 
+
+async function onLike(solutionId) {
+    await addLike(solutionId);
 }
+
+
+
+
+

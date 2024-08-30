@@ -123,6 +123,7 @@ export function renderCreate() {
 
         try {
             await addSolution(solution);
+            redirect('/solutions');
         } catch (error) {
             console.error(error);
         }

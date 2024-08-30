@@ -140,6 +140,11 @@ export async function renderEdit(params) {
 
     const formElement = editSection.querySelector('.edit-form');
 
+    formElement.querySelector('input[name="type"]').value = solution.type;
+    formElement.querySelector('input[name="image-url"]').value = solution.imageUrl;
+    formElement.querySelector('textarea[name="description"]').value = solution.description;
+    formElement.querySelector('textarea[name="more-info"]').value = solution.learnMore;
+
     formElement.addEventListener('submit', editHandler);
 
     async function editHandler(e) {

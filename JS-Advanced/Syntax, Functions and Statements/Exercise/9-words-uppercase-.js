@@ -1,7 +1,8 @@
 function solve(input) {
     const regex = /\w+/g;
+    const matchedStrings = input.match(regex);
 
-    const result = [...input.matchAll(regex)].map(arr => arr[0].toUpperCase()).join(', ');
+    const result = matchedStrings.map(str => str.toUpperCase()).join(', ');
     console.log(result);
     
 }

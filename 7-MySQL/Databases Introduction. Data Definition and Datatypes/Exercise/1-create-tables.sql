@@ -6,6 +6,5 @@ CREATE TABLE minions (
 
 CREATE TABLE towns (
 	town_id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(50) NOT NULL,
-    age INT NOT NULL
+    name VARCHAR(50) NOT NULL
 );

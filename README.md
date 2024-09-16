@@ -1,1 +1,1 @@
-All the solutions to the tasks I was assigned throughout the course.
+All courses of the program included and solutions to the tasks I was assigned

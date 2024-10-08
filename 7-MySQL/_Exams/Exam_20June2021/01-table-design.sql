@@ -56,7 +56,7 @@ CREATE TABLE courses (
     REFERENCES clients(id)
 );
 
-CREATE TABLE car_drivers (
+CREATE TABLE cars_drivers (
 	car_id INT NOT NULL,
     driver_id INT NOT NULL,
     

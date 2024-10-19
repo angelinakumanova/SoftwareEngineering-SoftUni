@@ -1,4 +1,4 @@
-package orm;
+package orm.context;
 
 public interface DbContext<E> {
     boolean persist(E entity);

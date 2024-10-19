@@ -1,4 +1,4 @@
-package orm;
+package orm.config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

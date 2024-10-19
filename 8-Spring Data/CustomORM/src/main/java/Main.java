@@ -13,7 +13,8 @@ public class Main {
         Connection connection = MyConnector.getConnection();
         EntityManager<User> em = new EntityManager(connection);
 
-        User user1 = new User("user", 25, LocalDate.now());
+        User user1 = new User("pesho", 25, LocalDate.now());
+        user1.setId(1);
 
         System.out.println(em.persist(user1));
     }

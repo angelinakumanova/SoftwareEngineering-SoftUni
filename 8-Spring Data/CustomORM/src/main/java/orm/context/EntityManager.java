@@ -26,8 +26,33 @@ public class EntityManager<E> implements DbContext<E> {
             return doInsert(entity);
         }
 
-        
-        return false;
+
+        return doUpdate(entity, idValue);
+    }
+
+    private boolean doUpdate(E entity, int idValue) throws IllegalAccessException, SQLException {
+        // UPDATE (table) SET (columns names) WHERE id = (id)
+        String tableName = getTableName(entity);
+        List<String> columnNames = getEntityColumns(entity);
+        List<String> columnValues = getEntityValues(entity);
+
+        List<String> updateColumns = new ArrayList<>();
+        for (int i = 0; i < columnNames.size(); i++) {
+            String formatted = String.format("%s=%s",
+                    columnNames.get(i),
+                    columnValues.get(i));
+
+            updateColumns.add(formatted);
+        }
+
+        String updateSQLQuery = String.format("UPDATE %s SET %s WHERE id = %d",
+                tableName,
+                String.join(", ", updateColumns),
+                idValue);
+
+        int updateCount = connection.prepareStatement(updateSQLQuery).executeUpdate();
+
+        return updateCount == 1;
     }
 
     private boolean doInsert(E entity) throws NoSuchFieldException, IllegalAccessException, SQLException {

@@ -5,8 +5,11 @@ import orm.annotations.Entity;
 import orm.annotations.Id;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,9 +33,83 @@ public class EntityManager<E> implements DbContext<E> {
         return doUpdate(entity, idValue);
     }
 
+    @Override
+    public Iterable<E> find(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        String tableName = getTableName(table);
+        String selectSQL = "SELECT * FROM " + tableName;
+
+        ResultSet resultSet = connection.prepareStatement(selectSQL).executeQuery();
+
+        List<E> entities = new ArrayList<>();
+        while (resultSet.next()) {
+            entities.add(mapEntity(table, resultSet));
+        }
+        return entities;
+    }
+
+    private E mapEntity(Class<E> type, ResultSet dbResult) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
+        E result = type.getDeclaredConstructor().newInstance();
+
+        for (Field field : type.getDeclaredFields()) {
+            if (!field.isAnnotationPresent(Id.class) &&
+                    !field.isAnnotationPresent(Column.class)) {
+                continue;
+            }
+
+            result = mapField(result, field, dbResult);
+        }
+
+        return result;
+    }
+
+    private E mapField(E object, Field field, ResultSet dbResult) throws IllegalAccessException, SQLException {
+        String column = "id";
+
+        if (field.isAnnotationPresent(Column.class)) {
+            column = field.getAnnotation(Column.class).name();
+        }
+
+        Object dbValue = mapValue(field, column, dbResult);
+
+        field.setAccessible(true);
+        field.set(object, dbValue);
+
+        return object;
+    }
+
+    private Object mapValue(Field field, String column, ResultSet dbResult) throws SQLException {
+        if (field.getType() == int.class || field.getType() == Integer.class) {
+            return dbResult.getInt(column);
+        } else if (field.getType() == String.class) {
+            return dbResult.getString(column);
+        } else if (field.getType() == LocalDate.class) {
+            String date = dbResult.getString(column);
+
+            return LocalDate.parse(date);
+        }
+
+        throw new IllegalArgumentException("Unsupported type " + field.getType());
+    }
+
+    @Override
+    public Iterable<E> find(Class<E> table, String where) {
+        return null;
+    }
+
+    @Override
+    public E findFirst(Class<E> table) {
+
+        return null;
+    }
+
+    @Override
+    public E findFirst(Class<E> table, String where) {
+        return null;
+    }
+
     private boolean doUpdate(E entity, int idValue) throws IllegalAccessException, SQLException {
         // UPDATE (table) SET (columns names) WHERE id = (id)
-        String tableName = getTableName(entity);
+        String tableName = getTableName(entity.getClass());
         List<String> columnNames = getEntityColumns(entity);
         List<String> columnValues = getEntityValues(entity);
 
@@ -55,8 +132,8 @@ public class EntityManager<E> implements DbContext<E> {
         return updateCount == 1;
     }
 
-    private boolean doInsert(E entity) throws NoSuchFieldException, IllegalAccessException, SQLException {
-        String tableName = getTableName(entity);
+    private boolean doInsert(E entity) throws IllegalAccessException, SQLException {
+        String tableName = getTableName(entity.getClass());
         List<String> columnNames = getEntityColumns(entity);
         List<String> columnValues = getEntityValues(entity);
 
@@ -94,8 +171,8 @@ public class EntityManager<E> implements DbContext<E> {
 
     }
 
-    private String getTableName(E entity) {
-        Entity annotation = entity.getClass().getAnnotation(Entity.class);
+    private String getTableName(Class<?> entity) {
+        Entity annotation = entity.getAnnotation(Entity.class);
 
         if (annotation == null) {
             throw new IllegalArgumentException("Entity annotation missing!");
@@ -113,25 +190,5 @@ public class EntityManager<E> implements DbContext<E> {
 
         field.setAccessible(true);
         return (int) field.get(entity);
-    }
-
-    @Override
-    public Iterable<E> find(Class<E> table) {
-        return null;
-    }
-
-    @Override
-    public Iterable<E> find(Class<E> table, String where) {
-        return null;
-    }
-
-    @Override
-    public E findFirst(Class<E> table) {
-        return null;
-    }
-
-    @Override
-    public E findFirst(Class<E> table, String where) {
-        return null;
     }
 }

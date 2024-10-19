@@ -20,6 +20,8 @@ public class User {
     @Column(name = "registration")
     private LocalDate registration;
 
+    public User() {}
+
     public User(String username, int age, LocalDate registration) {
         this.username = username;
         this.age = age;
@@ -28,5 +30,15 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", age=" + age +
+                ", registration=" + registration +
+                '}';
     }
 }

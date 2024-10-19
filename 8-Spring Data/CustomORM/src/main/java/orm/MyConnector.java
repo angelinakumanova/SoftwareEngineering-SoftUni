@@ -9,6 +9,9 @@ public class MyConnector {
     private static Connection connection;
     private static final String connectionString = "jdbc:mysql://localhost:3306/";
 
+    public MyConnector() {
+    }
+
     public static void createConnection(String username, String password, String dbName) throws SQLException {
         Properties props = new Properties();
         props.setProperty("user", username);

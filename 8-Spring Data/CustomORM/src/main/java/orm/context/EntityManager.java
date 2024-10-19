@@ -22,7 +22,7 @@ public class EntityManager<E> implements DbContext<E> {
     }
 
     @Override
-    public boolean persist(E entity) throws IllegalAccessException, NoSuchFieldException, SQLException {
+    public boolean persist(E entity) throws IllegalAccessException, SQLException {
         int idValue = getId(entity);
 
         if (idValue == 0) {
@@ -47,63 +47,37 @@ public class EntityManager<E> implements DbContext<E> {
         return entities;
     }
 
-    private E mapEntity(Class<E> type, ResultSet dbResult) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
-        E result = type.getDeclaredConstructor().newInstance();
+    @Override
+    public Iterable<E> find(Class<E> table, String where) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        String tableName = getTableName(table);
+        String selectSQL = "SELECT * FROM " + tableName + " WHERE " + where;
 
-        for (Field field : type.getDeclaredFields()) {
-            if (!field.isAnnotationPresent(Id.class) &&
-                    !field.isAnnotationPresent(Column.class)) {
-                continue;
-            }
+        ResultSet resultSet = connection.prepareStatement(selectSQL).executeQuery();
 
-            result = mapField(result, field, dbResult);
+        List<E> entities = new ArrayList<>();
+        while (resultSet.next()) {
+            entities.add(mapEntity(table, resultSet));
         }
-
-        return result;
-    }
-
-    private E mapField(E object, Field field, ResultSet dbResult) throws IllegalAccessException, SQLException {
-        String column = "id";
-
-        if (field.isAnnotationPresent(Column.class)) {
-            column = field.getAnnotation(Column.class).name();
-        }
-
-        Object dbValue = mapValue(field, column, dbResult);
-
-        field.setAccessible(true);
-        field.set(object, dbValue);
-
-        return object;
-    }
-
-    private Object mapValue(Field field, String column, ResultSet dbResult) throws SQLException {
-        if (field.getType() == int.class || field.getType() == Integer.class) {
-            return dbResult.getInt(column);
-        } else if (field.getType() == String.class) {
-            return dbResult.getString(column);
-        } else if (field.getType() == LocalDate.class) {
-            String date = dbResult.getString(column);
-
-            return LocalDate.parse(date);
-        }
-
-        throw new IllegalArgumentException("Unsupported type " + field.getType());
+        return entities;
     }
 
     @Override
-    public Iterable<E> find(Class<E> table, String where) {
+    public E findFirst(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        Iterable<E> es = find(table);
+
+        if (es.iterator().hasNext()) {
+            return es.iterator().next();
+        }
         return null;
     }
 
     @Override
-    public E findFirst(Class<E> table) {
+    public E findFirst(Class<E> table, String where) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        Iterable<E> es = find(table, where);
 
-        return null;
-    }
-
-    @Override
-    public E findFirst(Class<E> table, String where) {
+        if (es.iterator().hasNext()) {
+            return es.iterator().next();
+        }
         return null;
     }
 
@@ -190,5 +164,49 @@ public class EntityManager<E> implements DbContext<E> {
 
         field.setAccessible(true);
         return (int) field.get(entity);
+    }
+
+    private E mapEntity(Class<E> type, ResultSet dbResult) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, SQLException {
+        E result = type.getDeclaredConstructor().newInstance();
+
+        for (Field field : type.getDeclaredFields()) {
+            if (!field.isAnnotationPresent(Id.class) &&
+                    !field.isAnnotationPresent(Column.class)) {
+                continue;
+            }
+
+            result = mapField(result, field, dbResult);
+        }
+
+        return result;
+    }
+
+    private E mapField(E object, Field field, ResultSet dbResult) throws IllegalAccessException, SQLException {
+        String column = "id";
+
+        if (field.isAnnotationPresent(Column.class)) {
+            column = field.getAnnotation(Column.class).name();
+        }
+
+        Object dbValue = mapValue(field, column, dbResult);
+
+        field.setAccessible(true);
+        field.set(object, dbValue);
+
+        return object;
+    }
+
+    private Object mapValue(Field field, String column, ResultSet dbResult) throws SQLException {
+        if (field.getType() == int.class || field.getType() == Integer.class) {
+            return dbResult.getInt(column);
+        } else if (field.getType() == String.class) {
+            return dbResult.getString(column);
+        } else if (field.getType() == LocalDate.class) {
+            String date = dbResult.getString(column);
+
+            return LocalDate.parse(date);
+        }
+
+        throw new IllegalArgumentException("Unsupported type " + field.getType());
     }
 }

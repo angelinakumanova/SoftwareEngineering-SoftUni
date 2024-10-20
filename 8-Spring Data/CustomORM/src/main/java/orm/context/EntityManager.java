@@ -4,11 +4,10 @@ import orm.annotations.Column;
 import orm.annotations.Entity;
 import orm.annotations.Id;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -17,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EntityManager<E> implements DbContext<E> {
-    private Connection connection;
+    private final Connection connection;
 
     public EntityManager(Connection connection) {
         this.connection = connection;
@@ -45,7 +44,7 @@ public class EntityManager<E> implements DbContext<E> {
         String tableName = getTableName(table);
         String selectSQL = "SELECT * FROM " + tableName  + (where == null ? "" : " WHERE " + where);
 
-        ResultSet resultSet = connection.prepareStatement(selectSQL).executeQuery();
+        ResultSet resultSet = connection.createStatement().executeQuery(selectSQL);
 
         List<E> entities = new ArrayList<>();
         while (resultSet.next()) {
@@ -72,6 +71,19 @@ public class EntityManager<E> implements DbContext<E> {
     @Override
     public void doCreate(Class<E> entityClass) throws SQLException {
         String tableName = getTableName(entityClass);
+
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM information_schema.columns" +
+                " WHERE table_schema = ? AND table_name = ? ");
+        preparedStatement.setString(1, connection.getCatalog());
+        preparedStatement.setString(2, tableName);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            System.out.println("Table " + tableName + " already exists");
+            return;
+        }
+
+
         String columnDefinitions = getColumnDefinitions(entityClass);
 
         String query = String.format("CREATE TABLE IF NOT EXISTS %s (%s);", tableName, columnDefinitions);
@@ -140,7 +152,7 @@ public class EntityManager<E> implements DbContext<E> {
                 String.join(", ", updateColumns),
                 idValue);
 
-        int updateCount = connection.prepareStatement(updateSQLQuery).executeUpdate();
+        int updateCount = connection.createStatement().executeUpdate(updateSQLQuery);
 
         return updateCount == 1;
     }
@@ -155,7 +167,7 @@ public class EntityManager<E> implements DbContext<E> {
                 String.join(",", columnNames),
                 String.join(",", columnValues));
 
-        int insertResult = connection.prepareStatement(insertSQLQuery).executeUpdate();
+        int insertResult = connection.createStatement().executeUpdate(insertSQLQuery);
 
         return insertResult == 1;
     }

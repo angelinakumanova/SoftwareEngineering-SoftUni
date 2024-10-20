@@ -19,10 +19,12 @@ public class Main {
         User user3 = new User("Haskel", 52, LocalDate.of(2023, 12, 15));
         User user4 = new User("Brander", 15, LocalDate.of(2023, 10, 28));
 
-//        em.persist(user1);
-//        em.persist(user2);
-//        em.persist(user3);
-//        em.persist(user4);
+        em.doCreate(User.class);
+
+        em.persist(user1);
+        em.persist(user2);
+        em.persist(user3);
+        em.persist(user4);
 
 
         Iterable<User> users = em.find(User.class, " age >= 18");

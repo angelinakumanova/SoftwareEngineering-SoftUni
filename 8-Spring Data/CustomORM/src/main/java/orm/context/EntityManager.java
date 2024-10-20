@@ -4,6 +4,8 @@ import orm.annotations.Column;
 import orm.annotations.Entity;
 import orm.annotations.Id;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
@@ -68,9 +70,46 @@ public class EntityManager<E> implements DbContext<E> {
     }
 
     @Override
-    public void doCreate(Class<E> entityClass) {
+    public void doCreate(Class<E> entityClass) throws SQLException {
         String tableName = getTableName(entityClass);
+        String columnDefinitions = getColumnDefinitions(entityClass);
 
+        String query = String.format("CREATE TABLE %s (%s);", tableName, columnDefinitions);
+
+        connection.createStatement().execute(query);
+
+        System.out.println(query);
+    }
+
+    private String getColumnDefinitions(Class<E> entityClass) {
+        StringBuilder sb = new StringBuilder();
+
+        Arrays.stream(entityClass.getDeclaredFields())
+                .filter(field -> field.isAnnotationPresent(Id.class) || field.isAnnotationPresent(Column.class))
+                .forEach(field -> {
+                    String type = getFieldSQLType(field.getType());
+                    if(field.getDeclaredAnnotations()[0].annotationType() == Id.class) {
+                        sb.append("id " + type + " PRIMARY KEY AUTO_INCREMENT, " );
+                        return;
+                    }
+                    String name = field.getAnnotation(Column.class).name();
+
+                    sb.append(name + " ").append(type + ", ");
+                });
+
+        return sb.substring(0, sb.toString().lastIndexOf(","));
+    }
+
+    private String getFieldSQLType(Class<?> type) {
+        if (type == int.class || type == Integer.class) {
+            return "INT";
+        } else if (type == String.class) {
+            return "VARCHAR(255)";
+        } else if (type == LocalDate.class) {
+            return "DATE";
+        }
+
+        return "";
     }
 
     private boolean doUpdate(E entity, int idValue) throws IllegalAccessException, SQLException {

@@ -35,22 +35,13 @@ public class EntityManager<E> implements DbContext<E> {
 
     @Override
     public Iterable<E> find(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        String tableName = getTableName(table);
-        String selectSQL = "SELECT * FROM " + tableName;
-
-        ResultSet resultSet = connection.prepareStatement(selectSQL).executeQuery();
-
-        List<E> entities = new ArrayList<>();
-        while (resultSet.next()) {
-            entities.add(mapEntity(table, resultSet));
-        }
-        return entities;
+        return find(table, null);
     }
 
     @Override
     public Iterable<E> find(Class<E> table, String where) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         String tableName = getTableName(table);
-        String selectSQL = "SELECT * FROM " + tableName + " WHERE " + where;
+        String selectSQL = "SELECT * FROM " + tableName  + (where == null ? "" : " WHERE " + where);
 
         ResultSet resultSet = connection.prepareStatement(selectSQL).executeQuery();
 
@@ -63,12 +54,7 @@ public class EntityManager<E> implements DbContext<E> {
 
     @Override
     public E findFirst(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
-        Iterable<E> es = find(table);
-
-        if (es.iterator().hasNext()) {
-            return es.iterator().next();
-        }
-        return null;
+        return findFirst(table, null);
     }
 
     @Override
@@ -79,6 +65,12 @@ public class EntityManager<E> implements DbContext<E> {
             return es.iterator().next();
         }
         return null;
+    }
+
+    @Override
+    public void doCreate(Class<E> entityClass) {
+        String tableName = getTableName(entityClass);
+
     }
 
     private boolean doUpdate(E entity, int idValue) throws IllegalAccessException, SQLException {

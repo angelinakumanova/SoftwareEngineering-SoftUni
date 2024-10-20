@@ -1,4 +1,3 @@
-import entities.Order;
 import entities.User;
 import orm.config.MyConnector;
 import orm.context.EntityManager;
@@ -7,7 +6,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) throws SQLException, IllegalAccessException, InvocationTargetException, NoSuchMethodException, InstantiationException {
@@ -29,19 +27,23 @@ public class Main {
 //        em.persist(user4);
 
 
-        Iterable<User> users = em.find(User.class, " age >= 18");
-        for (User user : users) {
-            System.out.println(user);
-        }
+//        Iterable<User> users = em.find(User.class, " age >= 18");
+//        for (User user : users) {
+//            System.out.println(user);
+//        }
+//
+//        EntityManager<Order> em2 = new EntityManager<>(connection);
+//        em2.doCreate(Order.class);
+//
+//        Order order = new Order(LocalDateTime.now());
+//
+////        em2.persist(order);
+//
+//        Order firstOrder = em2.findFirst(Order.class);
+//        System.out.println(firstOrder);
 
-        EntityManager<Order> em2 = new EntityManager<>(connection);
-        em2.doCreate(Order.class);
-
-        Order order = new Order(LocalDateTime.now());
-
-//        em2.persist(order);
-
-        Order firstOrder = em2.findFirst(Order.class);
-        System.out.println(firstOrder);
+        User user5 = new User("Marietta", 17, LocalDate.of(2024, 10, 15), "123dad23");
+        em.doAlter(user5);
+        em.persist(user5);
     }
 }

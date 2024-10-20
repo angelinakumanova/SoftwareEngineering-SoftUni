@@ -13,9 +13,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class EntityManager<E> implements DbContext<E> {
     private final Connection connection;
@@ -40,13 +38,7 @@ public class EntityManager<E> implements DbContext<E> {
     public void doCreate(Class<E> entityClass) throws SQLException {
         String tableName = getTableName(entityClass);
 
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM information_schema.columns" +
-                " WHERE table_schema = ? AND table_name = ? ");
-        preparedStatement.setString(1, connection.getCatalog());
-        preparedStatement.setString(2, tableName);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()) {
+        if (checkIfTableExists(tableName)) {
             System.out.println("Table " + tableName + " already exists");
             return;
         }
@@ -57,6 +49,64 @@ public class EntityManager<E> implements DbContext<E> {
 
         connection.createStatement().execute(query);
 
+    }
+
+    private boolean checkIfTableExists(String tableName) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM information_schema.columns" +
+                " WHERE table_schema = ? AND table_name = ? ");
+        preparedStatement.setString(1, connection.getCatalog());
+        preparedStatement.setString(2, tableName);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        return resultSet.next();
+    }
+
+    @Override
+    public void doAlter(E entity) throws SQLException {
+        String tableName = getTableName(entity.getClass());
+        String newFields = getNewFields(entity.getClass());
+
+        if (!newFields.isEmpty()) {
+            String query = String.format("ALTER TABLE %s ADD COLUMN %s;", tableName, newFields);
+
+            connection.createStatement().execute(query);
+        }
+
+    }
+
+    private String getNewFields(Class<?> entityClass) throws SQLException {
+        StringBuilder result = new StringBuilder();
+        Set<String> fields = getAllFieldsFromTable(entityClass);
+
+        Arrays.stream(entityClass.getDeclaredFields())
+                .filter(f -> f.isAnnotationPresent(Column.class))
+                .forEach(field -> {
+                    String name = field.getAnnotation(Column.class).name();
+
+                    if (!fields.contains(name)) {
+                        result.append(String.format("%s %s", name, getFieldSQLType(field.getType())));
+                    }
+                });
+
+
+        return result.toString();
+    }
+
+    private Set<String> getAllFieldsFromTable(Class<?> entityClass) throws SQLException {
+        Set<String> fields = new HashSet<>();
+        String query = "SELECT column_name FROM information_schema.columns\n" +
+                "WHERE table_schema = ? AND table_name = ?";
+
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, connection.getCatalog());
+        preparedStatement.setString(2, getTableName(entityClass));
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            fields.add(resultSet.getString(1));
+        }
+
+        return fields;
     }
 
     @Override

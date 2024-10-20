@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +34,29 @@ public class EntityManager<E> implements DbContext<E> {
 
 
         return doUpdate(entity, idValue);
+    }
+
+    @Override
+    public void doCreate(Class<E> entityClass) throws SQLException {
+        String tableName = getTableName(entityClass);
+
+        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM information_schema.columns" +
+                " WHERE table_schema = ? AND table_name = ? ");
+        preparedStatement.setString(1, connection.getCatalog());
+        preparedStatement.setString(2, tableName);
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            System.out.println("Table " + tableName + " already exists");
+            return;
+        }
+
+        String columnDefinitions = getColumnDefinitions(entityClass);
+
+        String query = String.format("CREATE TABLE IF NOT EXISTS %s (%s);", tableName, columnDefinitions);
+
+        connection.createStatement().execute(query);
+
     }
 
     @Override
@@ -68,29 +93,7 @@ public class EntityManager<E> implements DbContext<E> {
         return null;
     }
 
-    @Override
-    public void doCreate(Class<E> entityClass) throws SQLException {
-        String tableName = getTableName(entityClass);
 
-        PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM information_schema.columns" +
-                " WHERE table_schema = ? AND table_name = ? ");
-        preparedStatement.setString(1, connection.getCatalog());
-        preparedStatement.setString(2, tableName);
-
-        ResultSet resultSet = preparedStatement.executeQuery();
-        if (resultSet.next()) {
-            System.out.println("Table " + tableName + " already exists");
-            return;
-        }
-
-
-        String columnDefinitions = getColumnDefinitions(entityClass);
-
-        String query = String.format("CREATE TABLE IF NOT EXISTS %s (%s);", tableName, columnDefinitions);
-
-        connection.createStatement().execute(query);
-
-    }
 
     private String getColumnDefinitions(Class<E> entityClass) {
         StringBuilder sb = new StringBuilder();
@@ -127,6 +130,8 @@ public class EntityManager<E> implements DbContext<E> {
             return "BOOL";
         } else if (type == Double.class) {
             return "DOUBLE(19,2)";
+        } else if (type == LocalDateTime.class) {
+            return "DATETIME";
         }
 
         return "VARCHAR(100)";
@@ -248,16 +253,24 @@ public class EntityManager<E> implements DbContext<E> {
     }
 
     private Object mapValue(Field field, String column, ResultSet dbResult) throws SQLException {
-        if (field.getType() == int.class || field.getType() == Integer.class) {
+        Class<?> fieldType = field.getType();
+
+        if (fieldType == int.class || fieldType == Integer.class) {
             return dbResult.getInt(column);
-        } else if (field.getType() == String.class) {
+        } else if (fieldType == String.class) {
             return dbResult.getString(column);
-        } else if (field.getType() == LocalDate.class) {
+        } else if (fieldType == LocalDate.class) {
             String date = dbResult.getString(column);
 
             return LocalDate.parse(date);
+        } else if (fieldType == LocalDateTime.class) {
+            String dateTime = dbResult.getString(column);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+            return LocalDateTime.parse(dateTime, formatter);
         }
 
-        throw new IllegalArgumentException("Unsupported type " + field.getType());
+        throw new IllegalArgumentException("Unsupported type " + fieldType);
     }
 }

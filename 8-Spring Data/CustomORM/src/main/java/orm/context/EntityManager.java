@@ -65,6 +65,14 @@ public class EntityManager<E> implements DbContext<E> {
     }
 
     @Override
+    public void doDelete(Class<E> table, String where) throws SQLException {
+        String tableName = getTableName(table);
+        String query = String.format("DELETE FROM %s WHERE %s;", tableName, where);
+
+        connection.createStatement().executeUpdate(query);
+    }
+
+    @Override
     public Iterable<E> find(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         return find(table, null);
     }

@@ -10,6 +10,8 @@ public interface DbContext<E> {
 
     void doAlter(Class<E> entityClass) throws SQLException;
 
+    void doDelete(Class<E> table, String where) throws SQLException;
+
     Iterable<E> find(Class<E> table) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException;
     Iterable<E> find(Class<E> table, String where) throws SQLException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException;
 

@@ -43,5 +43,6 @@ public class Main {
 //        System.out.println(firstOrder);
 
         em.doAlter(User.class);
+        em.doDelete(User.class, "id = 6");
     }
 }

@@ -24,19 +24,15 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
     public User() {}
 
     public User(String username, int age, LocalDate registration) {
         this.username = username;
         this.age = age;
         this.registration = registration;
-    }
-
-    public User(String username, int age, LocalDate registration, String password) {
-        this.username = username;
-        this.age = age;
-        this.registration = registration;
-        this.password = password;
     }
 
     public void setId(int id) {

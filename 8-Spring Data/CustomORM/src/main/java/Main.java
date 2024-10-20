@@ -42,8 +42,6 @@ public class Main {
 //        Order firstOrder = em2.findFirst(Order.class);
 //        System.out.println(firstOrder);
 
-        User user5 = new User("Marietta", 17, LocalDate.of(2024, 10, 15), "123dad23");
-        em.doAlter(user5);
-        em.persist(user5);
+        em.doAlter(User.class);
     }
 }

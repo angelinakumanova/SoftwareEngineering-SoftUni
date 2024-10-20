@@ -74,11 +74,10 @@ public class EntityManager<E> implements DbContext<E> {
         String tableName = getTableName(entityClass);
         String columnDefinitions = getColumnDefinitions(entityClass);
 
-        String query = String.format("CREATE TABLE %s (%s);", tableName, columnDefinitions);
+        String query = String.format("CREATE TABLE IF NOT EXISTS %s (%s);", tableName, columnDefinitions);
 
         connection.createStatement().execute(query);
 
-        System.out.println(query);
     }
 
     private String getColumnDefinitions(Class<E> entityClass) {
@@ -87,14 +86,19 @@ public class EntityManager<E> implements DbContext<E> {
         Arrays.stream(entityClass.getDeclaredFields())
                 .filter(field -> field.isAnnotationPresent(Id.class) || field.isAnnotationPresent(Column.class))
                 .forEach(field -> {
-                    String type = getFieldSQLType(field.getType());
-                    if(field.getDeclaredAnnotations()[0].annotationType() == Id.class) {
-                        sb.append("id " + type + " PRIMARY KEY AUTO_INCREMENT, " );
-                        return;
-                    }
                     String name = field.getAnnotation(Column.class).name();
+                    String type = getFieldSQLType(field.getType());
 
-                    sb.append(name + " ").append(type + ", ");
+                    sb.append(String.format("%s %s", name, type));
+
+                    if (field.isAnnotationPresent(Id.class)) {
+                        sb.append(" PRIMARY KEY");
+                        if(type.equals("INT")) {
+                            sb.append(" AUTO_INCREMENT");
+                        }
+                    }
+
+                    sb.append(", ");
                 });
 
         return sb.substring(0, sb.toString().lastIndexOf(","));
@@ -107,9 +111,13 @@ public class EntityManager<E> implements DbContext<E> {
             return "VARCHAR(255)";
         } else if (type == LocalDate.class) {
             return "DATE";
+        } else if (type == Boolean.class) {
+            return "BOOL";
+        } else if (type == Double.class) {
+            return "DOUBLE(19,2)";
         }
 
-        return "";
+        return "VARCHAR(100)";
     }
 
     private boolean doUpdate(E entity, int idValue) throws IllegalAccessException, SQLException {
@@ -153,7 +161,7 @@ public class EntityManager<E> implements DbContext<E> {
     }
 
     private List<String> getEntityValues(E entity) throws IllegalAccessException {
-        List<String> columnValues = new ArrayList<String>();
+        List<String> columnValues = new ArrayList<>();
 
         for (Field field : entity.getClass().getDeclaredFields()) {
             if (field.isAnnotationPresent(Column.class)) {
@@ -170,7 +178,7 @@ public class EntityManager<E> implements DbContext<E> {
                 .stream(entity.getClass().getDeclaredFields())
                 .filter(f -> f.isAnnotationPresent(Column.class))
                 .map(f -> f.getAnnotation(Column.class))
-                .map(a -> a.name())
+                .map(Column::name)
                 .toList();
 
 

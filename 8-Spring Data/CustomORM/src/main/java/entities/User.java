@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Entity(name = "users")
 public class User {
     @Id
+    @Column(name ="id")
     private int id;
 
     @Column(name = "username")

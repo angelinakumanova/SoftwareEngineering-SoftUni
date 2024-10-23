@@ -1,7 +1,7 @@
-package JPA;
+package Lab.JPA;
 
 
-import JPA.entities.Employee;
+import Lab.JPA.entities.Employee;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -22,7 +22,7 @@ public class Main {
 
         em.persist(employee);
 
-        Employee found = em.find(Employee.class, 1);
+        Employee found = em.find(Employee.class, 2);
         found.setSalary(2500.00);
 
 
@@ -30,7 +30,7 @@ public class Main {
         List<Employee> employees = em.createQuery("FROM Employee", Employee.class).getResultList();
         employees.forEach(System.out::println);
 
-        em.remove(found);
+//        em.remove(found);
 
         List<Employee> employees2 = em.createQuery("FROM Employee", Employee.class).getResultList();
         employees2.forEach(System.out::println);

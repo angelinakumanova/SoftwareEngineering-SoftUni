@@ -3,7 +3,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="Hibernate.entities.Student" table="students">
+    <class name="Lab.Hibernate.entities.Student" table="students">
         <id name="id" column="id">
             <generator class="identity" />
         </id>

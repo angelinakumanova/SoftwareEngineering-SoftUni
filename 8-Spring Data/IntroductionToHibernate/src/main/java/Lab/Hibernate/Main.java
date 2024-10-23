@@ -1,6 +1,6 @@
-package Hibernate;
+package Lab.Hibernate;
 
-import Hibernate.entities.Student;
+import Lab.Hibernate.entities.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

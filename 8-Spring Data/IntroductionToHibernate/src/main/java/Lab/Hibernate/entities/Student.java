@@ -1,4 +1,4 @@
-package Hibernate.entities;
+package Lab.Hibernate.entities;
 
 public class Student {
     private int id;

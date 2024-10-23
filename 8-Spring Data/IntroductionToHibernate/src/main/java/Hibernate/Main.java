@@ -27,7 +27,7 @@ public class Main {
         List<Student> students = session.createQuery("FROM Student", Student.class).list();
 
         students.forEach(System.out::println);
-        
+
 
         session.getTransaction().commit();
         session.close();

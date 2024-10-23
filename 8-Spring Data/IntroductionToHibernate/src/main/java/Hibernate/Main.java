@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -18,7 +20,14 @@ public class Main {
         Student student = new Student();
         student.setName("Jack");
         student.setAge(22);
-        session.persist(student);
+//        session.persist(student);
+
+        Student student1 = session.get(Student.class, 1);
+        System.out.println(student1);
+        List<Student> students = session.createQuery("FROM Student", Student.class).list();
+
+        students.forEach(System.out::println);
+        
 
         session.getTransaction().commit();
         session.close();

@@ -30,6 +30,11 @@ public class Main {
         List<Employee> employees = em.createQuery("FROM Employee", Employee.class).getResultList();
         employees.forEach(System.out::println);
 
+        em.remove(found);
+
+        List<Employee> employees2 = em.createQuery("FROM Employee", Employee.class).getResultList();
+        employees2.forEach(System.out::println);
+
         em.getTransaction().commit();
         em.close();
     }

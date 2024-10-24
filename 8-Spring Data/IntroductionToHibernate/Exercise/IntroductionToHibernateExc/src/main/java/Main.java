@@ -23,9 +23,21 @@ public class Main {
 //        employeesWithSalaryOver50k(entityManager);
 //        employeesFromDepartment(entityManager);
 //        addNewAddressAndUpdateEmployee(entityManager);
+//        addressesWithEmployeeCount(entityManager);
+        
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void addressesWithEmployeeCount(EntityManager entityManager) {
+        entityManager
+                .createQuery("FROM Address ORDER BY employees.size DESC", Address.class)
+                .setMaxResults(10)
+                .getResultStream()
+                .forEach(e -> System.out.printf("%s %s - %d employees%n",
+                                e.getText(), e.getTown().getName(), e.getEmployees().size()));
+
     }
 
     private static void addNewAddressAndUpdateEmployee(EntityManager entityManager) throws IOException {

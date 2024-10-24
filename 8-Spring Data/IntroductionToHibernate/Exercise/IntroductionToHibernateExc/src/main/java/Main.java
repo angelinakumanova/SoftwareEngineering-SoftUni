@@ -32,9 +32,19 @@ public class Main {
 //        getEmployeesWithProject(entityManager);
 //        findTheLatest10Projects(entityManager);
 //        increaseSalaries(entityManager);
+        findEmployeesByPattern(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void findEmployeesByPattern(EntityManager entityManager) throws IOException {
+        String pattern = READER.readLine();
+        entityManager.createQuery("FROM Employee WHERE firstName LIKE :pattern", Employee.class)
+                .setParameter("pattern", pattern + "%")
+                .getResultStream()
+                .forEach(e -> System.out.printf("%s %s - %s - ($%.2f)%n",
+                        e.getFirstName(), e.getLastName(), e.getJobTitle(), e.getSalary()));
     }
 
     private static void increaseSalaries(EntityManager entityManager) {

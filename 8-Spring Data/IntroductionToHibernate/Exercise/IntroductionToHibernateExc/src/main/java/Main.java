@@ -9,10 +9,9 @@ import javax.persistence.Persistence;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Stream;
 
 public class Main {
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -29,10 +28,28 @@ public class Main {
 //        employeesFromDepartment(entityManager);
 //        addNewAddressAndUpdateEmployee(entityManager);
 //        addressesWithEmployeeCount(entityManager);
-        getEmployeesWithProject(entityManager);
+//        getEmployeesWithProject(entityManager);
+        findTheLatest10Projects(entityManager);
+
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void findTheLatest10Projects(EntityManager entityManager) {
+        entityManager
+                .createQuery("FROM Project ORDER BY startDate DESC", Project.class)
+                .setMaxResults(10)
+                .getResultStream()
+                .sorted(Comparator.comparing(Project::getName))
+                .forEach(p -> {
+                    System.out.printf("Project name: %s\n", p.getName());
+                    System.out.printf("     Project Description: %s\n", p.getDescription());
+                    System.out.printf("     Project startDate: %s\n", p.getStartDate()
+                                    .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.S")));
+                    System.out.printf("     Project endDate: %s\n", p.getEndDate());
+                });
+
     }
 
     private static void getEmployeesWithProject(EntityManager entityManager) throws IOException {

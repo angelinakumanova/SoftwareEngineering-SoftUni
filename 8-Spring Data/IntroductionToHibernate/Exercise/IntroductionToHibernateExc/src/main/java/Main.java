@@ -1,3 +1,4 @@
+import entities.Address;
 import entities.Employee;
 
 import javax.persistence.EntityManager;
@@ -20,10 +21,29 @@ public class Main {
 //        changeCasing(entityManager);
 //        containsEmployee(entityManager);
 //        employeesWithSalaryOver50k(entityManager);
-        employeesFromDepartment(entityManager);
+//        employeesFromDepartment(entityManager);
+//        addNewAddressAndUpdateEmployee(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void addNewAddressAndUpdateEmployee(EntityManager entityManager) throws IOException {
+        Address address = new Address();
+        address.setText("Vitoshka 15");
+        entityManager.persist(address);
+
+        String lastName = READER.readLine();
+        List<Employee> employeeList = entityManager
+                .createQuery("FROM Employee WHERE lastName = :lastName", Employee.class)
+                .setParameter("lastName", lastName)
+                .getResultList();
+
+        if (!employeeList.isEmpty()) {
+            Employee employee = employeeList.get(0);
+            employee.setAddress(address);
+            entityManager.persist(employee);
+        }
     }
 
     private static void employeesFromDepartment(EntityManager entityManager) {

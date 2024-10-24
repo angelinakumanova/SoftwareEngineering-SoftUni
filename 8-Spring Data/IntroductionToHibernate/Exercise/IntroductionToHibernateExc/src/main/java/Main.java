@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
@@ -29,11 +30,22 @@ public class Main {
 //        addNewAddressAndUpdateEmployee(entityManager);
 //        addressesWithEmployeeCount(entityManager);
 //        getEmployeesWithProject(entityManager);
-        findTheLatest10Projects(entityManager);
-
+//        findTheLatest10Projects(entityManager);
+//        increaseSalaries(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void increaseSalaries(EntityManager entityManager) {
+        entityManager.createQuery("FROM Employee WHERE department.name" +
+                " IN ('Engineering', 'Tool Design', 'Marketing', 'Information Services')", Employee.class)
+                .getResultStream()
+                .forEach(e -> {
+                    e.setSalary(e.getSalary().multiply(BigDecimal.valueOf(1.12)));
+                    entityManager.merge(e);
+                    System.out.printf("%s %s ($%.2f)%n", e.getFirstName(), e.getLastName(), e.getSalary());
+                });
     }
 
     private static void findTheLatest10Projects(EntityManager entityManager) {

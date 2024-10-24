@@ -19,11 +19,19 @@ public class Main {
 
 //        changeCasing(entityManager);
 //        containsEmployee(entityManager);
-        employeesWithSalaryOver50k(entityManager);
-
+//        employeesWithSalaryOver50k(entityManager);
+        employeesFromDepartment(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void employeesFromDepartment(EntityManager entityManager) {
+        entityManager.createQuery("FROM Employee WHERE department.name = 'Research and Development' " +
+                                "ORDER BY salary, id", Employee.class)
+                .getResultStream()
+                .forEach(e -> System.out.printf("%s %s from %s - $%.2f%n",
+                        e.getFirstName(), e.getLastName(), e.getDepartment().getName(), e.getSalary()));
     }
 
     private static void employeesWithSalaryOver50k(EntityManager entityManager) {

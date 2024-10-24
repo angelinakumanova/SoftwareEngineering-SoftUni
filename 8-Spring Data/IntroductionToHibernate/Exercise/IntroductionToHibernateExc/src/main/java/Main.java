@@ -1,13 +1,18 @@
 import entities.Address;
 import entities.Employee;
+import entities.Project;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Stream;
 
 public class Main {
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -24,10 +29,33 @@ public class Main {
 //        employeesFromDepartment(entityManager);
 //        addNewAddressAndUpdateEmployee(entityManager);
 //        addressesWithEmployeeCount(entityManager);
-        
+        getEmployeesWithProject(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void getEmployeesWithProject(EntityManager entityManager) throws IOException {
+        int inputId = Integer.parseInt(READER.readLine());
+
+        try {
+            Employee emp = entityManager.createQuery("FROM Employee WHERE id = :id", Employee.class)
+                    .setParameter("id", inputId)
+                    .getSingleResult();
+
+            String[] projects = emp.getProjects()
+                    .stream()
+                    .map(p -> "     " + p.getName()).sorted(Comparator.naturalOrder())
+                    .toArray(String[]::new);
+
+            System.out.printf("%s %s - %s%n%s",
+                        emp.getFirstName(), emp.getLastName(), emp.getJobTitle(), String.join("\n", projects));
+
+        } catch (NoResultException e) {
+            System.out.println("No employee found with id " + inputId);
+        }
+
+
     }
 
     private static void addressesWithEmployeeCount(EntityManager entityManager) {

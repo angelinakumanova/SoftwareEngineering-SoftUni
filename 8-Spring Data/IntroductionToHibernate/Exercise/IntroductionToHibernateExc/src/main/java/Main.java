@@ -18,10 +18,20 @@ public class Main {
         entityManager.getTransaction().begin();
 
 //        changeCasing(entityManager);
-        containsEmployee(entityManager);
+//        containsEmployee(entityManager);
+        employeesWithSalaryOver50k(entityManager);
+
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void employeesWithSalaryOver50k(EntityManager entityManager) {
+        entityManager
+                .createQuery("FROM Employee WHERE salary > 50000", Employee.class)
+                .getResultStream()
+                .map(Employee::getFirstName)
+                .forEach(System.out::println);
     }
 
     private static void containsEmployee(EntityManager entityManager) throws IOException {

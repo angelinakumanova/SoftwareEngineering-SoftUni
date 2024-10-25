@@ -1,4 +1,5 @@
 import entities.Address;
+import entities.Department;
 import entities.Employee;
 import entities.Project;
 
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     private static final BufferedReader READER = new BufferedReader(new InputStreamReader(System.in));
@@ -32,10 +34,27 @@ public class Main {
 //        getEmployeesWithProject(entityManager);
 //        findTheLatest10Projects(entityManager);
 //        increaseSalaries(entityManager);
-        findEmployeesByPattern(entityManager);
+//        findEmployeesByPattern(entityManager);
+        findDepartmentsMaxSalaries(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void findDepartmentsMaxSalaries(EntityManager entityManager) {
+        entityManager
+                .createQuery("SELECT d.name, MAX(e.salary)" +
+                        " FROM Department d JOIN d.employees e" +
+                        " GROUP BY d.name" +
+                        " HAVING MAX(e.salary) NOT BETWEEN 30000 AND 70000", Object[].class)
+                .getResultList()
+                .forEach(o -> {
+                    String departmentName = o[0].toString();
+                    String salary = o[1].toString();
+
+                    System.out.println(departmentName + " " + salary);
+                });
+
     }
 
     private static void findEmployeesByPattern(EntityManager entityManager) throws IOException {

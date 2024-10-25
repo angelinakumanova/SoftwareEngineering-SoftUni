@@ -1,7 +1,4 @@
-import entities.Address;
-import entities.Department;
-import entities.Employee;
-import entities.Project;
+import entities.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -35,10 +32,37 @@ public class Main {
 //        findTheLatest10Projects(entityManager);
 //        increaseSalaries(entityManager);
 //        findEmployeesByPattern(entityManager);
-        findDepartmentsMaxSalaries(entityManager);
+//        findDepartmentsMaxSalaries(entityManager);
+        removeTown(entityManager);
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    private static void removeTown(EntityManager entityManager) throws IOException {
+        String townName = READER.readLine();
+        List<Employee> employeeList = entityManager.createQuery("FROM Employee WHERE address.town.name = :townName", Employee.class)
+                .setParameter("townName", townName)
+                .getResultList();
+
+        if (!employeeList.isEmpty()) {
+            Town town = employeeList.get(0).getAddress().getTown();
+
+            employeeList.forEach(e -> {
+                e.setAddress(null);
+                entityManager.persist(e);
+            });
+
+            List<Address> addresses = entityManager.createQuery("FROM Address WHERE town.name = :townName", Address.class)
+                    .setParameter("townName", townName)
+                    .getResultList();
+            addresses.forEach(entityManager::remove);
+            entityManager.remove(town);
+
+            System.out.printf("%d addresses in %s deleted%n", addresses.size(), townName);
+        } else {
+            System.out.println("Invalid town");
+        }
     }
 
     private static void findDepartmentsMaxSalaries(EntityManager entityManager) {

@@ -1,7 +1,7 @@
 package Lab;
 
-import Lab.vehicle_hierarchy.joined.Car2;
-import Lab.vehicle_hierarchy.joined.Truck2;
+import Lab.relations.PlateNumber;
+import Lab.vehicle_hierarchy.table_per_class.Car;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -12,11 +12,13 @@ public class Main {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
-        Truck2 truck2 = new Truck2();
-        Car2 car2 = new Car2();
-
-        em.persist(truck2);
-        em.persist(car2);
+        Car car = new Car();
+        PlateNumber plateNumber = new PlateNumber();
+        plateNumber.setNumber("332AD");
+        car.setModel("BMW X6");
+        car.setPlateNumber(plateNumber);
+        em.persist(plateNumber);
+        em.persist(car);
 
         em.getTransaction().commit();
 

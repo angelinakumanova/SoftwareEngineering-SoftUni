@@ -2,7 +2,7 @@ package Lab.vehicle_hierarchy.single_table;
 
 import jakarta.persistence.Entity;
 
-@Entity
+//@Entity
 public class Car3 extends Vehicle3 {
     private int seats;
 

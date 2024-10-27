@@ -3,7 +3,7 @@ package Lab.vehicle_hierarchy.single_table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
-@Entity
+//@Entity
 public class Plane3 extends Vehicle3 {
     @Column(name = "passenger_capacity")
     private Integer passengerCapacity;

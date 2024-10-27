@@ -4,7 +4,7 @@ package Lab.vehicle_hierarchy.joined;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
-@Entity
+//@Entity
 public class Truck2 extends Vehicle2 {
     @Column(name = "load_capacity")
     private Double loadCapacity;

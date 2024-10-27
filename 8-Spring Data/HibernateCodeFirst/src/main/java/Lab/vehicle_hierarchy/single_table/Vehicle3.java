@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
-@Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@Entity
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Vehicle3 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

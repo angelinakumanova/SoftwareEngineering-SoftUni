@@ -1,6 +1,6 @@
-package Lab.relations;
+package relations;
 
-import Lab.vehicle_hierarchy.table_per_class.Truck;
+import vehicle_hierarchy.table_per_class.Truck;
 import jakarta.persistence.*;
 
 import java.util.HashSet;

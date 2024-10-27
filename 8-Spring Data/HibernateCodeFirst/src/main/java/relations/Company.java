@@ -1,4 +1,4 @@
-package Lab.relations;
+package relations;
 
 import jakarta.persistence.*;
 

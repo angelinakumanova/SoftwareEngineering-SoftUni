@@ -1,6 +1,4 @@
-package Lab.vehicle_hierarchy.joined;
-
-import jakarta.persistence.Entity;
+package vehicle_hierarchy.joined;
 
 //@Entity
 public class Car2 extends Vehicle2 {

@@ -1,6 +1,6 @@
-package Lab.vehicle_hierarchy.table_per_class;
+package vehicle_hierarchy.table_per_class;
 
-import Lab.relations.Company;
+import relations.Company;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;

@@ -1,8 +1,7 @@
-package Lab.vehicle_hierarchy.single_table;
+package vehicle_hierarchy.single_table;
 
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 
 //@Entity
 public class Truck3 extends Vehicle3 {

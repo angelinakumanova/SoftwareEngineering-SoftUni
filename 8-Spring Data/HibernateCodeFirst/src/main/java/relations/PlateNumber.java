@@ -1,8 +1,7 @@
-package Lab.relations;
+package relations;
 
 import jakarta.persistence.*;
 
-import java.math.BigInteger;
 
 @Entity
 @Table(name = "plate_numbers")

@@ -1,6 +1,6 @@
-package Lab.vehicle_hierarchy.table_per_class;
+package vehicle_hierarchy.table_per_class;
 
-import Lab.relations.PlateNumber;
+import relations.PlateNumber;
 import jakarta.persistence.*;
 
 @Entity

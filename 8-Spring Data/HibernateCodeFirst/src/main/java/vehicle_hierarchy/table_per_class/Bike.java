@@ -1,4 +1,4 @@
-package Lab.vehicle_hierarchy.table_per_class;
+package vehicle_hierarchy.table_per_class;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

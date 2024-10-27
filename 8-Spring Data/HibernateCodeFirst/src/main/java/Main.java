@@ -1,11 +1,5 @@
-package Lab;
-
-import Lab.relations.Company;
-import Lab.relations.Driver;
-import Lab.relations.PlateNumber;
-import Lab.vehicle_hierarchy.table_per_class.Car;
-import Lab.vehicle_hierarchy.table_per_class.Plane;
-import Lab.vehicle_hierarchy.table_per_class.Truck;
+import relations.Driver;
+import vehicle_hierarchy.table_per_class.Truck;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;

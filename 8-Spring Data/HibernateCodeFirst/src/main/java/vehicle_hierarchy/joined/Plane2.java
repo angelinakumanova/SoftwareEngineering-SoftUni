@@ -1,7 +1,6 @@
-package Lab.vehicle_hierarchy.joined;
+package vehicle_hierarchy.joined;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
 
 //@Entity
 public class Plane2 extends Vehicle2 {

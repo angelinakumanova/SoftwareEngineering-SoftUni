@@ -1,9 +1,9 @@
-package Lab.vehicle_hierarchy.joined;
+package Lab.vehicle_hierarchy.single_table;
 
 import jakarta.persistence.Entity;
 
 @Entity
-public class Car2 extends Vehicle2 {
+public class Car3 extends Vehicle3 {
     private int seats;
 
     public int getSeats() {
@@ -13,5 +13,4 @@ public class Car2 extends Vehicle2 {
     public void setSeats(int seats) {
         this.seats = seats;
     }
-
 }

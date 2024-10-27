@@ -1,12 +1,12 @@
-package Lab.vehicle_hierarchy.joined;
+package Lab.vehicle_hierarchy.single_table;
 
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Vehicle2 {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public abstract class Vehicle3 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,7 +20,7 @@ public abstract class Vehicle2 {
     @Column(name = "fuel_type")
     private String fuelType;
 
-    protected Vehicle2() {
+    protected Vehicle3() {
     }
 
     public long getId() {
@@ -36,7 +36,7 @@ public abstract class Vehicle2 {
     }
 
     public void setType(String type) {
-        this.type = this.type;
+        this.type = type;
     }
 
     public String getModel() {
@@ -61,10 +61,5 @@ public abstract class Vehicle2 {
 
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
-    }
-
-    @PrePersist
-    protected void onPersist() {
-        this.type = getClass().getSimpleName();
     }
 }

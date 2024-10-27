@@ -62,4 +62,9 @@ public abstract class Vehicle {
     public void setFuelType(String fuelType) {
         this.fuelType = fuelType;
     }
+
+    @PrePersist
+    protected void onPersist() {
+        this.type = getClass().getSimpleName();
+    }
 }

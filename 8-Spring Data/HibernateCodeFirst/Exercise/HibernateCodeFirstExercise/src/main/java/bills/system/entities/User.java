@@ -74,9 +74,5 @@ public class User {
         return Collections.unmodifiableSet(billingDetails);
     }
 
-    public void addBillingDetail(BillingDetail billingDetail) {
-        if (billingDetail != null) {
-            this.billingDetails.add(billingDetail);
-        }
-    }
+
 }

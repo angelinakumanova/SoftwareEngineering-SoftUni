@@ -1,3 +1,7 @@
+import bills.system.entities.BankAccount;
+import bills.system.entities.BillingDetail;
+import bills.system.entities.CreditCard;
+import bills.system.entities.User;
 import hospital.entities.Diagnose;
 import hospital.entities.Medicament;
 import hospital.entities.Patient;
@@ -12,6 +16,7 @@ import university.system.entities.Teacher;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -92,8 +97,25 @@ public class Main {
 
 
         // 05 - Billing Payment System
+        User user = new User();
+        user.setFirstName("John");
+        user.setLastName("Doe");
+        user.setEmail("john.doe@example.com");
+        user.setPassword("password");
 
+        CreditCard cc = new CreditCard();
+        cc.setOwner(user);
 
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.setOwner(user);
+
+//        em.persist(user);
+//        em.persist(cc);
+//        em.persist(bankAccount);
+
+        User user1 = em.find(User.class, 1);
+        Set<BillingDetail> billingDetails = user1.getBillingDetails();
+        System.out.println(billingDetails.size());
 
 
         em.getTransaction().commit();

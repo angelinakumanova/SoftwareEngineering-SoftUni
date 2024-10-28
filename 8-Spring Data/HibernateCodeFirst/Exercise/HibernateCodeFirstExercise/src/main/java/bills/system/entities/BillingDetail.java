@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class BillingDetail {
+public abstract class BillingDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

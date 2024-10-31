@@ -11,7 +11,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column (unique = true, nullable = false)
     private String username;
@@ -25,11 +25,11 @@ public class User {
         this.accounts = new HashSet<>();
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -56,6 +56,7 @@ public class User {
     public void addAccount(Account account) {
         if (account != null) {
             this.accounts.add(account);
+            account.setUser(this);
         }
     }
 }

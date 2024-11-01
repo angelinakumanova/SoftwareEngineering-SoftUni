@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Component
 public class Main implements CommandLineRunner {
@@ -28,11 +29,12 @@ public class Main implements CommandLineRunner {
         User user = new User();
         user.setUsername("jacksmith");
         user.setAge(25);
-        user.addAccount(account);
 
-//        userService.register(user);
+        userService.register(user);
 
-        accountService.withdrawMoney(BigDecimal.valueOf(1000), 1);
+//        accountService.withdrawMoney(BigDecimal.valueOf(1000), 1);
+
+
     }
 
 

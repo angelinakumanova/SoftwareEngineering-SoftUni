@@ -6,5 +6,5 @@ import java.math.BigDecimal;
 
 public interface AccountService {
     void withdrawMoney(BigDecimal amount, int id);
-    void transferMoney(BigDecimal amount, int id);
+    void transferMoney(int userId, int sourceAccountId, int targetAccountId, BigDecimal amount);
 }

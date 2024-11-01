@@ -30,11 +30,12 @@ public class Main implements CommandLineRunner {
         user.setUsername("jacksmith");
         user.setAge(25);
 
-        userService.register(user);
+//        userService.register(user);
+//        userService.addAccountToUser(1, BigDecimal.valueOf(5000));
 
 //        accountService.withdrawMoney(BigDecimal.valueOf(1000), 1);
 
-
+        accountService.transferMoney(1, 1, 2, BigDecimal.valueOf(1000));
     }
 
 

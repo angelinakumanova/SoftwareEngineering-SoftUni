@@ -48,6 +48,7 @@ public class Author extends BaseEntity {
 
     public void addBook(Book book) {
         if (book != null) {
+            book.setAuthor(this);
             this.books.add(book);
         }
     }

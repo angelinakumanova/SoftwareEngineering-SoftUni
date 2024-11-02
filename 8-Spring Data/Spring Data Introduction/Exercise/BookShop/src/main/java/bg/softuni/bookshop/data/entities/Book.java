@@ -117,4 +117,10 @@ public class Book extends BaseEntity {
     public Set<Category> getCategories() {
         return Collections.unmodifiableSet(categories);
     }
+
+    public void addCategory(Category category) {
+        if (category != null) {
+            this.categories.add(category);
+        }
+    }
 }

@@ -10,4 +10,6 @@ public interface AuthorService {
     boolean isImported();
 
     Author getRandomAuthor();
+
+    void printAllAuthorsWithBooksBefore1990();
 }

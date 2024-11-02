@@ -27,6 +27,9 @@ public class ConsoleLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         seedDatabase();
+
+        bookService.findAllBooksAfter2000();
+        authorService.printAllAuthorsWithBooksBefore1990();
     }
 
     private void seedDatabase() throws IOException {

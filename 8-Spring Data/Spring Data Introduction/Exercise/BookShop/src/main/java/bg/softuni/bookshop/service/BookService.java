@@ -6,4 +6,6 @@ public interface BookService {
     void seedBooks() throws IOException;
 
     boolean isImported();
+
+    void findAllBooksAfter2000();
 }

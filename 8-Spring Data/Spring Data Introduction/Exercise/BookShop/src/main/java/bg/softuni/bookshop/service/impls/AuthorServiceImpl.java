@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -47,5 +49,13 @@ public class AuthorServiceImpl implements AuthorService {
     public Author getRandomAuthor() {
         long id = ThreadLocalRandom.current().nextLong(1, authorRepository.count() + 1);
         return authorRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void printAllAuthorsWithBooksBefore1990() {
+        authorRepository.findAllByBooksReleaseDateBefore(LocalDate.of(1990, 1, 1))
+                .stream()
+                .filter(a -> a.getBooks().size() > 1)
+                .forEach(author -> System.out.printf("%s %s%n", author.getFirstName(), author.getLastName()));
     }
 }

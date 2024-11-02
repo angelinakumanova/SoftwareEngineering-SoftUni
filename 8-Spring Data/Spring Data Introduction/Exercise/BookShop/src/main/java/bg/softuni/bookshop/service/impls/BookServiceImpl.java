@@ -70,4 +70,10 @@ public class BookServiceImpl implements BookService {
     public boolean isImported() {
         return bookRepository.count() > 0;
     }
+
+    @Override
+    public void findAllBooksAfter2000() {
+        this.bookRepository.findAllByReleaseDateAfter(LocalDate.of(2000, 12, 31))
+                .forEach(b -> System.out.printf("%s%n", b.getTitle()));
+    }
 }

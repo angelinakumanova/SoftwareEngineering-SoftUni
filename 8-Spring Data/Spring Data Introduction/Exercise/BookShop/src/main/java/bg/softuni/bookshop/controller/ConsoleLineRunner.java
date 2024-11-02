@@ -31,6 +31,7 @@ public class ConsoleLineRunner implements CommandLineRunner {
         bookService.findAllBooksAfter2000();
         authorService.printAllAuthorsWithBooksBefore1990();
         authorService.printAllAuthorsByNumberOfBooks();
+        bookService.getBooksByAuthor("George", "Powell");
     }
 
     private void seedDatabase() throws IOException {

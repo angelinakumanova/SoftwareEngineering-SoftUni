@@ -76,4 +76,15 @@ public class BookServiceImpl implements BookService {
         this.bookRepository.findAllByReleaseDateAfter(LocalDate.of(2000, 12, 31))
                 .forEach(b -> System.out.printf("%s%n", b.getTitle()));
     }
+
+    @Override
+    public void getBooksByAuthor(String firstName, String lastName) {
+        bookRepository.findByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(firstName, lastName)
+                .forEach(b -> System.out.printf("%s %s - %d copies%n",
+                        b.getTitle(),
+                        b.getReleaseDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")),
+                        b.getCopies()));
+    }
+
+
 }

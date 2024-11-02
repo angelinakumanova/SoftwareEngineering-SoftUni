@@ -8,4 +8,6 @@ public interface BookService {
     boolean isImported();
 
     void findAllBooksAfter2000();
+
+    void getBooksByAuthor(String firstName, String lastName);
 }

@@ -14,4 +14,5 @@ public interface AuthorService {
     void printAllAuthorsWithBooksBefore1990();
 
     void printAllAuthorsByNumberOfBooks();
+
 }

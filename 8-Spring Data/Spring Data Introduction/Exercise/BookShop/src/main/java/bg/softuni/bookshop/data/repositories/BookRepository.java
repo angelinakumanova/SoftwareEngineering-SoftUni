@@ -9,4 +9,5 @@ import java.util.Set;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
     Set<Book> findAllByReleaseDateAfter(LocalDate date);
+    Set<Book> findByAuthorFirstNameAndAuthorLastNameOrderByReleaseDateDescTitleAsc(String firstName, String lastName);
 }

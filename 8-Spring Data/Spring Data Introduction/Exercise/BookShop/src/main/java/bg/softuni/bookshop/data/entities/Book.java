@@ -5,6 +5,7 @@ import bg.softuni.bookshop.data.entities.enums.EditionType;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.HashSet;
@@ -31,7 +32,7 @@ public class Book extends BaseEntity {
     private BigDecimal price;
 
     @Column(name = "release_date")
-    private LocalDateTime releaseDate;
+    private LocalDate releaseDate;
 
     @Column(length = 50, nullable = false)
     private String title;
@@ -48,6 +49,17 @@ public class Book extends BaseEntity {
 
     public Book() {
         this.categories = new HashSet<>();
+    }
+
+    public Book(AgeRestriction ageRestriction, int copies, EditionType editionType, BigDecimal price, LocalDate releaseDate, String title, Author author, Set<Category> categories) {
+        this.ageRestriction = ageRestriction;
+        this.copies = copies;
+        this.editionType = editionType;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.title = title;
+        this.author = author;
+        this.categories = categories;
     }
 
     public AgeRestriction getAgeRestriction() {
@@ -90,11 +102,11 @@ public class Book extends BaseEntity {
         this.price = price;
     }
 
-    public LocalDateTime getReleaseDate() {
+    public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDateTime releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -116,6 +128,10 @@ public class Book extends BaseEntity {
 
     public Set<Category> getCategories() {
         return Collections.unmodifiableSet(categories);
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public void addCategory(Category category) {

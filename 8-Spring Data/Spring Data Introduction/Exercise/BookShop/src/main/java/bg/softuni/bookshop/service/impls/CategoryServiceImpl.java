@@ -11,6 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -40,7 +41,20 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public boolean areImported() {
+    public boolean isImported() {
         return this.categoryRepository.count() > 0;
+    }
+
+    @Override
+    public Set<Category> getRandomCategories() {
+        Set<Category> categories = new HashSet<>();
+        int count = ThreadLocalRandom.current().nextInt(1, 4);
+
+        for (int i = 0; i < count; i++) {
+            long idCategory = ThreadLocalRandom.current().nextLong(1, this.categoryRepository.count() + 1);
+            categories.add(categoryRepository.findById(idCategory).get());
+        }
+
+        return categories;
     }
 }

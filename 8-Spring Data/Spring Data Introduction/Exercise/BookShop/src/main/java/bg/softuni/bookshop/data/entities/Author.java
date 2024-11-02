@@ -26,6 +26,11 @@ public class Author extends BaseEntity {
         this.books = new HashSet<>();
     }
 
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public String getFirstName() {
         return firstName;
     }

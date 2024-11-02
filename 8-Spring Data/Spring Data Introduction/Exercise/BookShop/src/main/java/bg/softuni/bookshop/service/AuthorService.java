@@ -12,4 +12,6 @@ public interface AuthorService {
     Author getRandomAuthor();
 
     void printAllAuthorsWithBooksBefore1990();
+
+    void printAllAuthorsByNumberOfBooks();
 }

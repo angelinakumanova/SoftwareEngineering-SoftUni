@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -57,5 +58,14 @@ public class AuthorServiceImpl implements AuthorService {
                 .stream()
                 .filter(a -> a.getBooks().size() > 1)
                 .forEach(author -> System.out.printf("%s %s%n", author.getFirstName(), author.getLastName()));
+    }
+
+    @Override
+    public void printAllAuthorsByNumberOfBooks() {
+        this.authorRepository.findAll()
+                .stream()
+                .sorted((a, b) -> b.getBooks().size() - a.getBooks().size())
+                .forEach(author -> System.out.printf("%s %s -> %d%n",
+                        author.getFirstName(), author.getLastName(), author.getBooks().size()));
     }
 }

@@ -30,6 +30,7 @@ public class ConsoleLineRunner implements CommandLineRunner {
 
         bookService.findAllBooksAfter2000();
         authorService.printAllAuthorsWithBooksBefore1990();
+        authorService.printAllAuthorsByNumberOfBooks();
     }
 
     private void seedDatabase() throws IOException {

@@ -74,6 +74,20 @@ public class User {
         this.albums  = new HashSet<>();
     }
 
+    public User(String username, String password, String email, LocalDateTime registeredOn, LocalDateTime lastTimeLoggedIn, int age, boolean isDeleted, Town bornTown, Town currentTown, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.registeredOn = registeredOn;
+        this.lastTimeLoggedIn = lastTimeLoggedIn;
+        this.age = age;
+        this.isDeleted = isDeleted;
+        this.bornTown = bornTown;
+        this.currentTown = currentTown;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public long getId() {
         return id;
     }

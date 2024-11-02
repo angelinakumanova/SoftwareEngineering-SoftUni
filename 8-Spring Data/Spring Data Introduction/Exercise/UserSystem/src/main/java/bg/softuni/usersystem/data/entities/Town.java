@@ -9,13 +9,18 @@ public class Town {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
     private String country;
 
     public Town() {
+    }
+
+    public Town(String name, String country) {
+        this.name = name;
+        this.country = country;
     }
 
     public long getId() {

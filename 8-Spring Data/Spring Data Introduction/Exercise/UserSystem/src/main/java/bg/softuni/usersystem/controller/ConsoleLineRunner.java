@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ConsoleLineRunner implements CommandLineRunner {
 
@@ -21,8 +23,18 @@ public class ConsoleLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        seedDatabase();
+
+        userService.getUsersByEmailProvider("gmail.com");
+    }
+
+    private void seedDatabase() throws IOException {
         if (!townService.isImported()) {
             townService.seedTowns();
+        }
+
+        if (!userService.isImported()) {
+            userService.seedUsers();
         }
     }
 }

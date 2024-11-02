@@ -45,4 +45,11 @@ public class TownServiceImpl implements TownService {
     public boolean isImported() {
         return townRepository.count() > 0;
     }
+
+    @Override
+    public Town getTownByName(String name) {
+        return townRepository.findByName(name);
+    }
+
+
 }

@@ -5,6 +5,8 @@ import bg.softuni.usersystem.data.entities.User;
 import bg.softuni.usersystem.data.repositories.UserRepository;
 import bg.softuni.usersystem.service.TownService;
 import bg.softuni.usersystem.service.UserService;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +25,13 @@ public class UserServiceImpl implements UserService {
     private final static String USERS_PATH = "src/main/resources/user_data.txt";
     private final UserRepository userRepository;
     private final TownService townService;
+    private final Validator validator;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, TownService townService) {
+    public UserServiceImpl(UserRepository userRepository, TownService townService, Validator validator) {
         this.userRepository = userRepository;
         this.townService = townService;
+        this.validator = validator;
     }
 
     @Override
@@ -36,25 +40,45 @@ public class UserServiceImpl implements UserService {
                 .stream()
                 .filter(line -> !line.isBlank())
                 .forEach(line -> {
-                    String[] data = line.split("\\s*,\\s*");
+                    try {
 
-                    String username = data[0];
-                    String password = data[1];
-                    String email = data[2];
-                    LocalDateTime registeredOn = LocalDateTime.parse(data[3], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                    LocalDateTime lastTimeLoggedIn = LocalDateTime.parse(data[4], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                    int age = Integer.parseInt(data[5]);
-                    boolean isDeleted = Boolean.parseBoolean(data[6]);
-                    Town bornTown = townService.getTownByName(data[7].split("-")[0]);
-                    Town currentTown = townService.getTownByName(data[8].split("-")[0]);
-                    String firstName = data[9];
-                    String lastName = data[10];
+                        String[] data = line.split("\\s*,\\s*");
 
-                    this.userRepository.saveAndFlush(new User(username, password, email, registeredOn, lastTimeLoggedIn,
-                            age, isDeleted, bornTown, currentTown, firstName, lastName));
+                        String username = data[0];
+                        String password = data[1];
+                        String email = data[2];
+                        LocalDateTime registeredOn = LocalDateTime.parse(data[3], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                        LocalDateTime lastTimeLoggedIn = LocalDateTime.parse(data[4], DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                        int age = Integer.parseInt(data[5]);
+                        boolean isDeleted = Boolean.parseBoolean(data[6]);
+                        Town bornTown = townService.getTownByName(data[7].split("-")[0]);
+                        Town currentTown = townService.getTownByName(data[8].split("-")[0]);
+                        String firstName = data[9];
+                        String lastName = data[10];
+
+                        User user = new User(username, password, email, registeredOn, lastTimeLoggedIn,
+                                age, isDeleted, bornTown, currentTown, firstName, lastName);
+
+                        validateUser(user);
+
+                        this.userRepository.saveAndFlush(user);
+                    } catch (Exception e) {
+                        System.err.printf("Error processing line: '%s'. Error: %s\n", line, e.getMessage());
+                    }
                 });
 
         System.out.printf("Successfully added %d users.\n", this.userRepository.count());
+    }
+
+    private void validateUser(User user) {
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
+
+        if (!violations.isEmpty()) {
+            String errors = violations.stream()
+                    .map(violation -> violation.getPropertyPath() + ": " + violation.getMessage())
+                    .collect(Collectors.joining(", "));
+            throw new IllegalArgumentException("User validation failed: " + errors);
+        }
     }
 
     @Override
@@ -77,4 +101,5 @@ public class UserServiceImpl implements UserService {
 
         System.out.printf("%d users removed.\n", deleteCount);
     }
+
 }

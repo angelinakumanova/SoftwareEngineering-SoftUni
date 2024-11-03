@@ -27,7 +27,7 @@ public class ConsoleLineRunner implements CommandLineRunner {
         seedDatabase();
 
 //        userService.getUsersByEmailProvider("gmail.com");
-        userService.removeInactiveUsersAfterGivenTime(LocalDateTime.of(2018, 1, 1, 0, 0, 0));
+//        userService.removeInactiveUsersAfterGivenTime(LocalDateTime.of(2018, 1, 1, 0, 0, 0));
     }
 
     private void seedDatabase() throws IOException {

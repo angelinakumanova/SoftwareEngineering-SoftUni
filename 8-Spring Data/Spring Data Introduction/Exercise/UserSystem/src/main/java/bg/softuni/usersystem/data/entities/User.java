@@ -26,7 +26,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    @Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\\\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)+$",
+    @Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,})+$",
             message = "Invalid email format")
     private String email;
 
@@ -112,12 +112,12 @@ public class User {
         this.password = password;
     }
 
-    public @Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\\\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)+$",
+    public @Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,})+$",
             message = "Invalid email format") String getEmail() {
         return email;
     }
 
-    public void setEmail(@Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\\\.[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*)+$",
+    public void setEmail(@Email(regexp = "^[a-zA-Z0-9]+([._-]?[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(-?[a-zA-Z0-9]+)*(\\.[a-zA-Z]{2,})+$",
             message = "Invalid email format") String email) {
         this.email = email;
     }

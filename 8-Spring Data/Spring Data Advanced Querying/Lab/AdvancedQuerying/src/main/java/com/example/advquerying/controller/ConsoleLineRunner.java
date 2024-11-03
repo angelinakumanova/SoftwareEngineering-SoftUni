@@ -15,6 +15,7 @@ public class ConsoleLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        shampooService.getShampoosBySize("Medium");
+//        shampooService.getShampoosBySize("Medium");
+        shampooService.getShampoosBySizeOrLabel("Medium", 10L);
     }
 }

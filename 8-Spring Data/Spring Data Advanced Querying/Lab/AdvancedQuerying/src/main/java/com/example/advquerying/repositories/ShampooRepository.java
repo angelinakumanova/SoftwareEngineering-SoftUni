@@ -8,4 +8,6 @@ import java.util.Set;
 
 public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
     Set<Shampoo> getShampoosBySizeOrderById(Size size);
+
+    Set<Shampoo> getShampoosBySizeOrLabelIdOrderByPrice(Size size, Long labelId);
 }

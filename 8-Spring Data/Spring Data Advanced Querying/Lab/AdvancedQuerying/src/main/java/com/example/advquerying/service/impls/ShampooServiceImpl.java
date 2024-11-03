@@ -19,7 +19,12 @@ public class ShampooServiceImpl implements ShampooService {
     @Override
     public void getShampoosBySize(String size) {
         shampooRepository.getShampoosBySizeOrderById(Size.valueOf(size.toUpperCase()))
-                .forEach(shampoo -> System.out.printf("%s %s %.2f%n",
-                        shampoo.getBrand(), shampoo.getSize().name(), shampoo.getPrice()));
+                .forEach(System.out::println);
+    }
+
+    @Override
+    public void getShampoosBySizeOrLabel(String size, Long labelId) {
+        shampooRepository.getShampoosBySizeOrLabelIdOrderByPrice(Size.valueOf(size.toUpperCase()), labelId)
+                .forEach(System.out::println);
     }
 }

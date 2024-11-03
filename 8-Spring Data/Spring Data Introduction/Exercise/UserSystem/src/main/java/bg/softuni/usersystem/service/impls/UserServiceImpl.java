@@ -7,12 +7,15 @@ import bg.softuni.usersystem.service.TownService;
 import bg.softuni.usersystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -63,5 +66,15 @@ public class UserServiceImpl implements UserService {
     public void getUsersByEmailProvider(String emailProvider) {
         userRepository.findByEmailContaining(emailProvider)
                 .forEach(user -> System.out.printf("%s -> %s%n", user.getUsername(), user.getEmail()));
+    }
+
+    @Transactional
+    @Override
+    public void removeInactiveUsersAfterGivenTime(LocalDateTime dateTime) {
+        userRepository.markUsersAsDeletedBefore(dateTime);
+
+        int deleteCount = userRepository.deleteAllByIsDeletedTrue();
+
+        System.out.printf("%d users removed.\n", deleteCount);
     }
 }

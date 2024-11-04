@@ -68,4 +68,9 @@ public class AuthorServiceImpl implements AuthorService {
         authorRepository.getAuthorsByFirstNameEndingWith(prefix)
                 .forEach(author -> System.out.printf("%s %s%n", author.getFirstName(), author.getLastName()));
     }
+
+    @Override
+    public void printAuthorCopies(String authorName) {
+        System.out.printf("%s - %d copies%n", authorName, authorRepository.getTotalCopiesByAuthorName(authorName));
+    }
 }

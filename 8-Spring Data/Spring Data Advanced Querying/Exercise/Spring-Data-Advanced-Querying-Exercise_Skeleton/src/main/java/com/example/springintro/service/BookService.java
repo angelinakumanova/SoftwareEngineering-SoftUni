@@ -25,4 +25,6 @@ public interface BookService {
     void printBooksReleasedBeforeDate(String date);
 
     void printBooksByTitleContaining(String title);
+
+    void printBooksByAuthorNamePrefix(String authorName);
 }

@@ -135,4 +135,11 @@ public class BookServiceImpl implements BookService {
         bookRepository.getBooksByTitleContaining(title)
                 .forEach(book -> System.out.println(book.getTitle()));
     }
+
+    @Override
+    public void printBooksByAuthorNamePrefix(String authorName) {
+        bookRepository.getBooksByAuthorLastNameStartsWith(authorName)
+                .forEach(book -> System.out.printf("%s (%s %s)%n",
+                        book.getTitle(), book.getAuthor().getFirstName(), book.getAuthor().getLastName()));
+    }
 }

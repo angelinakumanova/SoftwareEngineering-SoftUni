@@ -35,4 +35,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     Set<Book> getBooksByReleaseDateBefore(LocalDate releaseDate);
 
     Set<Book> getBooksByTitleContaining(String title);
+
+    Set<Book> getBooksByAuthorLastNameStartsWith(String lastNamePrefix);
 }

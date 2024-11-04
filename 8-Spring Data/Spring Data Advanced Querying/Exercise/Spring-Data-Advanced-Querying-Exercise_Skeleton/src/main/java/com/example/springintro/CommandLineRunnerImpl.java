@@ -37,7 +37,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        bookService.printBooksReleasedBeforeDate("30-12-1989");
 //        authorService.printAuthorsWithEndingPrefix("dy");
 //        bookService.printBooksByTitleContaining("WOR");
-
+//        bookService.printBooksByAuthorNamePrefix("Ric");
+        
     }
 
 

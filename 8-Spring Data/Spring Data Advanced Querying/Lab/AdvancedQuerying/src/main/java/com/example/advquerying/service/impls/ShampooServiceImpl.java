@@ -6,6 +6,7 @@ import com.example.advquerying.service.ShampooService;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class ShampooServiceImpl implements ShampooService {
@@ -39,5 +40,11 @@ public class ShampooServiceImpl implements ShampooService {
     @Override
     public int getCountOfShampoosWithPriceLowerThan(BigDecimal price) {
         return shampooRepository.countAllByPriceLessThan(price);
+    }
+
+    @Override
+    public void getShampoosByIngredients(List<String> ingredients) {
+        shampooRepository.getShampoosByGivenIngredients(ingredients)
+                .forEach(System.out::println);
     }
 }

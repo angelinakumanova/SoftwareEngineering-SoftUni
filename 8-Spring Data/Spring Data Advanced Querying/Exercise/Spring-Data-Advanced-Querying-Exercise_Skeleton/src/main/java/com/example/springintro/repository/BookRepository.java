@@ -4,8 +4,10 @@ import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Book;
 import com.example.springintro.model.entity.EditionType;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -42,4 +44,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     int getBooksCountByTitleLength(int titleLength);
 
     Book getBookByTitle(String title);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Book SET copies = copies + :copies WHERE releaseDate > :releaseDate")
+    int updateBookCopiesAfterReleaseDate(LocalDate releaseDate, int copies);
 }

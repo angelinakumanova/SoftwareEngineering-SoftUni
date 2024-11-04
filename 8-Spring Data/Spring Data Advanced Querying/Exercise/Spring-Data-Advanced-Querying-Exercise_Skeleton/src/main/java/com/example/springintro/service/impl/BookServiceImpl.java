@@ -14,6 +14,7 @@ import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -153,5 +154,13 @@ public class BookServiceImpl implements BookService {
         Book book = bookRepository.getBookByTitle(title);
         System.out.printf("%s %s %s %.2f%n",
                 book.getTitle(), book.getEditionType().name(), book.getAgeRestriction().name(), book.getPrice());
+    }
+
+    @Override
+    public void increaseBookCopiesAfterDate(String date, int copies) {
+        int updatedBooks = bookRepository.updateBookCopiesAfterReleaseDate(
+                LocalDate.parse(date, DateTimeFormatter.ofPattern("dd MMM yyyy")), copies);
+
+        System.out.printf("Total of %d copies added.%n", updatedBooks * copies);
     }
 }

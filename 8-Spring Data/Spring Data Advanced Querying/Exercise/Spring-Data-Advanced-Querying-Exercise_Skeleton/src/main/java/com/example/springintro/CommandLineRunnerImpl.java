@@ -41,7 +41,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        int booksCount = bookService.getBooksCountByTitleLength(12);
 //        System.out.println(booksCount);
 //        authorService.printAuthorCopies("Randy Graham");
-        bookService.printBookInfoByTitle("Things Fall Apart");
+//        bookService.printBookInfoByTitle("Things Fall Apart");
+        bookService.increaseBookCopiesAfterDate("12 Oct 2005", 100);
     }
 
 

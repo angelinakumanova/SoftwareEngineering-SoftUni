@@ -31,4 +31,6 @@ public interface BookService {
     int getBooksCountByTitleLength(int number);
 
     void printBookInfoByTitle(String title);
+
+    void increaseBookCopiesAfterDate(String date, int copies);
 }

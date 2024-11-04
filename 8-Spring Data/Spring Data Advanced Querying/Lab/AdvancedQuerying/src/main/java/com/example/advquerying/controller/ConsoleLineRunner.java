@@ -6,6 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Component
 public class ConsoleLineRunner implements CommandLineRunner {
@@ -23,7 +24,9 @@ public class ConsoleLineRunner implements CommandLineRunner {
 //        shampooService.getShampoosBySize("Medium");
 //        shampooService.getShampoosBySizeOrLabel("Medium", 10L);
 //        shampooService.getShampoosByPrice(BigDecimal.valueOf(5));
-        ingredientService.getIngredientsStartingWith("M");
+//        ingredientService.getIngredientsStartingWith("M");
+        ingredientService.getIngredientsByNames(List.of("Lavender", "Herbs", "Apple"));
     }
+
 
 }

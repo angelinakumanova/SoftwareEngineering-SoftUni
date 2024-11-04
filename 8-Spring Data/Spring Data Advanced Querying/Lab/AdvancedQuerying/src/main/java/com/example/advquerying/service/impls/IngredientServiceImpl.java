@@ -4,6 +4,8 @@ import com.example.advquerying.repositories.IngredientRepository;
 import com.example.advquerying.service.IngredientService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class IngredientServiceImpl implements IngredientService {
 
@@ -16,5 +18,11 @@ public class IngredientServiceImpl implements IngredientService {
     @Override
     public void getIngredientsStartingWith(String prefix) {
         ingredientRepository.findAllByNameStartingWith(prefix).forEach(System.out::println);
+    }
+
+    @Override
+    public void getIngredientsByNames(List<String> names) {
+        ingredientRepository.findAllByNameInOrderByPrice(names)
+                .forEach(System.out::println);
     }
 }

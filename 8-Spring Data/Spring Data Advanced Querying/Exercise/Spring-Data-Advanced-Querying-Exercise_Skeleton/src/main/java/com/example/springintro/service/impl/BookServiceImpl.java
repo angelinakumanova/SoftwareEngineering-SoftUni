@@ -98,4 +98,16 @@ public class BookServiceImpl implements BookService {
         return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
 
     }
+
+    @Override
+    public void printBooksTitlesByAgeRestriction(String ageRestriction) {
+        bookRepository.getBooksByAgeRestriction(AgeRestriction.valueOf(ageRestriction.toUpperCase()))
+                .forEach(book -> System.out.println(book.getTitle()));
+    }
+
+    @Override
+    public void printGoldenBooksWithLessThanCopies(int copies) {
+        bookRepository.getGoldenBooksWithLessThanCopies(EditionType.GOLD, copies)
+                .forEach(book -> System.out.println(book.getTitle()));
+    }
 }

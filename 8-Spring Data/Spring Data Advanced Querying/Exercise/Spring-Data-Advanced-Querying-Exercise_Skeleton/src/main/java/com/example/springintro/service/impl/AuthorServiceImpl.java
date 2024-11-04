@@ -62,10 +62,4 @@ public class AuthorServiceImpl implements AuthorService {
                         author.getBooks().size()))
                 .collect(Collectors.toList());
     }
-
-    @Override
-    public void printBooksTitlesByAgeRestriction(String ageRestriction) {
-        authorRepository.getBooksByAgeRestriction(AgeRestriction.valueOf(ageRestriction.toUpperCase()))
-                .forEach(book -> System.out.println(book.getTitle()));
-    }
 }

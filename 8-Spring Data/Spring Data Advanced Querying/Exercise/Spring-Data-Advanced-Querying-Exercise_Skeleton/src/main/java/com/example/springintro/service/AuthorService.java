@@ -15,5 +15,5 @@ public interface AuthorService {
 
     List<String> getAllAuthorsOrderByCountOfTheirBooks();
 
-    void printBooksTitlesByAgeRestriction(String ageRestriction);
+
 }

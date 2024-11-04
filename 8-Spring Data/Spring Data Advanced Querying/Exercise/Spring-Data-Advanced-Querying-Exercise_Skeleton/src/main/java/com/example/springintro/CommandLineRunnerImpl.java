@@ -30,7 +30,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
      //   printAllAuthorsAndNumberOfTheirBooks();
 //        pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
-        authorService.printBooksTitlesByAgeRestriction("miNor");
+//        bookService.printBooksTitlesByAgeRestriction("miNor");
+//        bookService.printGoldenBooksWithLessThanCopies(5000);
 
     }
 

@@ -163,4 +163,9 @@ public class BookServiceImpl implements BookService {
 
         System.out.printf("Total of %d copies added.%n", updatedBooks * copies);
     }
+
+    @Override
+    public int removeBooksByCopies(int copies) {
+        return bookRepository.deleteBooksByCopiesLessThan(copies);
+    }
 }

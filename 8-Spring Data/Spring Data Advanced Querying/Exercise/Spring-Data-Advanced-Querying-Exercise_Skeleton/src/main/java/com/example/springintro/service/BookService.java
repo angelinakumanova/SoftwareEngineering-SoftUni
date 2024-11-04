@@ -33,4 +33,6 @@ public interface BookService {
     void printBookInfoByTitle(String title);
 
     void increaseBookCopiesAfterDate(String date, int copies);
+
+    int removeBooksByCopies(int copies);
 }

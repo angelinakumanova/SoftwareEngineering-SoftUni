@@ -42,7 +42,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        System.out.println(booksCount);
 //        authorService.printAuthorCopies("Randy Graham");
 //        bookService.printBookInfoByTitle("Things Fall Apart");
-        bookService.increaseBookCopiesAfterDate("12 Oct 2005", 100);
+//        bookService.increaseBookCopiesAfterDate("12 Oct 2005", 100);
+        int removedBooks = bookService.removeBooksByCopies(206);
+        System.out.printf("Books deleted: %d\n", removedBooks);
     }
 
 

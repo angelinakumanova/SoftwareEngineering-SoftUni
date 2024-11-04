@@ -147,4 +147,11 @@ public class BookServiceImpl implements BookService {
     public int getBooksCountByTitleLength(int number) {
         return bookRepository.getBooksCountByTitleLength(number);
     }
+
+    @Override
+    public void printBookInfoByTitle(String title) {
+        Book book = bookRepository.getBookByTitle(title);
+        System.out.printf("%s %s %s %.2f%n",
+                book.getTitle(), book.getEditionType().name(), book.getAgeRestriction().name(), book.getPrice());
+    }
 }

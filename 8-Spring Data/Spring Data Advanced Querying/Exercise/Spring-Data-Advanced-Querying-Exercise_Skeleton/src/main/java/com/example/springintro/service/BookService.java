@@ -29,4 +29,6 @@ public interface BookService {
     void printBooksByAuthorNamePrefix(String authorName);
 
     int getBooksCountByTitleLength(int number);
+
+    void printBookInfoByTitle(String title);
 }

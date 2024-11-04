@@ -28,4 +28,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b WHERE b.price < :lowerThanPrice OR b.price > :higherThanPrice")
     Set<Book> getBooksByPriceRange(double lowerThanPrice, double higherThanPrice);
+
+    @Query("SELECT b FROM Book b WHERE YEAR(b.releaseDate) != :year")
+    Set<Book> getNotReleasedBooksInYear(int year);
+
+    Set<Book> getBooksByReleaseDateBefore(LocalDate releaseDate);
 }

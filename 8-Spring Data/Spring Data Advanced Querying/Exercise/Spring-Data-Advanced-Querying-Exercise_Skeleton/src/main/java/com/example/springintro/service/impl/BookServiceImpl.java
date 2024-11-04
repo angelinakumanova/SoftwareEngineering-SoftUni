@@ -116,4 +116,17 @@ public class BookServiceImpl implements BookService {
         bookRepository.getBooksByPriceRange(lowerThanPrice, higherThanPrice)
                 .forEach(book -> System.out.printf("%s - $%.2f%n", book.getTitle(), book.getPrice()));
     }
+
+    @Override
+    public void printUnreleasedBooksInYear(int year) {
+        bookRepository.getNotReleasedBooksInYear(year)
+                .forEach(book -> System.out.println(book.getTitle()));
+    }
+
+    @Override
+    public void printBooksReleasedBeforeDate(String date) {
+        bookRepository.getBooksByReleaseDateBefore(LocalDate.parse(date, DateTimeFormatter.ofPattern("dd-MM-yyyy")))
+                .forEach(book -> System.out.printf("%s %s %.2f%n",
+                        book.getTitle(), book.getEditionType().name(), book.getPrice()));
+    }
 }

@@ -19,4 +19,8 @@ public interface BookService {
     void printGoldenBooksWithLessThanCopies(int copies);
 
     void printBooksByPrice(double lowerThanPrice, double higherThanPrice);
+
+    void printUnreleasedBooksInYear(int year);
+
+    void printBooksReleasedBeforeDate(String date);
 }

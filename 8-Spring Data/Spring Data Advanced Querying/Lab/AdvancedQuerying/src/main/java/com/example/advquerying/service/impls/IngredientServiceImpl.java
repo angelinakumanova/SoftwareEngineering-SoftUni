@@ -25,4 +25,9 @@ public class IngredientServiceImpl implements IngredientService {
         ingredientRepository.findAllByNameInOrderByPrice(names)
                 .forEach(System.out::println);
     }
+
+    @Override
+    public int deleteIngredientsByName(List<String> names) {
+        return ingredientRepository.deleteIngredientsByName(names);
+    }
 }

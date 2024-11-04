@@ -23,4 +23,5 @@ public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
 
     @Query("SELECT s FROM Shampoo s WHERE SIZE(s.ingredients) < :count")
     Set<Shampoo> getShampoosByIngredientsCount(int count);
+
 }

@@ -52,4 +52,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Transactional
     int deleteBooksByCopiesLessThan(int copies);
+
 }

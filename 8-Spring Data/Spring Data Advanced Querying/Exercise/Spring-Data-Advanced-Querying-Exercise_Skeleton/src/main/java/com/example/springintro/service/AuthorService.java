@@ -18,4 +18,6 @@ public interface AuthorService {
     void printAuthorsWithEndingPrefix(String prefix);
 
     void printAuthorCopies(String authorName);
+
+    void printAuthorTotalBooks(String authorName);
 }

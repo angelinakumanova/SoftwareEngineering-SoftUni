@@ -1,6 +1,5 @@
 package com.example.springintro.service.impl;
 
-import com.example.springintro.model.entity.AgeRestriction;
 import com.example.springintro.model.entity.Author;
 import com.example.springintro.repository.AuthorRepository;
 import com.example.springintro.service.AuthorService;
@@ -72,5 +71,10 @@ public class AuthorServiceImpl implements AuthorService {
     @Override
     public void printAuthorCopies(String authorName) {
         System.out.printf("%s - %d copies%n", authorName, authorRepository.getTotalCopiesByAuthorName(authorName));
+    }
+
+    @Override
+    public void printAuthorTotalBooks(String authorName) {
+        System.out.printf("%s has written %d books.%n", authorName, authorRepository.getBooksCount(authorName));
     }
 }

@@ -142,4 +142,9 @@ public class BookServiceImpl implements BookService {
                 .forEach(book -> System.out.printf("%s (%s %s)%n",
                         book.getTitle(), book.getAuthor().getFirstName(), book.getAuthor().getLastName()));
     }
+
+    @Override
+    public int getBooksCountByTitleLength(int number) {
+        return bookRepository.getBooksCountByTitleLength(number);
+    }
 }

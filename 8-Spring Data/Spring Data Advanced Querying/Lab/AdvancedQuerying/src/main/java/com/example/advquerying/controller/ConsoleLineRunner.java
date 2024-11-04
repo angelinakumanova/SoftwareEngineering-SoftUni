@@ -27,8 +27,10 @@ public class ConsoleLineRunner implements CommandLineRunner {
 //        ingredientService.getIngredientsStartingWith("M");
 //        ingredientService.getIngredientsByNames(List.of("Lavender", "Herbs", "Apple"));
 //        System.out.println(shampooService.getCountOfShampoosWithPriceLowerThan(BigDecimal.valueOf(8.5)));
-        shampooService.getShampoosByIngredients(List.of("Berry", "Mineral-Collagen"));
+//        shampooService.getShampoosByIngredients(List.of("Berry", "Mineral-Collagen"));
+        shampooService.getShampoosByIngredientsCount(2);
     }
+
 
 
 

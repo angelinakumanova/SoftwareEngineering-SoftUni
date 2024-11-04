@@ -14,4 +14,6 @@ public interface ShampooService {
     int getCountOfShampoosWithPriceLowerThan(BigDecimal price);
 
     void getShampoosByIngredients(List<String> ingredients);
+
+    void getShampoosByIngredientsCount(int count);
 }

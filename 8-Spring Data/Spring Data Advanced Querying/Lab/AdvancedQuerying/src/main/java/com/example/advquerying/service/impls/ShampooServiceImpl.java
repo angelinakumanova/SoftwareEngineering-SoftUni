@@ -47,4 +47,11 @@ public class ShampooServiceImpl implements ShampooService {
         shampooRepository.getShampoosByGivenIngredients(ingredients)
                 .forEach(System.out::println);
     }
+
+    @Override
+    public void getShampoosByIngredientsCount(int count) {
+        shampooRepository.getShampoosByIngredientsCount(count)
+                .forEach(shampoo -> System.out.println(shampoo.getBrand()));
+
+    }
 }

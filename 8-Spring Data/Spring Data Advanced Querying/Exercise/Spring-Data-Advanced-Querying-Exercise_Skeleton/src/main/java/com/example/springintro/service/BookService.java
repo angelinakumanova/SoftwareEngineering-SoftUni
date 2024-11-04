@@ -18,4 +18,5 @@ public interface BookService {
 
     void printGoldenBooksWithLessThanCopies(int copies);
 
+    void printBooksByPrice(double lowerThanPrice, double higherThanPrice);
 }

@@ -25,4 +25,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b FROM Book b WHERE b.editionType = :editionType AND b.copies < :copies")
     Set<Book> getGoldenBooksWithLessThanCopies(EditionType editionType, int copies);
+
+    @Query("SELECT b FROM Book b WHERE b.price < :lowerThanPrice OR b.price > :higherThanPrice")
+    Set<Book> getBooksByPriceRange(double lowerThanPrice, double higherThanPrice);
 }

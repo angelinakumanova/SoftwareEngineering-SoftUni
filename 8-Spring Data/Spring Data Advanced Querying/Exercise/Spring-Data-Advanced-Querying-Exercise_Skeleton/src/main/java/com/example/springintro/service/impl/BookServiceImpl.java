@@ -110,4 +110,10 @@ public class BookServiceImpl implements BookService {
         bookRepository.getGoldenBooksWithLessThanCopies(EditionType.GOLD, copies)
                 .forEach(book -> System.out.println(book.getTitle()));
     }
+
+    @Override
+    public void printBooksByPrice(double lowerThanPrice, double higherThanPrice) {
+        bookRepository.getBooksByPriceRange(lowerThanPrice, higherThanPrice)
+                .forEach(book -> System.out.printf("%s - $%.2f%n", book.getTitle(), book.getPrice()));
+    }
 }

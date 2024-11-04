@@ -34,8 +34,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        bookService.printGoldenBooksWithLessThanCopies(5000);
 //        bookService.printBooksByPrice(5, 40);
 //        bookService.printUnreleasedBooksInYear(1998);
-        bookService.printBooksReleasedBeforeDate("30-12-1989");
-
+//        bookService.printBooksReleasedBeforeDate("30-12-1989");
+        authorService.printAuthorsWithEndingPrefix("dy");
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {

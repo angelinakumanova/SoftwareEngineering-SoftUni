@@ -15,5 +15,5 @@ public interface AuthorService {
 
     List<String> getAllAuthorsOrderByCountOfTheirBooks();
 
-
+    void printAuthorsWithEndingPrefix(String prefix);
 }

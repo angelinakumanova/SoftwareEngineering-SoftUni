@@ -62,4 +62,10 @@ public class AuthorServiceImpl implements AuthorService {
                         author.getBooks().size()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public void printAuthorsWithEndingPrefix(String prefix) {
+        authorRepository.getAuthorsByFirstNameEndingWith(prefix)
+                .forEach(author -> System.out.printf("%s %s%n", author.getFirstName(), author.getLastName()));
+    }
 }

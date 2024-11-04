@@ -24,7 +24,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        seedData();
+//        seedData();
 
         //printAllBooksAfterYear(2000);
 //        printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
@@ -35,8 +35,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        bookService.printBooksByPrice(5, 40);
 //        bookService.printUnreleasedBooksInYear(1998);
 //        bookService.printBooksReleasedBeforeDate("30-12-1989");
-        authorService.printAuthorsWithEndingPrefix("dy");
+//        authorService.printAuthorsWithEndingPrefix("dy");
+//        bookService.printBooksByTitleContaining("WOR");
+
     }
+
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
         bookService

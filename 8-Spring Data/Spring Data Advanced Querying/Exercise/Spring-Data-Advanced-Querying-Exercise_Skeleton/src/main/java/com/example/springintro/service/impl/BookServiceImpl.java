@@ -129,4 +129,10 @@ public class BookServiceImpl implements BookService {
                 .forEach(book -> System.out.printf("%s %s %.2f%n",
                         book.getTitle(), book.getEditionType().name(), book.getPrice()));
     }
+
+    @Override
+    public void printBooksByTitleContaining(String title) {
+        bookRepository.getBooksByTitleContaining(title)
+                .forEach(book -> System.out.println(book.getTitle()));
+    }
 }

@@ -23,4 +23,6 @@ public interface BookService {
     void printUnreleasedBooksInYear(int year);
 
     void printBooksReleasedBeforeDate(String date);
+
+    void printBooksByTitleContaining(String title);
 }

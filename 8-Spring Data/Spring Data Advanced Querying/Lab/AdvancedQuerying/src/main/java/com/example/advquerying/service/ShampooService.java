@@ -9,4 +9,6 @@ public interface ShampooService {
     void getShampoosBySizeOrLabel(String size, Long labelId);
 
     void getShampoosByPrice(BigDecimal price);
+
+    int getCountOfShampoosWithPriceLowerThan(BigDecimal price);
 }

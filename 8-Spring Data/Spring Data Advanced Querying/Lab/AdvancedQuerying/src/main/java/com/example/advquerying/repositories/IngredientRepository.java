@@ -10,4 +10,6 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     Set<Ingredient> findAllByNameStartingWith(String prefix);
 
     Set<Ingredient> findAllByNameInOrderByPrice(List<String> names);
+
+
 }

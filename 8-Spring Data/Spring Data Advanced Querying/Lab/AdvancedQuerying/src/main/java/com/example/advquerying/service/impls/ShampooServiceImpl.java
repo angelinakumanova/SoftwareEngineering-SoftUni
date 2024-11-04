@@ -35,4 +35,9 @@ public class ShampooServiceImpl implements ShampooService {
         shampooRepository.findAllShampoosByPriceGreaterThanOrderByPriceDesc(price)
                 .forEach(System.out::println);
     }
+
+    @Override
+    public int getCountOfShampoosWithPriceLowerThan(BigDecimal price) {
+        return shampooRepository.countAllByPriceLessThan(price);
+    }
 }

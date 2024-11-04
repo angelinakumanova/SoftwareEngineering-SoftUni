@@ -1,5 +1,6 @@
 package com.example.advquerying.controller;
 
+import com.example.advquerying.service.IngredientService;
 import com.example.advquerying.service.ShampooService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,15 +11,19 @@ import java.math.BigDecimal;
 public class ConsoleLineRunner implements CommandLineRunner {
 
     private final ShampooService shampooService;
+    private final IngredientService ingredientService;
 
-    public ConsoleLineRunner(ShampooService shampooService) {
+    public ConsoleLineRunner(ShampooService shampooService, IngredientService ingredientService) {
         this.shampooService = shampooService;
+        this.ingredientService = ingredientService;
     }
 
     @Override
     public void run(String... args) throws Exception {
 //        shampooService.getShampoosBySize("Medium");
 //        shampooService.getShampoosBySizeOrLabel("Medium", 10L);
-        shampooService.getShampoosByPrice(BigDecimal.valueOf(5));
+//        shampooService.getShampoosByPrice(BigDecimal.valueOf(5));
+        ingredientService.getIngredientsStartingWith("M");
     }
+
 }

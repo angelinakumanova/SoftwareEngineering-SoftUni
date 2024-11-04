@@ -29,8 +29,11 @@ public class ConsoleLineRunner implements CommandLineRunner {
 //        System.out.println(shampooService.getCountOfShampoosWithPriceLowerThan(BigDecimal.valueOf(8.5)));
 //        shampooService.getShampoosByIngredients(List.of("Berry", "Mineral-Collagen"));
 //        shampooService.getShampoosByIngredientsCount(2);
-        int deletion = ingredientService.deleteIngredientsByName(List.of("Apple"));
-        System.out.println(deletion);
+//        int deletion = ingredientService.deleteIngredientsByName(List.of("Apple"));
+//        System.out.println(deletion);
+        int updatedPrices = ingredientService.updateIngredientsPriceBy10Percent();
+        System.out.println(updatedPrices);
+
     }
 
 

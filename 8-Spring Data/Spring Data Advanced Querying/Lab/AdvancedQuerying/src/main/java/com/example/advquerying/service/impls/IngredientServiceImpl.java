@@ -30,4 +30,9 @@ public class IngredientServiceImpl implements IngredientService {
     public int deleteIngredientsByName(List<String> names) {
         return ingredientRepository.deleteIngredientsByName(names);
     }
+
+    @Override
+    public int updateIngredientsPriceBy10Percent() {
+        return ingredientRepository.updateIngredientsByPriceBy10Percent();
+    }
 }

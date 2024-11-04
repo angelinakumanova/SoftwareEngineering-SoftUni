@@ -18,4 +18,9 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     @Transactional
     @Modifying
     int deleteIngredientsByName(List<String> names);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE Ingredient i SET i.price = i.price * 1.10")
+    int updateIngredientsByPriceBy10Percent();
 }

@@ -8,4 +8,6 @@ public interface IngredientService {
     void getIngredientsByNames(List<String> names);
 
     int deleteIngredientsByName(List<String> names);
+
+    int updateIngredientsPriceBy10Percent();
 }

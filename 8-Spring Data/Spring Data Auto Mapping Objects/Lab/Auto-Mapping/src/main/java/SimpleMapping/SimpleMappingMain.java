@@ -1,7 +1,7 @@
 package SimpleMapping;
 
 import SimpleMapping.entities.Employee;
-import SimpleMapping.dtos.EmployeeDTO;
+import SimpleMapping.entities.dtos.EmployeeDTO;
 import org.modelmapper.ModelMapper;
 
 import java.time.LocalDate;

@@ -1,4 +1,4 @@
-package SimpleMapping;
+package SimpleMapping.dtos;
 
 public class EmployeeDTO {
     private String firstName;

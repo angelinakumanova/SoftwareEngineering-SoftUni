@@ -1,4 +1,4 @@
-package SimpleMapping;
+package SimpleMapping.entities;
 
 import java.time.LocalDate;
 

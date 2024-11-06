@@ -25,7 +25,8 @@ public class ConsoleLineRunner implements CommandLineRunner {
         int yearBornBefore = Integer.parseInt(reader.readLine());
 
         List<EmployeeDTO> employees = employeeService.getEmployeesBornBefore(yearBornBefore);
+        List<EmployeeDTO> employeesWithoutManager = employeeService.getEmployeesWithoutManager();
 
-        employees.forEach(System.out::println);
+        employeesWithoutManager.forEach(System.out::println);
     }
 }

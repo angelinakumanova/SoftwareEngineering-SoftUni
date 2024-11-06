@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -27,5 +28,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return employees.stream().map(employee -> this.modelMapper.map(employee, EmployeeDTO.class)).toList();
 
+    }
+
+    @Override
+    public List<EmployeeDTO> getEmployeesWithoutManager() {
+        Set<Employee> employees = employeeRepository.getEmployeesByManagerIdIsNull();
+
+        return employees.stream().map(employee -> this.modelMapper.map(employee, EmployeeDTO.class)).toList();
     }
 }

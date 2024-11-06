@@ -7,5 +7,5 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
-    List<Employee> getEmployeesByBirthDateBefore(LocalDate birthdate);
+    List<Employee> getEmployeesByBirthDateBeforeOrderBySalaryDesc(LocalDate birthdate);
 }

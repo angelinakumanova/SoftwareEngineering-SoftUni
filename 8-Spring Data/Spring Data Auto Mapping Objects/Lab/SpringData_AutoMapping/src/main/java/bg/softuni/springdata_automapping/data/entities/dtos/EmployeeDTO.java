@@ -12,4 +12,11 @@ public class EmployeeDTO {
 
     public EmployeeDTO() {
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %.2f - Manager: %s",
+                this.firstName, this.lastName, this.salary,
+                this.managerLastName == null ? "[no manager]" : this.managerLastName);
+    }
 }

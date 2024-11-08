@@ -85,9 +85,11 @@ public class UserServiceImpl implements UserService {
         return "No user logged in.";
     }
 
-    public User getLoggedInUser() {
-        return this.currentUser;
+    @Override
+    public boolean isAdmin() {
+        return this.currentUser.isAdmin();
     }
+
 
     private void setRootUserAdmin(User user) {
         if (this.userRepository.count() == 0) {

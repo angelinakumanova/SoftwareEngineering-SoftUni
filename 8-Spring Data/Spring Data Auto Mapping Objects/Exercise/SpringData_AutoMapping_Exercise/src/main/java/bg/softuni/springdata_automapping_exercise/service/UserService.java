@@ -12,4 +12,6 @@ public interface UserService {
     boolean isLoggedIn();
 
     String logout();
+
+    boolean isAdmin();
 }

@@ -3,6 +3,7 @@ package bg.softuni.springdata_automapping_exercise.controller;
 import bg.softuni.springdata_automapping_exercise.service.GameService;
 import bg.softuni.springdata_automapping_exercise.service.UserService;
 import bg.softuni.springdata_automapping_exercise.service.dtos.GameCreateDto;
+import bg.softuni.springdata_automapping_exercise.service.dtos.GameEditDto;
 import bg.softuni.springdata_automapping_exercise.service.dtos.UserCreateDto;
 import bg.softuni.springdata_automapping_exercise.service.dtos.UserLoginDto;
 import org.springframework.boot.CommandLineRunner;
@@ -13,6 +14,7 @@ import java.io.InputStreamReader;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 
 @Component
 public class AppInitializer implements CommandLineRunner {
@@ -57,12 +59,51 @@ public class AppInitializer implements CommandLineRunner {
                             ));
                     break;
                 case "EditGame":
-                    
+                    GameEditDto gameEditDto = createGameDto(Long.parseLong(tokens[1]),
+                            Arrays.stream(tokens).skip(2).toArray(String[]::new));
+                    output = this.gameService.editGame(gameEditDto);
                     break;
             }
 
 
             System.out.println(output);
         }
+    }
+
+    private GameEditDto createGameDto(Long id, String[] array) {
+        GameEditDto gameEditDto = new GameEditDto();
+        gameEditDto.setId(id);
+
+        for (String value : array) {
+            String[] split = value.split("=");
+            String field = split[0];
+
+            switch (field) {
+                case "title":
+                    gameEditDto.setTitle(split[1]);
+                    break;
+                case "price":
+                    gameEditDto.setPrice(new BigDecimal(split[1]));
+                    break;
+                case "size":
+                    gameEditDto.setSize(Double.parseDouble(split[1]));
+                    break;
+                case "trailer":
+                    gameEditDto.setTrailer(split[1]);
+                    break;
+                case "imageThumbnail":
+                    gameEditDto.setImageThumbnail(split[1]);
+                    break;
+                case "description":
+                    gameEditDto.setDescription(split[1]);
+                    break;
+                case "releaseDate":
+                    gameEditDto.setReleaseDate(LocalDate.parse(split[1], DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+                    break;
+            }
+
+        }
+
+        return gameEditDto;
     }
 }

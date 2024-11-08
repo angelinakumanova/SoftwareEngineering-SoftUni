@@ -27,6 +27,14 @@ public class GameEditDto {
     public GameEditDto() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public @Length(min = 3, max = 100) String getTitle() {
         return title;
     }

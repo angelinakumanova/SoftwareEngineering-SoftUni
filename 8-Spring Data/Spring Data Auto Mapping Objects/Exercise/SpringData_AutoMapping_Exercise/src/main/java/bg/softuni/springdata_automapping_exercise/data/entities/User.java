@@ -1,7 +1,6 @@
 package bg.softuni.springdata_automapping_exercise.data.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +18,6 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Email(regexp = "[@.]", message = "Invalid email format")
     @Column(unique = true, nullable = false)
     private String email;
 

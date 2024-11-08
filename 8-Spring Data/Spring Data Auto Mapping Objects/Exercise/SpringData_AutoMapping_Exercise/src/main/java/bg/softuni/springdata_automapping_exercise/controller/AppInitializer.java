@@ -2,6 +2,7 @@ package bg.softuni.springdata_automapping_exercise.controller;
 
 import bg.softuni.springdata_automapping_exercise.service.UserService;
 import bg.softuni.springdata_automapping_exercise.service.dtos.UserCreateDto;
+import bg.softuni.springdata_automapping_exercise.service.dtos.UserLoginDto;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -35,7 +36,13 @@ public class AppInitializer implements CommandLineRunner {
                     ));
                     break;
                 case "LoginUser":
-
+                    output = this.userService.loginUser(new UserLoginDto(
+                            tokens[1], tokens[2]
+                    ));
+                    break;
+                case "Logout":
+                    output = this.userService.logout();
+                    break;
             }
 
 

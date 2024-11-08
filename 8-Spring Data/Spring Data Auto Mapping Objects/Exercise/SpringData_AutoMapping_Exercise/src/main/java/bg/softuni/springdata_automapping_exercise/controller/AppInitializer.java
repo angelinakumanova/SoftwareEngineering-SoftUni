@@ -63,6 +63,10 @@ public class AppInitializer implements CommandLineRunner {
                             Arrays.stream(tokens).skip(2).toArray(String[]::new));
                     output = this.gameService.editGame(gameEditDto);
                     break;
+                case "DeleteGame":
+                    long id = Long.parseLong(tokens[1]);
+                    output = this.gameService.deleteGame(id);
+                    break;
             }
 
 

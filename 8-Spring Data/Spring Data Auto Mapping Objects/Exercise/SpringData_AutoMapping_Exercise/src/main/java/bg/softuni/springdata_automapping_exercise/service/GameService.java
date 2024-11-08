@@ -8,4 +8,6 @@ public interface GameService {
     String addGame(GameCreateDto gameCreateDto);
 
     String editGame(GameEditDto GameEditDto);
+
+    String deleteGame(long id);
 }

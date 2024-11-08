@@ -69,6 +69,23 @@ public class GameServiceImpl implements GameService {
         return String.format("Successfully edited game: %s", game.getTitle());
     }
 
+    @Override
+    public String deleteGame(long id) {
+        String validation = validateCurrentUser();
+        if (validation != null) return validation;
+
+        Optional<Game> optionalGame = this.gameRepository.findById(id);
+
+        if (optionalGame.isEmpty()) {
+            return String.format("Game with id %s not found", id);
+        }
+
+        Game game = optionalGame.get();
+        this.gameRepository.delete(game);
+
+        return String.format("Successfully deleted game: %s", game.getTitle());
+    }
+
     private void setGameProperties(Game game, GameEditDto gameEditDto) {
         if (gameEditDto.getTitle() != null) {
             game.setTitle(gameEditDto.getTitle());

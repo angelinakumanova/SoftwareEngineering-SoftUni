@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class GameEditDto {
     private Long id;
     @Length(min = 3, max = 100)
-    @Pattern(regexp = "^[A-Z][a-z]+$")
+    @Pattern(regexp = "^[A-Z].+$")
     private String title;
     @Positive
     private BigDecimal price;
@@ -35,11 +35,11 @@ public class GameEditDto {
         this.id = id;
     }
 
-    public @Length(min = 3, max = 100) String getTitle() {
+    public @Length(min = 3, max = 100) @Pattern(regexp = "^[A-Z].+$") String getTitle() {
         return title;
     }
 
-    public void setTitle(@Length(min = 3, max = 100) String title) {
+    public void setTitle(@Length(min = 3, max = 100) @Pattern(regexp = "^[A-Z].+$") String title) {
         this.title = title;
     }
 
@@ -68,11 +68,11 @@ public class GameEditDto {
         this.trailer = trailer;
     }
 
-    public String getImageThumbnail() {
+    public @Pattern(regexp = "^(http://|https://).+$") String getImageThumbnail() {
         return imageThumbnail;
     }
 
-    public void setImageThumbnail(String imageThumbnail) {
+    public void setImageThumbnail(@Pattern(regexp = "^(http://|https://).+$") String imageThumbnail) {
         this.imageThumbnail = imageThumbnail;
     }
 

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table (name = "games")
@@ -95,5 +96,18 @@ public class Game {
 
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return id == game.id && Double.compare(size, game.size) == 0 && Objects.equals(title, game.title) && Objects.equals(trailer, game.trailer) && Objects.equals(price, game.price) && Objects.equals(imageThumbnail, game.imageThumbnail) && Objects.equals(description, game.description) && Objects.equals(releaseDate, game.releaseDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, trailer, price, size, imageThumbnail, description, releaseDate);
     }
 }

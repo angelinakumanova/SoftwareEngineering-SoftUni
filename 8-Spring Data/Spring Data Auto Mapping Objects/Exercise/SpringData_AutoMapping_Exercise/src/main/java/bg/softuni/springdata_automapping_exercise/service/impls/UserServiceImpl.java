@@ -90,6 +90,11 @@ public class UserServiceImpl implements UserService {
         return this.currentUser.isAdmin();
     }
 
+    @Override
+    public User getUser() {
+        return this.currentUser;
+    }
+
 
     private void setRootUserAdmin(User user) {
         if (this.userRepository.count() == 0) {

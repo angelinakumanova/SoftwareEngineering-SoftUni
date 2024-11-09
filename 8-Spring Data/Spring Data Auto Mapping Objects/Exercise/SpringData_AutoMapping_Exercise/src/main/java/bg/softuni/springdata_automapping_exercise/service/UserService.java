@@ -1,5 +1,6 @@
 package bg.softuni.springdata_automapping_exercise.service;
 
+import bg.softuni.springdata_automapping_exercise.data.entities.User;
 import bg.softuni.springdata_automapping_exercise.service.dtos.UserCreateDto;
 import bg.softuni.springdata_automapping_exercise.service.dtos.UserLoginDto;
 
@@ -14,4 +15,6 @@ public interface UserService {
     String logout();
 
     boolean isAdmin();
+
+    User getUser();
 }

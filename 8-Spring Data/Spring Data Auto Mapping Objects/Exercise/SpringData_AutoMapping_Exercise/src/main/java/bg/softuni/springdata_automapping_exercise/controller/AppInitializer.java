@@ -67,6 +67,18 @@ public class AppInitializer implements CommandLineRunner {
                     long id = Long.parseLong(tokens[1]);
                     output = this.gameService.deleteGame(id);
                     break;
+                case "AllGames":
+                    output = this.gameService.getAllGames();
+                    break;
+                case "DetailsGame":
+                    output = this.gameService.getGameDetails(tokens[1]);
+                    break;
+                case "OwnedGames":
+                    output = this.gameService.getOwnedGames();
+                    break;
+                case "AddItem":
+                    output = this.gameService.addItem(tokens[1]);
+                    break;
             }
 
 

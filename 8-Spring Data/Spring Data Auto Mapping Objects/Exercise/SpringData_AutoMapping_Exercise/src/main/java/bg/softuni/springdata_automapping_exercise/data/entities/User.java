@@ -1,6 +1,7 @@
 package bg.softuni.springdata_automapping_exercise.data.entities;
 
 import jakarta.persistence.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class User {
     @Column(name = "is_admin", nullable = false)
     private boolean isAdmin;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Game> games;
 
     public User() {

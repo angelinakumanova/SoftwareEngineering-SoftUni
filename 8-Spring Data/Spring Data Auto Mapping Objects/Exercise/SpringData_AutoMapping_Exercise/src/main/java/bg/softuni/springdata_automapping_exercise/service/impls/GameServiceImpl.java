@@ -10,8 +10,13 @@ import bg.softuni.springdata_automapping_exercise.utils.ValidatorUtil;
 import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.time.format.DateTimeFormatter;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,6 +27,8 @@ public class GameServiceImpl implements GameService {
 
     private final ModelMapper modelMapper;
     private final ValidatorUtil validatorUtil;
+
+    private final Set<Game> games = new HashSet<>();
 
     public GameServiceImpl(GameRepository gameRepository, ModelMapper modelMapper,
                            UserService userService, ValidatorUtil validatorUtil) {
@@ -84,6 +91,61 @@ public class GameServiceImpl implements GameService {
         this.gameRepository.delete(game);
 
         return String.format("Successfully deleted game: %s", game.getTitle());
+    }
+
+    @Override
+    public String getAllGames() {
+        return this.gameRepository.findAll().stream()
+                .map(g -> String.format("%s %.2f", g.getTitle(), g.getPrice()))
+                .collect(Collectors.joining("\n"));
+    }
+
+    @Override
+    public String getGameDetails(String title) {
+        Optional<Game> gameByTitle = this.gameRepository.findGameByTitle(title);
+        if (gameByTitle.isEmpty()) {
+            return "No such game found";
+        }
+
+        Game game = gameByTitle.get();
+
+        return String.format("Title: %s%nPrice: %.2f%nDescription: %s%nRelease date: %s",
+                game.getTitle(), game.getPrice(), game.getDescription(),
+                game.getReleaseDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+    }
+
+    @Override
+    public String getOwnedGames() {
+        if (!userService.isLoggedIn()) {
+            return "No user logged in";
+        }
+
+        List<Game> games = this.userService.getUser().getGames();
+        if (games.isEmpty()) {
+            return "No owned games.";
+        }
+
+        return games.stream().map(Game::getTitle).collect(Collectors.joining("\n"));
+    }
+
+    @Override
+    public String addItem(String gameTitle) {
+        if (!userService.isLoggedIn()) {
+            return "No user logged in";
+        }
+
+        Optional<Game> optionalGame = gameRepository.findGameByTitle(gameTitle);
+        if (optionalGame.isEmpty()) {
+            return "No such game found";
+        }
+
+        Game game = optionalGame.get();
+        if (this.games.contains(game)) {
+            return "You have already added this game in the shopping cart.";
+        }
+
+        this.games.add(game);
+        return String.format("Successfully added game: %s", game.getTitle());
     }
 
     private void setGameProperties(Game game, GameEditDto gameEditDto) {

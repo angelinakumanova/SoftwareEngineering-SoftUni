@@ -10,4 +10,12 @@ public interface GameService {
     String editGame(GameEditDto GameEditDto);
 
     String deleteGame(long id);
+
+    String getAllGames();
+
+    String getGameDetails(String title);
+
+    String getOwnedGames();
+
+    String addItem(String gameTitle);
 }

@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 public class GameCreateDto {
     @Length(min = 3, max = 100)
-    @Pattern(regexp = "^[A-Z][a-z]+$")
+    @Pattern(regexp = "^[A-Z].+$")
     private String title;
     @Positive
     private BigDecimal price;
@@ -36,11 +36,11 @@ public class GameCreateDto {
         this.releaseDate = releaseDate;
     }
 
-    public @Length(min = 3, max = 100) String getTitle() {
+    public @Length(min = 3, max = 100) @Pattern(regexp = "^[A-Z].+$") String getTitle() {
         return title;
     }
 
-    public void setTitle(@Length(min = 3, max = 100) String title) {
+    public void setTitle(@Length(min = 3, max = 100) @Pattern(regexp = "^[A-Z].+$") String title) {
         this.title = title;
     }
 
@@ -69,11 +69,11 @@ public class GameCreateDto {
         this.trailer = trailer;
     }
 
-    public String getImageThumbnail() {
+    public @Pattern(regexp = "^(http://|https://).+$") String getImageThumbnail() {
         return imageThumbnail;
     }
 
-    public void setImageThumbnail(String imageThumbnail) {
+    public void setImageThumbnail(@Pattern(regexp = "^(http://|https://).+$") String imageThumbnail) {
         this.imageThumbnail = imageThumbnail;
     }
 

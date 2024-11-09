@@ -18,4 +18,8 @@ public interface GameService {
     String getOwnedGames();
 
     String addItem(String gameTitle);
+
+    String removeItem(String title);
+
+    String buyItem();
 }

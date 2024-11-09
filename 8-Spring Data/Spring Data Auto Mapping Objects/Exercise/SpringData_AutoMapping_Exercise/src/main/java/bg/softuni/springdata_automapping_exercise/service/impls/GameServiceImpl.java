@@ -2,6 +2,7 @@ package bg.softuni.springdata_automapping_exercise.service.impls;
 
 import bg.softuni.springdata_automapping_exercise.data.entities.Game;
 import bg.softuni.springdata_automapping_exercise.data.repositories.GameRepository;
+import bg.softuni.springdata_automapping_exercise.data.repositories.UserRepository;
 import bg.softuni.springdata_automapping_exercise.service.GameService;
 import bg.softuni.springdata_automapping_exercise.service.UserService;
 import bg.softuni.springdata_automapping_exercise.service.dtos.GameCreateDto;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 public class GameServiceImpl implements GameService {
 
     private final GameRepository gameRepository;
+    private final UserRepository userRepository;
     private final UserService userService;
 
     private final ModelMapper modelMapper;
@@ -30,9 +32,10 @@ public class GameServiceImpl implements GameService {
 
     private final Set<Game> games = new HashSet<>();
 
-    public GameServiceImpl(GameRepository gameRepository, ModelMapper modelMapper,
+    public GameServiceImpl(GameRepository gameRepository, UserRepository userRepository, ModelMapper modelMapper,
                            UserService userService, ValidatorUtil validatorUtil) {
         this.gameRepository = gameRepository;
+        this.userRepository = userRepository;
         this.modelMapper = modelMapper;
         this.userService = userService;
         this.validatorUtil = validatorUtil;
@@ -146,6 +149,61 @@ public class GameServiceImpl implements GameService {
 
         this.games.add(game);
         return String.format("Successfully added game: %s", game.getTitle());
+    }
+
+    @Override
+    public String removeItem(String title) {
+        if (!userService.isLoggedIn()) {
+            return "No user logged in";
+        }
+
+        Optional<Game> optionalGame = gameRepository.findGameByTitle(title);
+        if (optionalGame.isEmpty()) {
+            return "No such game";
+        }
+
+        Game game = optionalGame.get();
+        if (!this.games.contains(game)) {
+            return "You have not added this game to the shopping cart.";
+        }
+
+        this.games.remove(game);
+        return String.format("Successfully removed game: %s", game.getTitle());
+    }
+
+    @Override
+    public String buyItem() {
+        if (!userService.isLoggedIn()) {
+            return "No user logged in";
+        }
+
+        if (games.isEmpty()) {
+            return "No games in shopping cart";
+        }
+
+        List<Game> userGames = userService.getUser().getGames();
+        Set<Game> alreadyOwnedGames = userGames.stream()
+                .filter(games::contains)
+                .collect(Collectors.toSet());
+
+        StringBuilder output = new StringBuilder();
+        if (!alreadyOwnedGames.isEmpty()) {
+            output.append("You already own these games:\n");
+            alreadyOwnedGames.forEach(game -> {
+                games.remove(game);
+                output.append(String.format(" - %s\n", game.getTitle()));
+            });
+        }
+
+        if (!games.isEmpty()) output.append("You have successfully bought these games:\n");
+        games.forEach(game -> {
+            userGames.add(game);
+            output.append(String.format(" - %s\n", game.getTitle()));
+            games.clear();
+            userRepository.saveAndFlush(userService.getUser());
+        });
+
+        return output.toString().trim();
     }
 
     private void setGameProperties(Game game, GameEditDto gameEditDto) {

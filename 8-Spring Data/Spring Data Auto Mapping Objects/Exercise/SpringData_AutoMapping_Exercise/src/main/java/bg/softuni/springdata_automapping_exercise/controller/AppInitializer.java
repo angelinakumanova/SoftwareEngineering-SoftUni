@@ -79,6 +79,12 @@ public class AppInitializer implements CommandLineRunner {
                 case "AddItem":
                     output = this.gameService.addItem(tokens[1]);
                     break;
+                case "RemoveItem":
+                    output = this.gameService.removeItem(tokens[1]);
+                    break;
+                case "BuyItem":
+                    output = this.gameService.buyItem();
+                    break;
             }
 
 

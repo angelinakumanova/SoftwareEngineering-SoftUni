@@ -143,6 +143,9 @@ public class GameServiceImpl implements GameService {
         }
 
         Game game = optionalGame.get();
+        if (userService.getUser().getGames().contains(game)) return "You already own this game";
+
+
         if (this.games.contains(game)) {
             return "You have already added this game in the shopping cart.";
         }
@@ -161,6 +164,7 @@ public class GameServiceImpl implements GameService {
         if (optionalGame.isEmpty()) {
             return "No such game";
         }
+
 
         Game game = optionalGame.get();
         if (!this.games.contains(game)) {
@@ -181,28 +185,16 @@ public class GameServiceImpl implements GameService {
             return "No games in shopping cart";
         }
 
-        List<Game> userGames = userService.getUser().getGames();
-        Set<Game> alreadyOwnedGames = userGames.stream()
-                .filter(games::contains)
-                .collect(Collectors.toSet());
-
         StringBuilder output = new StringBuilder();
-        if (!alreadyOwnedGames.isEmpty()) {
-            output.append("You already own these games:\n");
-            alreadyOwnedGames.forEach(game -> {
-                games.remove(game);
-                output.append(String.format(" - %s\n", game.getTitle()));
-            });
-        }
-
-        if (!games.isEmpty()) output.append("You have successfully bought these games:\n");
+        output.append("You have successfully bought these games:\n");
+        List<Game> userGames = userService.getUser().getGames();
         games.forEach(game -> {
             userGames.add(game);
             output.append(String.format(" - %s\n", game.getTitle()));
             games.clear();
-            userRepository.saveAndFlush(userService.getUser());
         });
 
+        userRepository.saveAndFlush(userService.getUser());
         return output.toString().trim();
     }
 

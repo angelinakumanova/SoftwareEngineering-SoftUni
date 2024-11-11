@@ -4,10 +4,7 @@ import bg.softuni.json_processing.data.entities.Product;
 import bg.softuni.json_processing.data.entities.User;
 import bg.softuni.json_processing.data.repositories.UserRepository;
 import bg.softuni.json_processing.service.UserService;
-import bg.softuni.json_processing.service.dtos.ProductPriceRangeDto;
-import bg.softuni.json_processing.service.dtos.SoldProductDto;
-import bg.softuni.json_processing.service.dtos.SoldUserDto;
-import bg.softuni.json_processing.service.dtos.UserSeedJsonDto;
+import bg.softuni.json_processing.service.dtos.*;
 import bg.softuni.json_processing.utils.ValidatorUtil;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -110,6 +107,7 @@ public class UserServiceImpl implements UserService {
             System.out.println(e.getMessage());
         }
     }
+
 
 
 }

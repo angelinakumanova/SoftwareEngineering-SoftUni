@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>bg.softuni</groupId>
-    <artifactId>JSON_Processing</artifactId>
+    <artifactId>ShopSystem</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>JSON_Processing</name>
-    <description>JSON_Processing</description>
+    <name>ShopSystem</name>
+    <description>ShopSystem</description>
     <url/>
     <licenses>
         <license/>

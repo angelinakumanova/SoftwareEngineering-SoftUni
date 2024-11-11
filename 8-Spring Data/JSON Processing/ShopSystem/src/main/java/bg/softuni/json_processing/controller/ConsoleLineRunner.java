@@ -27,7 +27,7 @@ public class ConsoleLineRunner implements CommandLineRunner {
 //        productService.getProductsJsonByPriceRange(500, 1000);
 //        userService.getUserJsonWithSoldProducts();
 //       categoryService.getJsonCategoriesProductsCount();
-        
+
     }
 
     private void seedDatabase() throws IOException {

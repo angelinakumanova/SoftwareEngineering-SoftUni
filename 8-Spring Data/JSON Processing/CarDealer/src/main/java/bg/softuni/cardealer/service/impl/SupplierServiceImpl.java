@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class SupplierServiceImpl implements SupplierService {
@@ -49,5 +51,13 @@ public class SupplierServiceImpl implements SupplierService {
     @Override
     public boolean isImported() {
         return this.supplierRepository.count() > 0;
+    }
+
+    @Override
+    public Supplier getRandomSupplier() {
+        int id = ThreadLocalRandom.current().nextInt(1, (int) (supplierRepository.count() + 1));
+        Optional<Supplier> supplier = supplierRepository.findById(id);
+
+        return supplier.get();
     }
 }

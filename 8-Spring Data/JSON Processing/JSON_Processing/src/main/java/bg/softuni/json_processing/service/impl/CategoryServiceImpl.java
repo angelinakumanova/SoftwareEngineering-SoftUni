@@ -3,6 +3,7 @@ package bg.softuni.json_processing.service.impl;
 import bg.softuni.json_processing.data.entities.Category;
 import bg.softuni.json_processing.data.repositories.CategoryRepository;
 import bg.softuni.json_processing.service.CategoryService;
+import bg.softuni.json_processing.service.dtos.CategoryCountDto;
 import bg.softuni.json_processing.service.dtos.CategorySeedJsonDto;
 import bg.softuni.json_processing.utils.ValidatorUtil;
 import com.google.gson.Gson;
@@ -11,10 +12,12 @@ import jakarta.validation.ConstraintViolation;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -79,5 +82,23 @@ public class CategoryServiceImpl implements CategoryService {
 
         return categories;
 
+    }
+
+    @Override
+    public void getJsonCategoriesProductsCount() {
+        List<CategoryCountDto> list = categoryRepository
+                .getCategoriesWithProductsCount()
+                .stream()
+                .map(c -> modelMapper.map(c, CategoryCountDto.class))
+                .toList();
+
+        String json = gson.toJson(list);
+        Path filePath = Path.of("src/main/resources/files/categories-products.json");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

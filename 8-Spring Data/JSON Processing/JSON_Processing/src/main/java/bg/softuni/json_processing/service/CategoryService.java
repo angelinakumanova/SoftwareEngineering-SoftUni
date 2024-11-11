@@ -10,4 +10,6 @@ public interface CategoryService {
     boolean isImported();
 
     Set<Category> getRandomCategories();
+
+    void getJsonCategoriesProductsCount();
 }

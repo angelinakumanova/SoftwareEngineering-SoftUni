@@ -2,22 +2,29 @@ package bg.softuni.json_processing.service.impl;
 
 import bg.softuni.json_processing.data.entities.Category;
 import bg.softuni.json_processing.data.entities.Product;
+import bg.softuni.json_processing.data.entities.User;
 import bg.softuni.json_processing.data.repositories.ProductRepository;
 import bg.softuni.json_processing.service.CategoryService;
 import bg.softuni.json_processing.service.ProductService;
 import bg.softuni.json_processing.service.UserService;
 import bg.softuni.json_processing.service.dtos.CategorySeedJsonDto;
+import bg.softuni.json_processing.service.dtos.ProductPriceRangeDto;
 import bg.softuni.json_processing.service.dtos.ProductSeedJsonDto;
 import bg.softuni.json_processing.utils.ValidatorUtil;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import jakarta.validation.ConstraintViolation;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +46,8 @@ public class ProductServiceImpl implements ProductService {
         this.modelMapper = modelMapper;
         this.validatorUtil = validatorUtil;
         this.gson = gson;
+
+        configureMappings();
     }
 
     @Override
@@ -73,5 +82,32 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public boolean isImported() {
         return productRepository.count() > 0;
+    }
+
+    @Override
+    public String getProductsJsonByPriceRange(double lower, double upper) {
+        List<ProductPriceRangeDto> priceRangeDtos = productRepository.getProductsByPriceBetweenOrderByPriceAsc(BigDecimal.valueOf(lower), BigDecimal.valueOf(upper))
+                .stream()
+                .map(product -> modelMapper.map(product, ProductPriceRangeDto.class))
+                .collect(Collectors.toList());
+
+
+        return gson.toJson(priceRangeDtos);
+    }
+
+    private void configureMappings() {
+        Converter<User, String> sellerConverter = context -> {
+            String firstName = context.getSource().getFirstName() != null ? context.getSource().getFirstName() : "";
+            String lastName = context.getSource().getLastName();
+
+            return firstName + (firstName.isEmpty() ? "" : " ") + lastName;
+        };
+
+        modelMapper.addMappings(new PropertyMap<Product, ProductPriceRangeDto>() {
+            @Override
+            protected void configure() {
+                using(sellerConverter).map(source.getSeller()).setSeller(null);
+            }
+        });
     }
 }

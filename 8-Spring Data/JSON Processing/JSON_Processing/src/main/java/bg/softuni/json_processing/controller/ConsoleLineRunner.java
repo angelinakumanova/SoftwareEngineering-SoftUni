@@ -6,6 +6,8 @@ import bg.softuni.json_processing.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+
 @Component
 public class ConsoleLineRunner implements CommandLineRunner {
     private final UserService userService;
@@ -20,6 +22,13 @@ public class ConsoleLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        seedDatabase();
+        
+        String productsJsonByPriceRange = productService.getProductsJsonByPriceRange(500, 1000);
+        System.out.println(productsJsonByPriceRange);
+    }
+
+    private void seedDatabase() throws IOException {
         if (!userService.isImported()) {
             userService.seedUsers();
         }

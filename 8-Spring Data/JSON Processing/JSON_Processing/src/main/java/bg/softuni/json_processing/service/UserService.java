@@ -12,4 +12,6 @@ public interface UserService {
 
     User getRandomUser();
 
+    void getUserJsonWithSoldProducts();
+
 }

@@ -7,5 +7,5 @@ public interface ProductService {
 
     boolean isImported();
 
-    String getProductsJsonByPriceRange(double lower, double upper);
+    void getProductsJsonByPriceRange(double lower, double upper);
 }

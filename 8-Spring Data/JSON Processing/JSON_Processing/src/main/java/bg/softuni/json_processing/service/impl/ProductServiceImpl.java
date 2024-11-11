@@ -19,6 +19,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
@@ -85,14 +87,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public String getProductsJsonByPriceRange(double lower, double upper) {
+    public void getProductsJsonByPriceRange(double lower, double upper) {
         List<ProductPriceRangeDto> priceRangeDtos = productRepository.getProductsByPriceBetweenOrderByPriceAsc(BigDecimal.valueOf(lower), BigDecimal.valueOf(upper))
                 .stream()
                 .map(product -> modelMapper.map(product, ProductPriceRangeDto.class))
                 .collect(Collectors.toList());
 
+        String json =  gson.toJson(priceRangeDtos);
+        Path filePath = Path.of("src/main/resources/files/products-by-price-range.json");
 
-        return gson.toJson(priceRangeDtos);
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private void configureMappings() {

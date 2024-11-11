@@ -23,9 +23,9 @@ public class ConsoleLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         seedDatabase();
-        
-        String productsJsonByPriceRange = productService.getProductsJsonByPriceRange(500, 1000);
-        System.out.println(productsJsonByPriceRange);
+
+//        productService.getProductsJsonByPriceRange(500, 1000);
+        userService.getUserJsonWithSoldProducts();
     }
 
     private void seedDatabase() throws IOException {

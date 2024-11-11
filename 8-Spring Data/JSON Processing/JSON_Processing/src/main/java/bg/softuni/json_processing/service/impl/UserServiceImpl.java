@@ -15,6 +15,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @Service
@@ -66,5 +67,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean isImported() {
         return userRepository.count() > 0;
+    }
+
+    @Override
+    public User getRandomUser() {
+        long id = ThreadLocalRandom.current().nextLong(1, userRepository.count() + 1);
+        return userRepository.findById(id).orElse(null);
     }
 }

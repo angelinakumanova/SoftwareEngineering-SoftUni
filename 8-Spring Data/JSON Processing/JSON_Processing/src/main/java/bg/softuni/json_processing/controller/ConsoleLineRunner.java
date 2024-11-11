@@ -1,6 +1,7 @@
 package bg.softuni.json_processing.controller;
 
 import bg.softuni.json_processing.service.CategoryService;
+import bg.softuni.json_processing.service.ProductService;
 import bg.softuni.json_processing.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -9,10 +10,12 @@ import org.springframework.stereotype.Component;
 public class ConsoleLineRunner implements CommandLineRunner {
     private final UserService userService;
     private final CategoryService categoryService;
+    private final ProductService productService;
 
-    public ConsoleLineRunner(UserService userService, CategoryService categoryService) {
+    public ConsoleLineRunner(UserService userService, CategoryService categoryService, ProductService productService) {
         this.userService = userService;
         this.categoryService = categoryService;
+        this.productService = productService;
     }
 
     @Override
@@ -23,6 +26,10 @@ public class ConsoleLineRunner implements CommandLineRunner {
 
         if (!categoryService.isImported()) {
             categoryService.seedCategories();
+        }
+
+        if (!productService.isImported()) {
+            productService.seedProducts();
         }
     }
 }

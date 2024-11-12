@@ -55,7 +55,7 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public Supplier getRandomSupplier() {
-        int id = ThreadLocalRandom.current().nextInt(1, (int) (supplierRepository.count() + 1));
+        Long id = ThreadLocalRandom.current().nextLong(1, supplierRepository.count() + 1);
         Optional<Supplier> supplier = supplierRepository.findById(id);
 
         return supplier.get();

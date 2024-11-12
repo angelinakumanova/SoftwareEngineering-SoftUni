@@ -14,6 +14,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class PartServiceImpl implements PartService {
@@ -54,5 +57,18 @@ public class PartServiceImpl implements PartService {
     @Override
     public boolean isImported() {
         return this.partRepository.count() > 0;
+    }
+
+    @Override
+    public Set<Part> getRandomParts() {
+        Set<Part> parts = new HashSet<>();
+        int number = ThreadLocalRandom.current().nextInt(3, 6);
+
+        for (int i = 0; i < number; i++) {
+            Long id = ThreadLocalRandom.current().nextLong(1, this.partRepository.count() + 1);
+            parts.add(partRepository.findById(id).get());
+        }
+
+        return parts;
     }
 }

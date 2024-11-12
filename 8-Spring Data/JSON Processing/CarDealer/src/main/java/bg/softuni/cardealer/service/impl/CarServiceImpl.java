@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -53,4 +54,12 @@ public class CarServiceImpl implements CarService {
     public boolean isImported() {
         return carRepository.count() > 0;
     }
+
+    @Override
+    public Car getRandomCar() {
+        long id = ThreadLocalRandom.current().nextLong(1, carRepository.count() + 1);
+
+        return carRepository.findById(id).orElse(null);
+    }
+
 }

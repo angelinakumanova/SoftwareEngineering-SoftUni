@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 @Entity
 @Table (name = "sales")
 public class Sale extends BaseEntity{
-    private Double discount;
+    private Integer discount;
     @OneToOne
     @JoinColumn(name = "car_id")
     private Car car;
@@ -16,11 +16,11 @@ public class Sale extends BaseEntity{
     public Sale() {
     }
 
-    public Double getDiscount() {
+    public Integer getDiscount() {
         return discount;
     }
 
-    public void setDiscount(Double discount) {
+    public void setDiscount(Integer discount) {
         this.discount = discount;
     }
 

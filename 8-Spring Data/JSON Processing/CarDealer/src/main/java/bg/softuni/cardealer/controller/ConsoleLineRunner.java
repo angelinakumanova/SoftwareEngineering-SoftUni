@@ -26,7 +26,8 @@ public class ConsoleLineRunner implements CommandLineRunner {
         seedDatabase();
 
 //        customerService.getOrderedCustomersJson();
-        carService.getToyotaCarsJson();
+//        carService.getToyotaCarsJson();
+        supplierService.getNonAbroadSuppliersJson();
     }
 
     private void seedDatabase() {

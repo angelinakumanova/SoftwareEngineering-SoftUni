@@ -9,4 +9,6 @@ public interface SupplierService {
     boolean isImported();
 
     Supplier getRandomSupplier();
+
+    void getNonAbroadSuppliersJson();
 }

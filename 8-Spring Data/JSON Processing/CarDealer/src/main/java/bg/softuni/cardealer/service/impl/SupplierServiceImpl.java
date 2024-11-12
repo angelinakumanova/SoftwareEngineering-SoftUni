@@ -3,16 +3,20 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Supplier;
 import bg.softuni.cardealer.data.repositories.SupplierRepository;
 import bg.softuni.cardealer.service.SupplierService;
+import bg.softuni.cardealer.service.dtos.exportDto.NonAbroadSupplierDto;
 import bg.softuni.cardealer.service.dtos.importDto.CreateSupplierJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -59,5 +63,28 @@ public class SupplierServiceImpl implements SupplierService {
         Optional<Supplier> supplier = supplierRepository.findById(id);
 
         return supplier.get();
+    }
+
+    @Override
+    public void getNonAbroadSuppliersJson() {
+        List<NonAbroadSupplierDto> list = supplierRepository.findAllByIsImporterIsFalse()
+                .stream()
+                .map(s -> {
+                    NonAbroadSupplierDto supplier = modelMapper.map(s, NonAbroadSupplierDto.class);
+                    supplier.setPartsCount(s.getParts().size());
+
+                    return supplier;
+                })
+                .toList();
+
+        String json = gson.toJson(list);
+        Path path = Path.of("src/main/resources/files/non-abroad-suppliers.json");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println("Failed to write non-abroad-suppliers.json");
+        }
+
     }
 }

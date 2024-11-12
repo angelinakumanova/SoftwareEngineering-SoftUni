@@ -8,4 +8,6 @@ import java.util.Set;
 public interface CarRepository extends JpaRepository<Car, Long> {
 
     Set<Car> findAllByMakeOrderByModelAscTravelledDistanceDesc(String make);
+
+    Set<Car> getAllBy();
 }

@@ -10,4 +10,6 @@ public interface CarService {
     Car getRandomCar();
 
     void getToyotaCarsJson();
+
+    void getAllCarsAndPartsJson();
 }

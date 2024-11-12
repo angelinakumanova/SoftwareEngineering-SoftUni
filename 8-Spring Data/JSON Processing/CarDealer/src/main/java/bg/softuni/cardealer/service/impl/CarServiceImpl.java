@@ -1,10 +1,14 @@
 package bg.softuni.cardealer.service.impl;
 
 import bg.softuni.cardealer.data.entities.Car;
+import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.CarRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.PartService;
 import bg.softuni.cardealer.service.dtos.exportDto.CarByMakeDto;
+import bg.softuni.cardealer.service.dtos.exportDto.CarListDto;
+import bg.softuni.cardealer.service.dtos.exportDto.CarPartsListDto;
+import bg.softuni.cardealer.service.dtos.exportDto.PartsListDto;
 import bg.softuni.cardealer.service.dtos.importDto.CreateCarJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
@@ -15,7 +19,9 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -82,6 +88,33 @@ public class CarServiceImpl implements CarService {
         }
 
 
+    }
+
+    @Override
+    public void getAllCarsAndPartsJson() {
+        List<CarPartsListDto> list = carRepository.getAllBy()
+                .stream()
+                .map(c -> {
+                    CarListDto car = modelMapper.map(c, CarListDto.class);
+                    List<PartsListDto> parts = c.getParts()
+                            .stream()
+                            .map(p -> modelMapper.map(p, PartsListDto.class))
+                            .toList();
+
+                    CarPartsListDto carPartsListDto = new CarPartsListDto();
+                    carPartsListDto.setCar(car);
+                    carPartsListDto.setParts(parts);
+
+                    return carPartsListDto;
+                }).toList();
+        String json = gson.toJson(list);
+        Path path = Path.of("src/main/resources/files/cars-and-parts.json");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println("Failed to write cars-and-parts.json!");
+        }
     }
 
 }

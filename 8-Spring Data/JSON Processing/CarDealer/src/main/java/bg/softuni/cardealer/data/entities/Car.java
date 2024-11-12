@@ -12,13 +12,11 @@ public class Car extends BaseEntity {
     private String model;
     @Column(name = "travelled_distance")
     private Long travelledDistance;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "cars_parts",
                 joinColumns = @JoinColumn(name = "car_id"),
                 inverseJoinColumns = @JoinColumn(name = "part_id"))
     private Set<Part> parts;
-//    @OneToMany(mappedBy = "customer")
-//    private Set<Sale> sales;
 
     public Car() {
         this.parts = new HashSet<>();

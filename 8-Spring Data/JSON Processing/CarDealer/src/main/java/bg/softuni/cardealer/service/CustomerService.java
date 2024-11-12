@@ -10,4 +10,6 @@ public interface CustomerService {
     Customer getRandomCustomer();
 
     void getOrderedCustomersJson();
+
+    void getTotalSalesByCustomerJson();
 }

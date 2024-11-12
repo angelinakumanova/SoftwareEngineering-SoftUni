@@ -18,6 +18,8 @@ public class Car extends BaseEntity {
                 inverseJoinColumns = @JoinColumn(name = "part_id"))
     private Set<Part> parts;
 
+
+
     public Car() {
         this.parts = new HashSet<>();
     }

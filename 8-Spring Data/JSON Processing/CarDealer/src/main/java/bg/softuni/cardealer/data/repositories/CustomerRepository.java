@@ -7,4 +7,6 @@ import java.util.Set;
 
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Set<Customer> findAllByOrderByBirthDateAscIsYoungDriverAsc();
+
+    Set<Customer> getAllByBoughtIsNotEmpty();
 }

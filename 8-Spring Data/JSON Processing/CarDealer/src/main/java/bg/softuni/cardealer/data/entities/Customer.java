@@ -1,10 +1,9 @@
 package bg.softuni.cardealer.data.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
@@ -14,6 +13,8 @@ public class Customer extends BaseEntity{
     private LocalDate birthDate;
     @Column(name = "is_young_driver")
     private boolean isYoungDriver;
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
+    private Set<Sale> bought;
 
     public Customer() {
     }
@@ -40,5 +41,13 @@ public class Customer extends BaseEntity{
 
     public void setYoungDriver(boolean youngDriver) {
         isYoungDriver = youngDriver;
+    }
+
+    public Set<Sale> getBought() {
+        return bought;
+    }
+
+    public void setBought(Set<Sale> bought) {
+        this.bought = bought;
     }
 }

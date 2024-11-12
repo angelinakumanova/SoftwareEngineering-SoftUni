@@ -1,6 +1,7 @@
 package bg.softuni.cardealer.service.impl;
 
 import bg.softuni.cardealer.data.entities.Car;
+import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.entities.Sale;
 import bg.softuni.cardealer.data.repositories.SaleRepository;
 import bg.softuni.cardealer.service.CarService;
@@ -10,6 +11,7 @@ import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;

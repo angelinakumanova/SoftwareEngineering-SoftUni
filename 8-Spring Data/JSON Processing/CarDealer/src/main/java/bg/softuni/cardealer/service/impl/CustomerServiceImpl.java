@@ -1,8 +1,10 @@
 package bg.softuni.cardealer.service.impl;
 
 import bg.softuni.cardealer.data.entities.Customer;
+import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.CustomerRepository;
 import bg.softuni.cardealer.service.CustomerService;
+import bg.softuni.cardealer.service.dtos.exportDto.CustomerSaleDto;
 import bg.softuni.cardealer.service.dtos.exportDto.OrderedCustomerDto;
 import bg.softuni.cardealer.service.dtos.importDto.CreateCustomerJsonDto;
 import com.google.gson.Gson;
@@ -12,11 +14,14 @@ import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -78,6 +83,38 @@ public class CustomerServiceImpl implements CustomerService {
             writer.write(json);
         } catch (IOException e) {
             System.out.println("Couldn't write ordered-customers.json");
+        }
+    }
+
+    @Override
+    public void getTotalSalesByCustomerJson() {
+        List<CustomerSaleDto> list = customerRepository.getAllByBoughtIsNotEmpty()
+                .stream()
+                .map(c -> {
+                    String name = c.getName();
+                    Integer boughtCars = c.getBought().size();
+                    BigDecimal spentMoney = c.getBought().stream()
+                            .map(s -> s.getCar().getParts()
+                                    .stream().map(Part::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add))
+                            .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+                    CustomerSaleDto customerSaleDto = new CustomerSaleDto();
+                    customerSaleDto.setFullName(name);
+                    customerSaleDto.setBoughtCars(boughtCars);
+                    customerSaleDto.setSpentMoney(spentMoney);
+
+                    return customerSaleDto;
+                }).sorted(Comparator.comparing(CustomerSaleDto::getSpentMoney, Comparator.reverseOrder())
+                        .thenComparing(CustomerSaleDto::getBoughtCars, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+
+        String json = gson.toJson(list);
+        Path path = Path.of("src/main/resources/files/total-sales.json");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println("Couldn't write total-sales.json");
         }
     }
 }

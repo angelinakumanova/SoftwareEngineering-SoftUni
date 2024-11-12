@@ -4,7 +4,7 @@ import bg.softuni.cardealer.data.entities.Car;
 import bg.softuni.cardealer.data.repositories.CarRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.PartService;
-import bg.softuni.cardealer.service.dtos.CreateCarJsonDto;
+import bg.softuni.cardealer.service.dtos.importDto.CreateCarJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.modelmapper.ModelMapper;

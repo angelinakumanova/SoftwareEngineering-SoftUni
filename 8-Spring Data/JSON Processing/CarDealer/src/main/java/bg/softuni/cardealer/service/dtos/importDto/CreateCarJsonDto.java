@@ -1,4 +1,4 @@
-package bg.softuni.cardealer.service.dtos;
+package bg.softuni.cardealer.service.dtos.importDto;
 
 public class CreateCarJsonDto {
     private String make;

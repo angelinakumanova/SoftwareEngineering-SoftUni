@@ -1,13 +1,22 @@
-package bg.softuni.cardealer.service.dtos;
+package bg.softuni.cardealer.service.dtos.exportDto;
 
 import java.time.LocalDate;
 
-public class CreateCustomerJsonDto {
+public class OrderedCustomerDto {
+    private Long id;
     private String name;
-    private LocalDate birthDate;
+    private String birthDate;
     private boolean isYoungDriver;
 
-    public CreateCustomerJsonDto() {
+    public OrderedCustomerDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -18,11 +27,11 @@ public class CreateCustomerJsonDto {
         this.name = name;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

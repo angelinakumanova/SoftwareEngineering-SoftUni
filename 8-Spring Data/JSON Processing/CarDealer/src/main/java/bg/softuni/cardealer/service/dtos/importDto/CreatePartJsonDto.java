@@ -1,4 +1,4 @@
-package bg.softuni.cardealer.service.dtos;
+package bg.softuni.cardealer.service.dtos.importDto;
 
 import java.math.BigDecimal;
 

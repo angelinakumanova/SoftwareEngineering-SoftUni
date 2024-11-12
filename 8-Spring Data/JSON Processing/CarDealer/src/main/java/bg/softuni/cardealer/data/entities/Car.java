@@ -17,6 +17,8 @@ public class Car extends BaseEntity {
                 joinColumns = @JoinColumn(name = "car_id"),
                 inverseJoinColumns = @JoinColumn(name = "part_id"))
     private Set<Part> parts;
+//    @OneToMany(mappedBy = "customer")
+//    private Set<Sale> sales;
 
     public Car() {
         this.parts = new HashSet<>();

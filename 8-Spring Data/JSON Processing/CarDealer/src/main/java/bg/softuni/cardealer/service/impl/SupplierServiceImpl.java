@@ -3,7 +3,7 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Supplier;
 import bg.softuni.cardealer.data.repositories.SupplierRepository;
 import bg.softuni.cardealer.service.SupplierService;
-import bg.softuni.cardealer.service.dtos.CreateSupplierJsonDto;
+import bg.softuni.cardealer.service.dtos.importDto.CreateSupplierJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.modelmapper.ModelMapper;

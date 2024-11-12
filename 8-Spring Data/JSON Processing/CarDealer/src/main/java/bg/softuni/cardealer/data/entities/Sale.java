@@ -22,6 +22,9 @@ public class Sale extends BaseEntity{
 
     public void setDiscount(Integer discount) {
         this.discount = discount;
+//        if (customer.isYoungDriver()) {
+//            setDiscount(getDiscount() + 5);
+//        }
     }
 
     public Car getCar() {

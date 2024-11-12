@@ -24,7 +24,8 @@ public class ConsoleLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         seedDatabase();
-        
+
+        customerService.getOrderedCustomersJson();
     }
 
     private void seedDatabase() {

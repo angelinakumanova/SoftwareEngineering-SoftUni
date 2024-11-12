@@ -3,15 +3,19 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Customer;
 import bg.softuni.cardealer.data.repositories.CustomerRepository;
 import bg.softuni.cardealer.service.CustomerService;
-import bg.softuni.cardealer.service.dtos.CreateCustomerJsonDto;
+import bg.softuni.cardealer.service.dtos.exportDto.OrderedCustomerDto;
+import bg.softuni.cardealer.service.dtos.importDto.CreateCustomerJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -58,5 +62,22 @@ public class CustomerServiceImpl implements CustomerService {
         long id = ThreadLocalRandom.current().nextLong(1, customerRepository.count() + 1);
 
         return customerRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public void getOrderedCustomersJson() {
+        List<OrderedCustomerDto> list = customerRepository.findAllByOrderByBirthDateAscIsYoungDriverAsc()
+                .stream()
+                .map(c -> modelMapper.map(c, OrderedCustomerDto.class))
+                .toList();
+
+        String json = gson.toJson(list);
+        Path filePath = Path.of("src/main/resources/files/ordered-customers.json");
+
+        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
+            writer.write(json);
+        } catch (IOException e) {
+            System.out.println("Couldn't write ordered-customers.json");
+        }
     }
 }

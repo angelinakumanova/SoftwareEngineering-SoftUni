@@ -4,13 +4,12 @@ import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.PartRepository;
 import bg.softuni.cardealer.service.PartService;
 import bg.softuni.cardealer.service.SupplierService;
-import bg.softuni.cardealer.service.dtos.CreatePartJsonDto;
+import bg.softuni.cardealer.service.dtos.importDto.CreatePartJsonDto;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;

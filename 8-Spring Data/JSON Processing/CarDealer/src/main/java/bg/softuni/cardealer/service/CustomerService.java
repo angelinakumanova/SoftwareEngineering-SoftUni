@@ -8,4 +8,6 @@ public interface CustomerService {
     boolean isImported();
 
     Customer getRandomCustomer();
+
+    void getOrderedCustomersJson();
 }

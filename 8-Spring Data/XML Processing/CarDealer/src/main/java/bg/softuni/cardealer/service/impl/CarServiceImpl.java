@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -31,18 +32,21 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void seedCars() throws IOException {
-        CarImportXmlDto[] cars = xmlMapper.readValue(new File(CARS_XML_PATH), CarImportXmlDto[].class);
+    public void seedCars() {
+        try {
+            CarImportXmlDto[] cars = xmlMapper.readValue(new File(CARS_XML_PATH), CarImportXmlDto[].class);
 
+            Arrays.stream(cars)
+                    .map(carDto -> this.modelMapper.map(carDto, Car.class))
+                    .peek(carDb -> carDb.setParts(partService.getRandomParts()))
+                    .forEach(carRepository::save);
 
-        for (CarImportXmlDto car : cars) {
-            Car carDb = this.modelMapper.map(car, Car.class);
-//            carDb.setParts(partService.getRandomParts());
-            carRepository.save(carDb);
+            carRepository.flush();
+            System.out.println(carRepository.count() + " Cars have been saved!");
+
+        } catch (IOException e) {
+            System.err.println("Error reading cars from XML file: " + e.getMessage());
         }
-
-        carRepository.flush();
-        System.out.println(carRepository.count() + " Cars have been saved!");
 
     }
 

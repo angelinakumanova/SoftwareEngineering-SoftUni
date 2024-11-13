@@ -5,7 +5,7 @@ import bg.softuni.cardealer.data.entities.Car;
 import java.io.IOException;
 
 public interface CarService {
-    void seedCars() throws IOException;
+    void seedCars();
 
     boolean isImported();
 

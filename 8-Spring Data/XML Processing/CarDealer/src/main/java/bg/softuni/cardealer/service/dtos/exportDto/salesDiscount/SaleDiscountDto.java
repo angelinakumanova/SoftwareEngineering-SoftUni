@@ -1,12 +1,16 @@
-package bg.softuni.cardealer.service.dtos.exportDto;
+package bg.softuni.cardealer.service.dtos.exportDto.salesDiscount;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.math.BigDecimal;
 
 public class SaleDiscountDto {
     private CarDiscountDto car;
+    @JacksonXmlProperty(localName = "customer-name")
     private String customerName;
     private Double discount;
     private BigDecimal price;
+    @JacksonXmlProperty(localName = "price-with-discount")
     private BigDecimal priceWithDiscount;
 
     public SaleDiscountDto() {

@@ -90,7 +90,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void getTotalSalesByCustomerJson() {
+    public void getTotalSalesByCustomerXml() {
         List<CustomerSaleDto> list = customerRepository.getAllByBoughtIsNotEmpty()
                 .stream()
                 .map(c -> {

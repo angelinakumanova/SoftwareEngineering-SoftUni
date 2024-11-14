@@ -11,5 +11,5 @@ public interface CustomerService {
 
     void getOrderedCustomersXml();
 
-    void getTotalSalesByCustomerJson();
+    void getTotalSalesByCustomerXml();
 }

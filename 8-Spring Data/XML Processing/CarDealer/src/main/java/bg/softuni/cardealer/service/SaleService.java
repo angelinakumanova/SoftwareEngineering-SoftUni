@@ -5,5 +5,5 @@ public interface SaleService {
 
     boolean isImported();
 
-    void getSalesWithAppliedDiscountJson();
+    void getSalesWithAppliedDiscountXml();
 }

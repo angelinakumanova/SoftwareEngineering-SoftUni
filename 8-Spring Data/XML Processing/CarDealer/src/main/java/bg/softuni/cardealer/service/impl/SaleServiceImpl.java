@@ -7,14 +7,16 @@ import bg.softuni.cardealer.data.repositories.SaleRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.CustomerService;
 import bg.softuni.cardealer.service.SaleService;
+import bg.softuni.cardealer.service.dtos.exportDto.salesDiscount.CarDiscountDto;
+import bg.softuni.cardealer.service.dtos.exportDto.salesDiscount.SaleDiscountDto;
+import bg.softuni.cardealer.service.dtos.exportDto.salesDiscount.SalesExportDto;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -27,12 +29,14 @@ public class SaleServiceImpl implements SaleService {
     private final CarService carService;
 
     private final ModelMapper modelMapper;
+    private final XmlMapper xmlMapper;
 
-    public SaleServiceImpl(SaleRepository saleRepository, CustomerService customerService, CarService carService, ModelMapper modelMapper) {
+    public SaleServiceImpl(SaleRepository saleRepository, CustomerService customerService, CarService carService, ModelMapper modelMapper, XmlMapper xmlMapper) {
         this.saleRepository = saleRepository;
         this.customerService = customerService;
         this.carService = carService;
         this.modelMapper = modelMapper;
+        this.xmlMapper = xmlMapper;
     }
 
     @Override
@@ -63,35 +67,35 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public void getSalesWithAppliedDiscountJson() {
-//        List<SaleDiscountDto> list = saleRepository.getAllBy()
-//                .stream()
-//                .map(s -> {
-//                    CarDiscountDto car = modelMapper.map(s.getCar(), CarDiscountDto.class);
-//                    String name = s.getCustomer().getName();
-//                    Double discount = s.getDiscount() / 100.0;
-//                    BigDecimal partsTotalPrice = s.getCar().getParts().stream()
-//                            .map(Part::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
-//                    BigDecimal discountPrice = partsTotalPrice.multiply(BigDecimal.valueOf((100 - s.getDiscount()) / 100.0));
-//
-//                    SaleDiscountDto saleDiscountDto = new SaleDiscountDto();
-//                    saleDiscountDto.setCar(car);
-//                    saleDiscountDto.setCustomerName(name);
-//                    saleDiscountDto.setDiscount(discount);
-//                    saleDiscountDto.setPrice(partsTotalPrice);
-//                    saleDiscountDto.setPriceWithDiscount(discountPrice);
-//
-//                    return saleDiscountDto;
-//                }).toList();
-//
-//        String json = gson.toJson(list);
-//        Path path = Path.of("src/main/resources/files/sales-discount.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Couldn't write sales-discount.json");
-//        }
+    public void getSalesWithAppliedDiscountXml() {
+        List<SaleDiscountDto> list = saleRepository.getAllBy()
+                .stream()
+                .map(s -> {
+                    CarDiscountDto car = modelMapper.map(s.getCar(), CarDiscountDto.class);
+                    String name = s.getCustomer().getName();
+                    Double discount = s.getDiscount() / 100.0;
+                    BigDecimal partsTotalPrice = s.getCar().getParts().stream()
+                            .map(Part::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add);
+                    BigDecimal discountPrice = partsTotalPrice.multiply(BigDecimal.valueOf((100 - s.getDiscount()) / 100.0));
+
+                    SaleDiscountDto saleDiscountDto = new SaleDiscountDto();
+                    saleDiscountDto.setCar(car);
+                    saleDiscountDto.setCustomerName(name);
+                    saleDiscountDto.setDiscount(discount);
+                    saleDiscountDto.setPrice(partsTotalPrice);
+                    saleDiscountDto.setPriceWithDiscount(discountPrice);
+
+                    return saleDiscountDto;
+                }).toList();
+
+        SalesExportDto salesExportDto = new SalesExportDto(list);
+        String path = "src/main/resources/files/sales-discount.xml";
+
+        try {
+            xmlMapper.writeValue(new File(path), salesExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing sales-discount to XML file: " + e.getMessage());
+        }
     }
 
     private Integer getRandomDiscount() {

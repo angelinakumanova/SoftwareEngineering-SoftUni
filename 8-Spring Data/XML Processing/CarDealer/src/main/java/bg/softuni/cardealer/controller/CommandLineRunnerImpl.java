@@ -30,8 +30,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 //        carService.getToyotaCarsXml();
 //        supplierService.getNonAbroadSuppliersXml();
 //        carService.getAllCarsAndPartsXml();
-        customerService.getTotalSalesByCustomerJson();
-//        saleService.getSalesWithAppliedDiscountJson();
+//        customerService.getTotalSalesByCustomerXml();
+        saleService.getSalesWithAppliedDiscountXml();
     }
 
     private void seedDatabase() {

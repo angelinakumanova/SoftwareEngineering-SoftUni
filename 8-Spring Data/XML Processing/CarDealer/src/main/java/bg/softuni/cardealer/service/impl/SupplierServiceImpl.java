@@ -3,20 +3,14 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Supplier;
 import bg.softuni.cardealer.data.repositories.SupplierRepository;
 import bg.softuni.cardealer.service.SupplierService;
-import bg.softuni.cardealer.service.dtos.SupplierImportXmlDto;
-import com.fasterxml.jackson.core.exc.StreamReadException;
-import com.fasterxml.jackson.databind.DatabindException;
+import bg.softuni.cardealer.service.dtos.importDto.SupplierImportXmlDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 

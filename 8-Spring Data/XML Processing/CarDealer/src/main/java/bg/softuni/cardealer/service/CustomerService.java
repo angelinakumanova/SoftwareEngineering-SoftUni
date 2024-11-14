@@ -9,7 +9,7 @@ public interface CustomerService {
 
     Customer getRandomCustomer();
 
-    void getOrderedCustomersJson();
+    void getOrderedCustomersXml();
 
     void getTotalSalesByCustomerJson();
 }

@@ -4,15 +4,13 @@ import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.PartRepository;
 import bg.softuni.cardealer.service.PartService;
 import bg.softuni.cardealer.service.SupplierService;
-import bg.softuni.cardealer.service.dtos.PartImportXmlDto;
+import bg.softuni.cardealer.service.dtos.importDto.PartImportXmlDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;

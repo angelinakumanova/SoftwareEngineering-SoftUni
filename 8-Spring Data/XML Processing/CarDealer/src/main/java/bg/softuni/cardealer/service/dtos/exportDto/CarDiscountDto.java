@@ -1,18 +1,11 @@
-package bg.softuni.cardealer.service.dtos;
+package bg.softuni.cardealer.service.dtos.exportDto;
 
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
-@JacksonXmlRootElement(localName = "car")
-public class CarImportXmlDto {
-    @JacksonXmlProperty
+public class CarDiscountDto {
     private String make;
-    @JacksonXmlProperty
     private String model;
-    @JacksonXmlProperty(localName = "travelled-distance")
     private Long travelledDistance;
 
-    public CarImportXmlDto() {
+    public CarDiscountDto() {
     }
 
     public String getMake() {

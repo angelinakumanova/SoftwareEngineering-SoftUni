@@ -1,6 +1,8 @@
 package bg.softuni.cardealer.config;
 
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.fasterxml.jackson.dataformat.xml.ser.ToXmlGenerator;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +19,10 @@ public class BeanConfiguration {
 
     @Bean
     public XmlMapper xmlMapper() {
-        return new XmlMapper();
+        XmlMapper xmlMapper = new XmlMapper();
+        xmlMapper.enable(SerializationFeature.INDENT_OUTPUT);
+        xmlMapper.enable(ToXmlGenerator.Feature.WRITE_XML_DECLARATION);
+
+        return xmlMapper;
     }
 }

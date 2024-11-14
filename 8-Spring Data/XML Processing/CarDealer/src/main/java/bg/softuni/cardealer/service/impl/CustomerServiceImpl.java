@@ -3,7 +3,10 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Customer;
 import bg.softuni.cardealer.data.repositories.CustomerRepository;
 import bg.softuni.cardealer.service.CustomerService;
-import bg.softuni.cardealer.service.dtos.CustomerImportXmlDto;
+import bg.softuni.cardealer.service.dtos.exportDto.orderedCustomers.OrderedCustomerDto;
+import bg.softuni.cardealer.service.dtos.exportDto.orderedCustomers.OrderedCustomersExportDto;
+import bg.softuni.cardealer.service.dtos.importDto.CustomerImportXmlDto;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
@@ -15,6 +18,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -63,20 +67,21 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void getOrderedCustomersJson() {
-//        List<OrderedCustomerDto> list = customerRepository.findAllByOrderByBirthDateAscIsYoungDriverAsc()
-//                .stream()
-//                .map(c -> modelMapper.map(c, OrderedCustomerDto.class))
-//                .toList();
-//
-//        String json = gson.toJson(list);
-//        Path filePath = Path.of("src/main/resources/files/ordered-customers.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(filePath)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Couldn't write ordered-customers.json");
-//        }
+    public void getOrderedCustomersXml() {
+        List<OrderedCustomerDto> list = customerRepository.findAllByOrderByBirthDateAscIsYoungDriverAsc()
+                .stream()
+                .map(c -> modelMapper.map(c, OrderedCustomerDto.class))
+                .toList();
+
+        OrderedCustomersExportDto orderedCustomersExportDto = new OrderedCustomersExportDto(list);
+
+        String path = "src/main/resources/files/ordered-customers.xml";
+
+        try {
+            xmlMapper.writeValue(new File(path), orderedCustomersExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing customers to XML file: " + e.getMessage());
+        }
     }
 
     @Override

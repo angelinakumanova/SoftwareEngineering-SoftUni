@@ -1,9 +1,7 @@
-package bg.softuni.cardealer.service.dtos;
+package bg.softuni.cardealer.service.dtos.importDto;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
-
-import java.time.LocalDateTime;
 
 @JacksonXmlRootElement(localName = "customer")
 public class CustomerImportXmlDto {

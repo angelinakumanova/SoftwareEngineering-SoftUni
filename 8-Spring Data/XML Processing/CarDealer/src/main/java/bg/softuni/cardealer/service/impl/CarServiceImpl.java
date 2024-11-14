@@ -4,7 +4,7 @@ import bg.softuni.cardealer.data.entities.Car;
 import bg.softuni.cardealer.data.repositories.CarRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.PartService;
-import bg.softuni.cardealer.service.dtos.CarImportXmlDto;
+import bg.softuni.cardealer.service.dtos.importDto.CarImportXmlDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,15 @@
-package bg.softuni.cardealer.service.dtos.exportDto;
+package bg.softuni.cardealer.service.dtos.exportDto.carsMake;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class CarByMakeDto {
+    @JacksonXmlProperty(isAttribute = true)
     private Integer id;
+    @JacksonXmlProperty(isAttribute = true)
     private String make;
+    @JacksonXmlProperty(isAttribute = true)
     private String model;
+    @JacksonXmlProperty(localName = "travelled-distance", isAttribute = true)
     private Long travelledDistance;
 
     public CarByMakeDto() {

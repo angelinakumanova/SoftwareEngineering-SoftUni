@@ -26,8 +26,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     public void run(String... args) throws Exception {
         seedDatabase();
 
-        customerService.getOrderedCustomersXml();
-//        carService.getToyotaCarsJson();
+//        customerService.getOrderedCustomersXml();
+        carService.getToyotaCarsJson();
 //        supplierService.getNonAbroadSuppliersJson();
 //        carService.getAllCarsAndPartsJson();
 //        customerService.getTotalSalesByCustomerJson();

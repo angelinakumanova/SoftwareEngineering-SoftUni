@@ -4,6 +4,8 @@ import bg.softuni.cardealer.data.entities.Car;
 import bg.softuni.cardealer.data.repositories.CarRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.PartService;
+import bg.softuni.cardealer.service.dtos.exportDto.carsMake.CarByMakeDto;
+import bg.softuni.cardealer.service.dtos.exportDto.carsMake.CarsMakeExportDto;
 import bg.softuni.cardealer.service.dtos.importDto.CarImportXmlDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Service
@@ -64,20 +67,19 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void getToyotaCarsJson() {
-//        List<CarByMakeDto> cars = carRepository.findAllByMakeOrderByModelAscTravelledDistanceDesc("Toyota")
-//                .stream()
-//                .map(c -> modelMapper.map(c, CarByMakeDto.class))
-//                .toList();
-//
-//        String json = gson.toJson(cars);
-//        Path path = Path.of("src/main/resources/files/cars-by-make.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Failed to write cars-by-make.json!");
-//        }
+        List<CarByMakeDto> cars = carRepository.findAllByMakeOrderByModelAscTravelledDistanceDesc("Toyota")
+                .stream()
+                .map(c -> modelMapper.map(c, CarByMakeDto.class))
+                .toList();
 
+        CarsMakeExportDto carsMakeExportDto = new CarsMakeExportDto(cars);
+        String path = "src/main/resources/files/cars-by-make.xml";
+
+        try {
+            xmlMapper.writeValue(new File(path), carsMakeExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing cars to JSON file: " + e.getMessage());
+        }
 
     }
 

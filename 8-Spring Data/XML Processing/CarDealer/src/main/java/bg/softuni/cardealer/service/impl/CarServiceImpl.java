@@ -88,7 +88,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void getAllCarsAndPartsJson() {
+    public void getAllCarsAndPartsXml() {
         List<CarPartsListDto> list = carRepository.getAllBy()
                 .stream()
                 .map(c -> {

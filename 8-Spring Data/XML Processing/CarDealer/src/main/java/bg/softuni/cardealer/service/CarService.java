@@ -11,5 +11,5 @@ public interface CarService {
 
     void getToyotaCarsXml();
 
-    void getAllCarsAndPartsJson();
+    void getAllCarsAndPartsXml();
 }

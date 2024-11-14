@@ -1,10 +1,15 @@
-package bg.softuni.cardealer.service.dtos.exportDto;
+package bg.softuni.cardealer.service.dtos.exportDto.totalSales;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 import java.math.BigDecimal;
 
 public class CustomerSaleDto {
+    @JacksonXmlProperty(localName = "full-name", isAttribute = true)
     private String fullName;
+    @JacksonXmlProperty(localName = "bought-cars", isAttribute = true)
     private Integer boughtCars;
+    @JacksonXmlProperty(localName = "spent-money", isAttribute = true)
     private BigDecimal spentMoney;
 
     public CustomerSaleDto() {

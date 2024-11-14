@@ -1,12 +1,14 @@
 package bg.softuni.cardealer.service.impl;
 
 import bg.softuni.cardealer.data.entities.Customer;
+import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.CustomerRepository;
 import bg.softuni.cardealer.service.CustomerService;
+import bg.softuni.cardealer.service.dtos.exportDto.totalSales.CustomerSaleDto;
 import bg.softuni.cardealer.service.dtos.exportDto.orderedCustomers.OrderedCustomerDto;
 import bg.softuni.cardealer.service.dtos.exportDto.orderedCustomers.OrderedCustomersExportDto;
+import bg.softuni.cardealer.service.dtos.exportDto.totalSales.SalesExportDto;
 import bg.softuni.cardealer.service.dtos.importDto.CustomerImportXmlDto;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
@@ -15,11 +17,14 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -86,34 +91,34 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void getTotalSalesByCustomerJson() {
-//        List<CustomerSaleDto> list = customerRepository.getAllByBoughtIsNotEmpty()
-//                .stream()
-//                .map(c -> {
-//                    String name = c.getName();
-//                    Integer boughtCars = c.getBought().size();
-//                    BigDecimal spentMoney = c.getBought().stream()
-//                            .map(s -> s.getCar().getParts()
-//                                    .stream().map(Part::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add))
-//                            .reduce(BigDecimal.ZERO, BigDecimal::add);
-//
-//                    CustomerSaleDto customerSaleDto = new CustomerSaleDto();
-//                    customerSaleDto.setFullName(name);
-//                    customerSaleDto.setBoughtCars(boughtCars);
-//                    customerSaleDto.setSpentMoney(spentMoney);
-//
-//                    return customerSaleDto;
-//                }).sorted(Comparator.comparing(CustomerSaleDto::getSpentMoney, Comparator.reverseOrder())
-//                        .thenComparing(CustomerSaleDto::getBoughtCars, Comparator.reverseOrder()))
-//                .collect(Collectors.toList());
-//
-//        String json = gson.toJson(list);
-//        Path path = Path.of("src/main/resources/files/total-sales.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Couldn't write total-sales.json");
-//        }
+        List<CustomerSaleDto> list = customerRepository.getAllByBoughtIsNotEmpty()
+                .stream()
+                .map(c -> {
+                    String name = c.getName();
+                    Integer boughtCars = c.getBought().size();
+                    BigDecimal spentMoney = c.getBought().stream()
+                            .map(s -> s.getCar().getParts()
+                                    .stream().map(Part::getPrice).reduce(BigDecimal.ZERO, BigDecimal::add))
+                            .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+                    CustomerSaleDto customerSaleDto = new CustomerSaleDto();
+                    customerSaleDto.setFullName(name);
+                    customerSaleDto.setBoughtCars(boughtCars);
+                    customerSaleDto.setSpentMoney(spentMoney);
+
+                    return customerSaleDto;
+                }).sorted(Comparator.comparing(CustomerSaleDto::getSpentMoney, Comparator.reverseOrder())
+                        .thenComparing(CustomerSaleDto::getBoughtCars, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
+
+        SalesExportDto salesExportDto = new SalesExportDto(list);
+        String path = "src/main/resources/files/total-sales.xml";
+
+        try  {
+            xmlMapper.writeValue(new File(path), salesExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing total sales by customer to XML file: " + e.getMessage());
+        }
     }
 
     private void configureMappings() {

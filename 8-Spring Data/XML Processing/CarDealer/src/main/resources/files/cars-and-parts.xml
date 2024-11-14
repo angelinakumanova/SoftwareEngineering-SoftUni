@@ -1,0 +1,3238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cars-and-parts>
+  <car>
+    <car make="Opel" model="Omega" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Trim package" price="1900.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Astra" travelled_distance="9223372036854775807"/>
+    <parts>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Astra" travelled_distance="922337203685807"/>
+    <parts>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Corsa" travelled_distance="214747"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Steering box" price="103.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Kadet" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Fender" price="10.34"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Vectra" travelled_distance="9223372854775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Insignia" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Fuel rail" price="107.99"/>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Camshaft" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Astra" travelled_distance="922336854775807"/>
+    <parts>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Valve spring" price="104.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Corsa" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+      <parts name="Window seal" price="100.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Omega" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Insignia" travelled_distance="9223372036854775807"/>
+    <parts>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Vectra" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Astra" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Steering arm" price="104.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Omega" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Corsa" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Insignia" travelled_distance="9223372036854775807"/>
+    <parts>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Omega" travelled_distance="9223336854775807"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Corsa" travelled_distance="2"/>
+    <parts>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Opel" model="Omega" travelled_distance="1"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F20" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F25" travelled_distance="9223372036854775807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M5 F10" travelled_distance="10"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Cylinder head" price="6.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F04" travelled_distance="100000"/>
+    <parts>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="E88" travelled_distance="200000"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Camshaft" price="100.98"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M Roadster E85" travelled_distance="92233720365807"/>
+    <parts>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="1M Coupe" travelled_distance="2147"/>
+    <parts>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Front fascia" price="11.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="X6 M" travelled_distance="922775807"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="E67" travelled_distance="21447"/>
+    <parts>
+      <parts name="Door latch" price="2331.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Front fascia" price="11.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M6 E63" travelled_distance="92235807"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Resonator" price="106.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M6 E63" travelled_distance="2147"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Window motor" price="123.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F20" travelled_distance="21447"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F04" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Differential clutch" price="120.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M5 F10" travelled_distance="27483647"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Front fascia" price="11.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="X6 M" travelled_distance="2036854775807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F20" travelled_distance="83647"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="X6 M" travelled_distance="483647"/>
+    <parts>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Distributor" price="7.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F04" travelled_distance="483647"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="F20" travelled_distance="975807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="BMW" model="M6 E63" travelled_distance="214747"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda" travelled_distance="92233854775807"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4 Antarctica" travelled_distance="214747"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500 (2007) Abarth 695 Tributo Maserati" travelled_distance="214747"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Water pump pulley" price="150.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4 Antarctica" travelled_distance="2183647"/>
+    <parts>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda" travelled_distance="21447"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Differential clutch" price="120.99"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Freemont" travelled_distance="214647"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500L" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda" travelled_distance="21474837"/>
+    <parts>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Freemont" travelled_distance="92233685477"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Steering arm" price="104.99"/>
+      <parts name="Engine" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4" travelled_distance="92233736854775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4 Antarctica" travelled_distance="21483647"/>
+    <parts>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500L" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500L" travelled_distance="92233754775807"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500 (2007) Abarth 695 Tributo Maserati" travelled_distance="922337205807"/>
+    <parts>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Pillar" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda" travelled_distance="2147487"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Engine" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500L" travelled_distance="922337204775807"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Freemont" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Transmission gear" price="15.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Panda 4x4" travelled_distance="922036854775807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Door control module" price="421.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500 (2007) Abarth 695 Tributo Maserati" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="Freemont" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Fiat" model="500L" travelled_distance="922337203675807"/>
+    <parts>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Camshaft" price="100.98"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="A 140" travelled_distance="92233754775807"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W212" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Water pipe" price="44.94"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="A 160" travelled_distance="9223372036"/>
+    <parts>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="A 160 CDI" travelled_distance="4775807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W212" travelled_distance="54775807"/>
+    <parts>
+      <parts name="Fuel rail" price="107.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W202" travelled_distance="92233754775807"/>
+    <parts>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W211" travelled_distance="47757"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Camshaft" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="A 170 CDI" travelled_distance="9223775807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W212" travelled_distance="927254775807"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W124" travelled_distance="922336854775807"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W210" travelled_distance="9223372036854775807"/>
+    <parts>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W202" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W211" travelled_distance="922775807"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Water pump pulley" price="150.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W212" travelled_distance="2183647"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Water tank" price="100.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W203" travelled_distance="5807"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W211" travelled_distance="92775807"/>
+    <parts>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Steering arm" price="104.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W210" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Valve spring" price="104.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W204" travelled_distance="9285807"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W124" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Mercedes" model="W212" travelled_distance="927"/>
+    <parts>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="922807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="9854775807"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Torino" travelled_distance="2147"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="214647"/>
+    <parts>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="922337807"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Water tank" price="100.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Taurus" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Torino" travelled_distance="922337807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Starter motor" price="0.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="922337203"/>
+    <parts>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="GT40" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="9223807"/>
+    <parts>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Air filter" price="200.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="GT40" travelled_distance="9223377"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Fuel rail" price="107.99"/>
+      <parts name="Engine shake damper and vibration absorber" price="100.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="922337775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Crank case" price="2.93"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Torino" travelled_distance="217"/>
+    <parts>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="922375807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="214647"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Taurus" travelled_distance="9223375807"/>
+    <parts>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Fiesta" travelled_distance="214647"/>
+    <parts>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Torino" travelled_distance="21474647"/>
+    <parts>
+      <parts name="Door latch" price="2331.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Ranger" travelled_distance="9223372007"/>
+    <parts>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Pinto" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ford" model="Ranger" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Fender" price="10.34"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="9223372037"/>
+    <parts>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Pillar" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="96854775807"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="214747"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="94775807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Pillar" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="922337207"/>
+    <parts>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="9223854775807"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Yaris" travelled_distance="21477"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="922337203685"/>
+    <parts>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Camry Hybrid" travelled_distance="92275807"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Window regulator" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="92235807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="21477"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="9223807"/>
+    <parts>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="9225807"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Camry Hybrid" travelled_distance="954775807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="925807"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="922337807"/>
+    <parts>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="2147"/>
+    <parts>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="21477"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="975807"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Yaris" travelled_distance="94775807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Corolla" travelled_distance="21477"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="283647"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Rocker cover" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="927"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Yaris" travelled_distance="9207"/>
+    <parts>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="247"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="9223354775807"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Yaris" travelled_distance="21477"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Starter motor" price="0.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Hinge" price="11.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="2147"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Camry Hybrid" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Drive belt" price="3.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="922337807"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Camry Hybrid" travelled_distance="214647"/>
+    <parts>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Prius" travelled_distance="922335807"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Tacoma" travelled_distance="21474647"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Toyota" model="Camry Hybrid" travelled_distance="214647"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Distributor" price="7.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Distributor" price="7.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="9223372775807"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Distributor" price="7.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="21477"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="9224775807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="23647"/>
+    <parts>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Engine shake damper and vibration absorber" price="100.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="922775807"/>
+    <parts>
+      <parts name="Tappet" price="300.29"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="21477"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Fan blade" price="150.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="2147"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="21447"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="92233707"/>
+    <parts>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Front fascia" price="11.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="954775807"/>
+    <parts>
+      <parts name="Fuel rail" price="107.99"/>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="214647"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="922337205807"/>
+    <parts>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="96854775807"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Versa" travelled_distance="9223775807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="370Z" travelled_distance="922307"/>
+    <parts>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Rogue" travelled_distance="9223807"/>
+    <parts>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Valance" price="1002.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="213647"/>
+    <parts>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Quarter panel" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="214747"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Rogue" travelled_distance="214647"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Tappet" price="300.29"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Altima" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Versa" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Water tank" price="100.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="GT-R" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Nissan" model="Versa" travelled_distance="922775807"/>
+    <parts>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="H2" travelled_distance="9236854775807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Starter motor" price="0.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="Haval M4" travelled_distance="213647"/>
+    <parts>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="H2" travelled_distance="21647"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Camshaft" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="H8" travelled_distance="21447"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="Steed 3" travelled_distance="922336854775807"/>
+    <parts>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="Wingle 5" travelled_distance="214747"/>
+    <parts>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="Haval M4" travelled_distance="9223372035807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Valance" price="1002.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Great Wall" model="Haval H6" travelled_distance="214747"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="2647"/>
+    <parts>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Valve spring" price="104.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Clio IV" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Duster" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="92807"/>
+    <parts>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Differential seal" price="109.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Duster" travelled_distance="922337203685807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Clio IV" travelled_distance="92234775807"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Duster" travelled_distance="922337203685807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="92233720375807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Door control module" price="421.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Captur" travelled_distance="9223807"/>
+    <parts>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Steering arm" price="104.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="21447"/>
+    <parts>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Espace" travelled_distance="9223375807"/>
+    <parts>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Fuel pressure regulator" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Alaskan" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Captur" travelled_distance="92233724775807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Distributor" price="7.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Renault" model="Espace" travelled_distance="2147487"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="92233854775807"/>
+    <parts>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Engine shake damper and vibration absorber" price="100.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Caprice" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Differential seal" price="109.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="922335807"/>
+    <parts>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Caprice" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Malibu" travelled_distance="92233854775807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="283647"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Steering arm" price="104.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Impala" travelled_distance="214747"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Resonator" price="106.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Malibu" travelled_distance="922337775807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Impala" travelled_distance="214748347"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Valve housing" price="400.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Corvette" travelled_distance="92233720375807"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Cruze" travelled_distance="92775807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Corvette" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Camaro" travelled_distance="2147487"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Valve housing" price="400.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Caprice" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Oil gasket" price="130.99"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Cruze" travelled_distance="9223372034775807"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+      <parts name="Exposed bumper" price="1400.34"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Caprice" travelled_distance="9223372034775807"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Chevy" model="Matiz" travelled_distance="922337203685807"/>
+    <parts>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Roof rack" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom Drophead Coupé" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Door latch" price="2331.99"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom" travelled_distance="214647"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Ghost" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Differential seal" price="109.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Dawn" travelled_distance="214647"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Distributor" price="7.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom" travelled_distance="922337254775807"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Engine shake damper and vibration absorber" price="100.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Ghost" travelled_distance="214747"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Wraith" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom Drophead Coupé" travelled_distance="922336854775807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Fascia" price="100.34"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Wraith" travelled_distance="21647"/>
+    <parts>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Rolls-Royce" model="Phantom Drophead Coupé" travelled_distance="9223372075807"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Gallardo" travelled_distance="92234775807"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Murciélago" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Diablo" travelled_distance="283647"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Gallardo" travelled_distance="9223372054775807"/>
+    <parts>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Murciélago" travelled_distance="214783647"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Gallardo" travelled_distance="923372054775807"/>
+    <parts>
+      <parts name="Door latch" price="2331.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Lamborghini" model="Diablo" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Air filter" price="200.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="Daytona" travelled_distance="92036854775807"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Fender" price="10.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="250 GTO" travelled_distance="214747"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F430" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="275" travelled_distance="92854775807"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Drive belt" price="3.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F430" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Steering arm" price="104.99"/>
+      <parts name="Camshaft" price="100.98"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F40" travelled_distance="2647"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="250 GTO" travelled_distance="214747"/>
+    <parts>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+      <parts name="Oil pan" price="140.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="Daytona" travelled_distance="922337275807"/>
+    <parts>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="275" travelled_distance="214647"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="250 GTO" travelled_distance="2183647"/>
+    <parts>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F40" travelled_distance="214647"/>
+    <parts>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="250 GTO" travelled_distance="213647"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Front fascia" price="11.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F430" travelled_distance="214647"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="Daytona" travelled_distance="213647"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="F40" travelled_distance="21447"/>
+    <parts>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Valve spring" price="104.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="250 GTO" travelled_distance="213647"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Timing tape" price="40.90"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="275" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Radiator (fan) shroud" price="300.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="Enzo" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Ferrari" model="Daytona" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Giulia" travelled_distance="214647"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Giulietta" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="AR51" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Alfetta" travelled_distance="92233720775807"/>
+    <parts>
+      <parts name="Water neck o-ring" price="43.99"/>
+      <parts name="Front Right Outer door handle" price="999.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+      <parts name="Fender" price="10.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="75" travelled_distance="9223372775807"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="AR51" travelled_distance="922337275807"/>
+    <parts>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+      <parts name="Clutch shoe" price="10.49"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="156" travelled_distance="92233720368547"/>
+    <parts>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Giulietta" travelled_distance="922337203685807"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Tappet" price="300.29"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="164" travelled_distance="92233775807"/>
+    <parts>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Distributor" price="7.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="75" travelled_distance="72036854775807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Pillar" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Giulietta" travelled_distance="2036854775807"/>
+    <parts>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="156" travelled_distance="92036854775807"/>
+    <parts>
+      <parts name="Tappet" price="300.29"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Crank case" price="2.93"/>
+      <parts name="Distributor" price="7.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="Giulietta" travelled_distance="2036854775807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Alfa Romeo" model="75" travelled_distance="9775807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Roof rack" price="100.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="214647"/>
+    <parts>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="405" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Water pipe" price="44.94"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="405" travelled_distance="922854775807"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="306" travelled_distance="2036854775807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Fender" price="10.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="308" travelled_distance="775807"/>
+    <parts>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="407" travelled_distance="854775807"/>
+    <parts>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="306" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="308" travelled_distance="854775807"/>
+    <parts>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Front fascia" price="11.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="405" travelled_distance="9226854775807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Engine shake damper and vibration absorber" price="100.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="306" travelled_distance="21474647"/>
+    <parts>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Window seal" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="407" travelled_distance="922036854775807"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="21474647"/>
+    <parts>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="407" travelled_distance="9223372775807"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Camshaft" price="100.98"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="922036854775807"/>
+    <parts>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="308" travelled_distance="23647"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Catalytic converter" price="540.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="405" travelled_distance="92036854775807"/>
+    <parts>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Steering box" price="103.99"/>
+      <parts name="Differential seal" price="109.99"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="306" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="405" travelled_distance="92233854775807"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="308" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="922775807"/>
+    <parts>
+      <parts name="Door control module" price="421.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Peugeot" model="206" travelled_distance="214748347"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="Berlingo" travelled_distance="922354775807"/>
+    <parts>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="924775807"/>
+    <parts>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Windshield" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="Berlingo" travelled_distance="9223354775807"/>
+    <parts>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C5" travelled_distance="922334775807"/>
+    <parts>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C5" travelled_distance="213647"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Steering box" price="103.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C8" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Quarter panel" price="100.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="Elysée" travelled_distance="922354775807"/>
+    <parts>
+      <parts name="Door latch" price="2331.99"/>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Timing tape" price="40.90"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="2147"/>
+    <parts>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Oil gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C4" travelled_distance="2147487"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Speed reducer" price="14.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C5" travelled_distance="922337204775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="922337854775807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Fender" price="10.34"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C3" travelled_distance="214647"/>
+    <parts>
+      <parts name="Fuel rail" price="107.99"/>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Air filter" price="200.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="2483647"/>
+    <parts>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Distributor" price="7.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C4" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="922336854775807"/>
+    <parts>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C5" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Rims" price="4020.99"/>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C3" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C8" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="2147483647"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Fender" price="10.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C3" travelled_distance="9223336854775807"/>
+    <parts>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Rocker arm" price="98.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="Elysée" travelled_distance="23336854775"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Fuel pressure regulator" price="100.99"/>
+      <parts name="Resonator" price="106.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Thermostat" price="1050.99"/>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C4" travelled_distance="213647"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Drive belt" price="3.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C3" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Heater" price="82.99"/>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="9223775807"/>
+    <parts>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Oil pump" price="100.19"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Unexposed bumper" price="1003.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C5" travelled_distance="2183647"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Resonator" price="106.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C1" travelled_distance="9854775807"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Air blower" price="140.99"/>
+      <parts name="Oil pipe" price="100.29"/>
+      <parts name="Engine" price="100.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Citroen" model="C8" travelled_distance="83647"/>
+    <parts>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="21483647"/>
+    <parts>
+      <parts name="Front Right Side Window motor" price="44.99"/>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Water pump pulley" price="150.99"/>
+      <parts name="Fascia" price="100.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="214783647"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Ibiza" travelled_distance="21647"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Rear Right Side Inner door handle" price="79.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Ibiza" travelled_distance="213647"/>
+    <parts>
+      <parts name="Rocker" price="100.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="21447"/>
+    <parts>
+      <parts name="Crankshaft" price="4.99"/>
+      <parts name="Fan blade" price="150.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Oil filter" price="200.99"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Front clip" price="100.00"/>
+      <parts name="Master cylinder" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="21473647"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Cylinder head" price="6.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Ibiza" travelled_distance="92234775807"/>
+    <parts>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Rear Right Side Outer door handle" price="80.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="936854775807"/>
+    <parts>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="21447"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Door control module" price="421.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="214747"/>
+    <parts>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Oil strainer" price="45.29"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Cooling fan" price="120.99"/>
+      <parts name="Front Left Side Outer door handle" price="999.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Ibiza" travelled_distance="21474847"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Spoiler" price="3000.99"/>
+      <parts name="Coolant hose " price="150.99"/>
+      <parts name="Muffler" price="106.90"/>
+      <parts name="Fuel pressure regulator" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Toledo" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Hinge" price="11.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Crank case" price="2.93"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Seat" model="Mii" travelled_distance="92236854775807"/>
+    <parts>
+      <parts name="Valve cover" price="130.99"/>
+      <parts name="Door seal" price="444.99"/>
+      <parts name="Fuel filter" price="162.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Citigo" travelled_distance="214647"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+      <parts name="Camshaft" price="100.98"/>
+      <parts name="Rear Left Quarter Glass" price="100.55"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Rapid Spaceback" travelled_distance="685477580"/>
+    <parts>
+      <parts name="Center-locking" price="313.99"/>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Timing tape" price="40.90"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Citigo" travelled_distance="92233854775807"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Cylinder head" price="6.99"/>
+      <parts name="Front fascia" price="11.99"/>
+      <parts name="Water tank" price="100.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Citigo" travelled_distance="2183647"/>
+    <parts>
+      <parts name="Sunroof Rail" price="100.25"/>
+      <parts name="Sunroof" price="103.43"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Radiator pressure cap" price="600.99"/>
+      <parts name="Starter motor" price="0.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Citigo" travelled_distance="214747"/>
+    <parts>
+      <parts name="Tappet" price="300.29"/>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+      <parts name="Door lock and power door locks" price="120.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Camshaft" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Fabia" travelled_distance="9223372036875807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Valance" price="1002.99"/>
+      <parts name="Radiator gasket" price="140.99"/>
+      <parts name="Bonnet/hood" price="1001.34"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Citigo" travelled_distance="214647"/>
+    <parts>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Transmission pan" price="106.99"/>
+      <parts name="Fan belt" price="10.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+      <parts name="Differential clutch" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Fabia" travelled_distance="214747"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Exhaust flange gasket" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Rapid" travelled_distance="9223372775807"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Fan clutch" price="120.99"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Distributor cap" price="9.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Fabia" travelled_distance="214647"/>
+    <parts>
+      <parts name="Window regulator" price="100.99"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Front Right Side Inner door handle" price="100.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Fabia" travelled_distance="922337203775807"/>
+    <parts>
+      <parts name="Overflow tank" price="1200.99"/>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Front Right Side Door Glass" price="100.91"/>
+      <parts name="Fuel pressure regulator" price="100.99"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Rapid" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Fuel cooler" price="140.99"/>
+      <parts name="Front Left Side Inner door handle" price="77.99"/>
+      <parts name="Harmonic balancer" price="67.99"/>
+      <parts name="Windshield" price="100.99"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Rapid Spaceback" travelled_distance="474"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Exhaust clamp and bracket" price="140.99"/>
+      <parts name="Pillar" price="100.99"/>
+      <parts name="Fan belt" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Skoda" model="Fabia" travelled_distance="92233720368807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Heat shield" price="10.99"/>
+      <parts name="Turbocharger" price="0.40"/>
+      <parts name="Engine valve" price="49.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Logan" travelled_distance="9036854775807"/>
+    <parts>
+      <parts name="Decklid" price="1060.34"/>
+      <parts name="Fuel tank" price="100.98"/>
+      <parts name="Exhaust pipe" price="130.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Sandero Stepway" travelled_distance="92233724775807"/>
+    <parts>
+      <parts name="Rear Right Side Door Glass" price="100.90"/>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Door water-shield" price="123.99"/>
+      <parts name="Engine cradle" price="39.99"/>
+      <parts name="Engine valve" price="49.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Sandero" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Transmission gear" price="15.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Dokker" travelled_distance="213647"/>
+    <parts>
+      <parts name="Rear Left Side Window motor" price="144.99"/>
+      <parts name="Starter motor" price="0.99"/>
+      <parts name="Valve spring" price="104.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+      <parts name="Door seal" price="444.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Sandero" travelled_distance="2143647"/>
+    <parts>
+      <parts name="Grille" price="144.99"/>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Rear Left Side Door Glass" price="100.66"/>
+      <parts name="Front Left Side Door Glass" price="100.92"/>
+      <parts name="Trunk/boot/hatch" price="2200.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Logan" travelled_distance="21474647"/>
+    <parts>
+      <parts name="Cowl screen" price="1500.34"/>
+      <parts name="Crank pulley" price="2.80"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Radiator bolt" price="160.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Logan" travelled_distance="9275807"/>
+    <parts>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Gudgeon pin" price="44.99"/>
+      <parts name="Welded assembly" price="1020.99"/>
+      <parts name="Poppet valve" price="88.99"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Dokker" travelled_distance="2147647"/>
+    <parts>
+      <parts name="Piston" price="94.99"/>
+      <parts name="Clutch assembly" price="120.99"/>
+      <parts name="Window motor" price="123.49"/>
+      <parts name="Camshaft" price="100.98"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Sandero" travelled_distance="922337254775807"/>
+    <parts>
+      <parts name="Water neck" price="900.99"/>
+      <parts name="Water pump" price="44.93"/>
+      <parts name="Water tank" price="100.99"/>
+      <parts name="Rear Left Side Outer door handle" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Dokker" travelled_distance="2147447"/>
+    <parts>
+      <parts name="Water pump gasket" price="120.29"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Fascia" price="100.34"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Logan" travelled_distance="922337203687"/>
+    <parts>
+      <parts name="Engine block" price="40.99"/>
+      <parts name="Valve housing" price="400.99"/>
+      <parts name="Air filter" price="200.99"/>
+      <parts name="Rocker cover" price="10.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Duster" travelled_distance="21447"/>
+    <parts>
+      <parts name="Trim package" price="1900.99"/>
+      <parts name="Water pipe" price="44.94"/>
+      <parts name="Valve stem seal" price="120.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Sandero Stepway" travelled_distance="922337807"/>
+    <parts>
+      <parts name="Radiator " price="100.99"/>
+      <parts name="Back Door Outer Door Handle" price="43.99"/>
+      <parts name="Rear Right Side Window motor" price="22.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Duster" travelled_distance="922375807"/>
+    <parts>
+      <parts name="Front Left Side Window motor" price="56.99"/>
+      <parts name="Rear Left Side Inner door handle" price="93.99"/>
+      <parts name="Rear Right Quarter Glass" price="100.66"/>
+      <parts name="Catalytic converter" price="540.99"/>
+    </parts>
+  </car>
+  <car>
+    <car make="Dacia" model="Logan" travelled_distance="213647"/>
+    <parts>
+      <parts name="Sunroof Glass" price="205.24"/>
+      <parts name="Choke cable" price="130.99"/>
+      <parts name="Oil pan" price="140.99"/>
+      <parts name="Air filter" price="200.99"/>
+    </parts>
+  </car>
+</cars-and-parts>

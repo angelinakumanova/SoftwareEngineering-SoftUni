@@ -4,6 +4,10 @@ import bg.softuni.cardealer.data.entities.Car;
 import bg.softuni.cardealer.data.repositories.CarRepository;
 import bg.softuni.cardealer.service.CarService;
 import bg.softuni.cardealer.service.PartService;
+import bg.softuni.cardealer.service.dtos.exportDto.carsAndParts.CarListDto;
+import bg.softuni.cardealer.service.dtos.exportDto.carsAndParts.CarPartsListDto;
+import bg.softuni.cardealer.service.dtos.exportDto.carsAndParts.CarsAndPartsExportDto;
+import bg.softuni.cardealer.service.dtos.exportDto.carsAndParts.PartsListDto;
 import bg.softuni.cardealer.service.dtos.exportDto.carsMake.CarByMakeDto;
 import bg.softuni.cardealer.service.dtos.exportDto.carsMake.CarsMakeExportDto;
 import bg.softuni.cardealer.service.dtos.importDto.CarImportXmlDto;
@@ -66,7 +70,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void getToyotaCarsJson() {
+    public void getToyotaCarsXml() {
         List<CarByMakeDto> cars = carRepository.findAllByMakeOrderByModelAscTravelledDistanceDesc("Toyota")
                 .stream()
                 .map(c -> modelMapper.map(c, CarByMakeDto.class))
@@ -85,29 +89,30 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void getAllCarsAndPartsJson() {
-//        List<CarPartsListDto> list = carRepository.getAllBy()
-//                .stream()
-//                .map(c -> {
-//                    CarListDto car = modelMapper.map(c, CarListDto.class);
-//                    List<PartsListDto> parts = c.getParts()
-//                            .stream()
-//                            .map(p -> modelMapper.map(p, PartsListDto.class))
-//                            .toList();
-//
-//                    CarPartsListDto carPartsListDto = new CarPartsListDto();
-//                    carPartsListDto.setCar(car);
-//                    carPartsListDto.setParts(parts);
-//
-//                    return carPartsListDto;
-//                }).toList();
-//        String json = gson.toJson(list);
-//        Path path = Path.of("src/main/resources/files/cars-and-parts.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Failed to write cars-and-parts.json!");
-//        }
+        List<CarPartsListDto> list = carRepository.getAllBy()
+                .stream()
+                .map(c -> {
+                    CarListDto car = modelMapper.map(c, CarListDto.class);
+                    List<PartsListDto> parts = c.getParts()
+                            .stream()
+                            .map(p -> modelMapper.map(p, PartsListDto.class))
+                            .toList();
+
+                    CarPartsListDto carPartsListDto = new CarPartsListDto();
+                    carPartsListDto.setCar(car);
+                    carPartsListDto.setParts(parts);
+
+                    return carPartsListDto;
+                }).toList();
+
+        CarsAndPartsExportDto carsAndPartsExportDto = new CarsAndPartsExportDto(list);
+        String path = "src/main/resources/files/cars-and-parts.xml";
+
+        try {
+            xmlMapper.writeValue(new File(path), carsAndPartsExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing cars to XML file: " + e.getMessage());
+        }
     }
 
 }

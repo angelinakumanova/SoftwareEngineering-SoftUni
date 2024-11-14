@@ -65,7 +65,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public void getNonAbroadSuppliersJson() {
+    public void getNonAbroadSuppliersXml() {
         List<NonAbroadSupplierDto> list = supplierRepository.findAllByIsImporterIsFalse()
                 .stream()
                 .map(s -> {

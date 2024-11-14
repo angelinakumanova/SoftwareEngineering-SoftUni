@@ -1,4 +1,4 @@
-package bg.softuni.cardealer.service.dtos.exportDto;
+package bg.softuni.cardealer.service.dtos.exportDto.carsAndParts;
 
 import java.util.List;
 

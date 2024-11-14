@@ -10,5 +10,5 @@ public interface SupplierService {
 
     Supplier getRandomSupplier();
 
-    void getNonAbroadSuppliersJson();
+    void getNonAbroadSuppliersXml();
 }

@@ -49,7 +49,7 @@ public class SupplierServiceImpl implements SupplierService {
             System.out.println("Successfully imported " + supplierRepository.count() + " suppliers");
 
         } catch (IOException e) {
-            System.err.println("Error reading cars from XML file: " + e.getMessage());
+            System.err.println("Error reading suppliers from XML file: " + e.getMessage());
         }
 
     }

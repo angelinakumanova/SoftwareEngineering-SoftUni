@@ -49,7 +49,7 @@ public class PartServiceImpl implements PartService {
             partRepository.flush();
             System.out.println(partRepository.count() + " Parts seeded successfully!");
         } catch (IOException e) {
-            System.err.println("Error reading cars from XML file: " + e.getMessage());
+            System.err.println("Error reading parts from XML file: " + e.getMessage());
         }
     }
 

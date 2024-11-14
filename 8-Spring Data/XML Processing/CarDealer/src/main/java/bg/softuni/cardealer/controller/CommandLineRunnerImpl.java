@@ -1,6 +1,7 @@
 package bg.softuni.cardealer.controller;
 
 import bg.softuni.cardealer.service.CarService;
+import bg.softuni.cardealer.service.CustomerService;
 import bg.softuni.cardealer.service.PartService;
 import bg.softuni.cardealer.service.SupplierService;
 import org.springframework.boot.CommandLineRunner;
@@ -12,11 +13,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private final CarService carService;
     private final SupplierService supplierService;
     private final PartService partService;
+    private final CustomerService customerService;
 
-    public CommandLineRunnerImpl(CarService carService, SupplierService supplierService, PartService partService) {
+    public CommandLineRunnerImpl(CarService carService, SupplierService supplierService, PartService partService, CustomerService customerService) {
         this.carService = carService;
         this.supplierService = supplierService;
         this.partService = partService;
+        this.customerService = customerService;
     }
 
 
@@ -29,6 +32,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         if (!partService.isImported()) {
             partService.seedParts();
         }
-//        carService.seedCars();
+
+        if (!carService.isImported()) {
+            carService.seedCars();
+        }
+
+        if (!customerService.isImported()) {
+            customerService.seedCustomers();
+        }
     }
 }

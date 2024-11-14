@@ -1,53 +1,54 @@
 package bg.softuni.cardealer.service.impl;
 
 import bg.softuni.cardealer.data.entities.Customer;
-import bg.softuni.cardealer.data.entities.Part;
 import bg.softuni.cardealer.data.repositories.CustomerRepository;
 import bg.softuni.cardealer.service.CustomerService;
+import bg.softuni.cardealer.service.dtos.CustomerImportXmlDto;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Comparator;
-import java.util.List;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-    private final String CUSTOMERS_JSON_PATH = "src/main/resources/files/customers.json";
+    private final String CUSTOMERS_XML_PATH = "src/main/resources/files/customers.xml";
 
     private final CustomerRepository customerRepository;
 
     private final ModelMapper modelMapper;
+    private final XmlMapper xmlMapper;
 
 
-    public CustomerServiceImpl(CustomerRepository customerRepository, ModelMapper modelMapper) {
+    public CustomerServiceImpl(CustomerRepository customerRepository, ModelMapper modelMapper, XmlMapper xmlMapper) {
         this.customerRepository = customerRepository;
         this.modelMapper = modelMapper;
+        configureMappings();
+        this.xmlMapper = xmlMapper;
     }
 
 
     @Override
     public void seedCustomers() {
-//        try (JsonReader jsonReader = new JsonReader(Files.newBufferedReader(Path.of(CUSTOMERS_JSON_PATH)))) {
-//            CreateCustomerJsonDto[] customers = gson.fromJson(jsonReader, CreateCustomerJsonDto[].class);
-//
-//            for (CreateCustomerJsonDto customer : customers) {
-//                Customer customerDb = modelMapper.map(customer, Customer.class);
-//                customerRepository.save(customerDb);
-//            }
-//
-//            customerRepository.flush();
-//            System.out.println(customerRepository.count() + " Customers have been saved!");
-//        } catch (IOException e) {
-//            System.out.println("Couldn't read customers.json");
-//        }
+        try {
+            CustomerImportXmlDto[] customers = xmlMapper.readValue(new File(CUSTOMERS_XML_PATH), CustomerImportXmlDto[].class);
+
+            Arrays.stream(customers).map(c -> modelMapper.map(c, Customer.class)).forEach(customerRepository::save);
+
+            customerRepository.flush();
+            System.out.println(customerRepository.count() + " Customers have been saved!");
+        } catch (IOException e) {
+            System.err.println("Error reading customers from XML file: " + e.getMessage());
+        }
     }
+
 
     @Override
     public boolean isImported() {
@@ -108,5 +109,19 @@ public class CustomerServiceImpl implements CustomerService {
 //        } catch (IOException e) {
 //            System.out.println("Couldn't write total-sales.json");
 //        }
+    }
+
+    private void configureMappings() {
+        Converter<String, LocalDate> toLocalDate = context ->
+                LocalDate.parse(context.getSource(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+        PropertyMap<CustomerImportXmlDto, Customer> propertyMap = new PropertyMap<>() {
+            @Override
+            protected void configure() {
+                using(toLocalDate).map(source.getBirthDate()).setBirthDate(null);
+            }
+        };
+
+        modelMapper.addMappings(propertyMap);
     }
 }

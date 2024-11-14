@@ -3,6 +3,8 @@ package bg.softuni.cardealer.service.impl;
 import bg.softuni.cardealer.data.entities.Supplier;
 import bg.softuni.cardealer.data.repositories.SupplierRepository;
 import bg.softuni.cardealer.service.SupplierService;
+import bg.softuni.cardealer.service.dtos.exportDto.nonAbroadSuppliers.NonAbroadSupplierDto;
+import bg.softuni.cardealer.service.dtos.exportDto.nonAbroadSuppliers.SuppliersExportDto;
 import bg.softuni.cardealer.service.dtos.importDto.SupplierImportXmlDto;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.modelmapper.ModelMapper;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -63,24 +66,24 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public void getNonAbroadSuppliersJson() {
-//        List<NonAbroadSupplierDto> list = supplierRepository.findAllByIsImporterIsFalse()
-//                .stream()
-//                .map(s -> {
-//                    NonAbroadSupplierDto supplier = modelMapper.map(s, NonAbroadSupplierDto.class);
-//                    supplier.setPartsCount(s.getParts().size());
-//
-//                    return supplier;
-//                })
-//                .toList();
-//
-//        String json = gson.toJson(list);
-//        Path path = Path.of("src/main/resources/files/non-abroad-suppliers.json");
-//
-//        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-//            writer.write(json);
-//        } catch (IOException e) {
-//            System.out.println("Failed to write non-abroad-suppliers.json");
-//        }
+        List<NonAbroadSupplierDto> list = supplierRepository.findAllByIsImporterIsFalse()
+                .stream()
+                .map(s -> {
+                    NonAbroadSupplierDto supplier = modelMapper.map(s, NonAbroadSupplierDto.class);
+                    supplier.setPartsCount(s.getParts().size());
+
+                    return supplier;
+                })
+                .toList();
+
+        SuppliersExportDto suppliersExportDto = new SuppliersExportDto(list);
+        String path = "src/main/resources/files/non-abroad-suppliers.xml";
+
+        try {
+            xmlMapper.writeValue(new File(path), suppliersExportDto);
+        } catch (IOException e) {
+            System.err.println("Error writing non-abroad-suppliers.xml to XML file: " + e.getMessage());
+        }
 
     }
 }

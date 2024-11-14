@@ -27,8 +27,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         seedDatabase();
 
 //        customerService.getOrderedCustomersXml();
-        carService.getToyotaCarsJson();
-//        supplierService.getNonAbroadSuppliersJson();
+//        carService.getToyotaCarsJson();
+        supplierService.getNonAbroadSuppliersJson();
 //        carService.getAllCarsAndPartsJson();
 //        customerService.getTotalSalesByCustomerJson();
 //        saleService.getSalesWithAppliedDiscountJson();

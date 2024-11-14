@@ -1,8 +1,13 @@
-package bg.softuni.cardealer.service.dtos.exportDto;
+package bg.softuni.cardealer.service.dtos.exportDto.nonAbroadSuppliers;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 
 public class NonAbroadSupplierDto {
+    @JacksonXmlProperty(isAttribute = true)
     private Long id;
+    @JacksonXmlProperty(isAttribute = true)
     private String name;
+    @JacksonXmlProperty(localName = "parts-count", isAttribute = true)
     private Integer partsCount;
 
     public NonAbroadSupplierDto() {

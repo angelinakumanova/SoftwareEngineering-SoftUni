@@ -3,6 +3,7 @@ package softuni.exam.service.impl;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.VolcanoExportDto;
 import softuni.exam.models.dto.VolcanoImportDto;
 import softuni.exam.models.entity.Volcano;
 import softuni.exam.repository.VolcanoRepository;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
 
@@ -77,7 +79,20 @@ public class VolcanoServiceImpl implements VolcanoService {
 
     @Override
     public String exportVolcanoes() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        volcanoRepository.findByIsActiveTrueAndElevationGreaterThanAndLastEruptionIsNotNullOrderByElevationDesc(3000)
+                .stream()
+                .map(v -> modelMapper.map(v, VolcanoExportDto.class))
+                .forEach(v -> {
+                    String formattedVolcano = String.format("Volcano: %s%n" +
+                            "   *Located in: %s%n" +
+                            "   **Elevation: %d%n   ***Last eruption on: %s",
+                            v.getName(), v.getCountryName(), v.getElevation(), v.getLastEruption());
+
+                    sb.append(formattedVolcano).append(System.lineSeparator());
+                });
+
+        return sb.toString();
     }
 
     @Override

@@ -13,8 +13,8 @@ public class XmlParserImpl implements XmlParser {
 
     @Override
     public <T> T fromFile(String filePath, Class<T> tClass) throws JAXBException {
-        //TODO
+        JAXBContext jaxbContext = JAXBContext.newInstance(tClass);
 
-        return null;
+        return (T) jaxbContext.createUnmarshaller().unmarshal(new File(filePath));
     }
 }

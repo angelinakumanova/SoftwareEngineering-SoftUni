@@ -20,15 +20,19 @@ public class ApplicationBeanConfiguration {
 
     @Bean
     public Gson gson() {
-        //TODO
-        return null;
+        return new GsonBuilder().setPrettyPrinting().create();
     }
 
 
     @Bean
     public ModelMapper modelMapper() {
         ModelMapper modelMapper = new ModelMapper();
-        //TODO
+        Converter<String, LocalDateTime> converter = mappingContext -> {
+            //2022-02-02 12:43:00
+            return LocalDateTime.parse(mappingContext.getSource(), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        };
+        modelMapper.typeMap(String.class, LocalDateTime.class).setConverter(converter);
+
         return modelMapper;
     }
 

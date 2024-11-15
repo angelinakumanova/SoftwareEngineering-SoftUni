@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 @Service
@@ -77,5 +78,10 @@ public class VolcanoServiceImpl implements VolcanoService {
     @Override
     public String exportVolcanoes() {
         return "";
+    }
+
+    @Override
+    public Optional<Volcano> getById(Long id) {
+        return volcanoRepository.findById(id);
     }
 }

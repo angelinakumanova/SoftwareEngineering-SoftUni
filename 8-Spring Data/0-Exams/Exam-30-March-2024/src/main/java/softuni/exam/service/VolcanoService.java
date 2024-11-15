@@ -1,6 +1,9 @@
 package softuni.exam.service;
 
+import softuni.exam.models.entity.Volcano;
+
 import java.io.IOException;
+import java.util.Optional;
 
 // TODO: Implement all methods
 public interface VolcanoService {
@@ -16,4 +19,6 @@ public interface VolcanoService {
 //    void addAndSaveAddedVolcano(Volcano volcano, Volcanologist volcanologist);
 
     String exportVolcanoes();
+
+    Optional<Volcano> getById(Long id);
 }

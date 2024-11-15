@@ -3,8 +3,13 @@ package softuni.exam.models.dto;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "volcanologist")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class VolcanologistImportDto {
     @XmlElement(name = "first_name")
     @NotNull

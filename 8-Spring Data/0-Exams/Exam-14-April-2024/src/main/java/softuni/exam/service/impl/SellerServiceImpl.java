@@ -38,31 +38,29 @@ public class SellerServiceImpl implements SellerService {
 
     @Override
     public String readSellersFromFile() throws IOException {
+        return new String(Files.readAllBytes(Path.of(SELLER_JSON_PATH)));
+    }
+
+    @Override
+    public String importSellers() throws IOException {
         SellerImportDto[] sellers= gson.fromJson(Files.newBufferedReader(Path.of(SELLER_JSON_PATH)), SellerImportDto[].class);
         StringBuilder stringBuilder = new StringBuilder();
 
         Arrays.stream(sellers)
                 .filter(s -> {
-            if(!validationUtil.isValid(s) || sellerRepository.findByLastName(s.getLastName()).isPresent()) {
-                stringBuilder.append("Invalid seller").append(System.lineSeparator());
-                return false;
-            }
+                    if(!validationUtil.isValid(s) || sellerRepository.findByLastName(s.getLastName()).isPresent()) {
+                        stringBuilder.append("Invalid seller").append(System.lineSeparator());
+                        return false;
+                    }
 
-            return true;
-        }).map(s -> modelMapper.map(s, Seller.class))
-           .forEach(seller -> {
-               stringBuilder.append(String.format("Successfully imported seller %s %s%n", seller.getFirstName(), seller.getLastName()));
-               sellerRepository.save(seller);
-           });
+                    return true;
+                }).map(s -> modelMapper.map(s, Seller.class))
+                .forEach(seller -> {
+                    stringBuilder.append(String.format("Successfully imported seller %s %s%n", seller.getFirstName(), seller.getLastName()));
+                    sellerRepository.save(seller);
+                });
 
         sellerRepository.flush();
-
-
         return stringBuilder.toString();
-    }
-
-    @Override
-    public String importSellers() throws IOException {
-        return readSellersFromFile();
     }
 }

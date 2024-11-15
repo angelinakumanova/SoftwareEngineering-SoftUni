@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class SaleServiceImpl implements SaleService {
@@ -39,17 +40,22 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public String readSalesFileContent() throws IOException {
-        SaleImportDto[] sales = gson.fromJson(Files.newBufferedReader(Path.of(SALE_JSON_PATH)), SaleImportDto[].class);
+        return new String(Files.readAllBytes(Path.of(SALE_JSON_PATH)));
+    }
+
+    @Override
+    public String importSales() throws IOException {
+        SaleImportDto[] sales = this.gson.fromJson(Files.newBufferedReader(Path.of(SALE_JSON_PATH)), SaleImportDto[].class);
         StringBuilder sb = new StringBuilder();
 
         Arrays.stream(sales).filter(s -> {
-            if(!validationUtil.isValid(s) || saleRepository.findByNumber(s.getNumber()).isPresent()) {
-                sb.append("Invalid sale").append(System.lineSeparator());
-                return false;
-            }
+                    if(!validationUtil.isValid(s) || saleRepository.findByNumber(s.getNumber()).isPresent()) {
+                        sb.append("Invalid sale").append(System.lineSeparator());
+                        return false;
+                    }
 
-            return true;
-        }).map(s -> modelMapper.map(s, Sale.class))
+                    return true;
+                }).map(s -> modelMapper.map(s, Sale.class))
                 .forEach(sale -> {
                     String formattedSale = String.format("Successfully imported sale with number %s", sale.getNumber());
                     sb.append(formattedSale).append(System.lineSeparator());
@@ -61,7 +67,7 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public String importSales() throws IOException {
-        return readSalesFileContent();
+    public Optional<Sale> getSaleById(Long saleId) {
+        return saleRepository.findById(saleId);
     }
 }

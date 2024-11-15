@@ -4,14 +4,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import softuni.exam.models.dto.DeviceImportDto;
 import softuni.exam.models.dto.DevicesListImportDto;
+import softuni.exam.models.entity.Device;
 import softuni.exam.repository.DeviceRepository;
-import softuni.exam.repository.SaleRepository;
 import softuni.exam.service.DeviceService;
+import softuni.exam.service.SaleService;
 import softuni.exam.util.ValidationUtil;
 import softuni.exam.util.XmlParser;
 
 import javax.xml.bind.JAXBException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.List;
 
 @Service
@@ -19,13 +22,15 @@ public class DeviceServiceImpl implements DeviceService {
     private static final String DEVICE_XML_PATH = "src/main/resources/files/xml/devices.xml";
 
     private final DeviceRepository deviceRepository;
+    private final SaleService saleService;
 
     private final ModelMapper modelMapper;
     private final ValidationUtil validationUtil;
     private final XmlParser xmlParser;
 
-    public DeviceServiceImpl(DeviceRepository deviceRepository, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser) {
+    public DeviceServiceImpl(DeviceRepository deviceRepository, SaleService saleService, ModelMapper modelMapper, ValidationUtil validationUtil, XmlParser xmlParser) {
         this.deviceRepository = deviceRepository;
+        this.saleService = saleService;
         this.modelMapper = modelMapper;
         this.validationUtil = validationUtil;
         this.xmlParser = xmlParser;
@@ -38,22 +43,39 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public String readDevicesFromFile() throws IOException {
-        try {
-            DevicesListImportDto devices = xmlParser.fromFile(DEVICE_XML_PATH, DevicesListImportDto.class);
-            List<DeviceImportDto> devicesList = devices.getDevices();
-
-            System.out.println();
-        } catch (JAXBException e) {
-            System.err.println("Invalid XML file. Message: " + e.getMessage());
-        }
-
-
-        return "";
+        return new String(Files.readAllBytes(Path.of(DEVICE_XML_PATH)));
     }
 
     @Override
     public String importDevices() throws IOException, JAXBException {
-        return readDevicesFromFile();
+        try {
+            DevicesListImportDto devices = xmlParser.fromFile(DEVICE_XML_PATH, DevicesListImportDto.class);
+            List<DeviceImportDto> devicesList = devices.getDevices();
+
+            StringBuilder sb = new StringBuilder();
+
+            devicesList.stream().filter(d -> {
+                if (this.deviceRepository.findByBrandAndModel(d.getBrand(), d.getModel()).isPresent()
+                        || saleService.getSaleById(d.getSaleId()).isEmpty() || !validationUtil.isValid(d)) {
+                    sb.append("Invalid device").append(System.lineSeparator());
+                    return false;
+                }
+
+                return true;
+            }).map(d -> modelMapper.map(d, Device.class)).forEach(device -> {
+                String formattedDevice = String.format("Successfully imported device of type %s with brand %s",
+                        device.getDeviceType().name(), device.getBrand());
+                sb.append(formattedDevice).append(System.lineSeparator());
+                deviceRepository.save(device);
+            });
+
+            deviceRepository.flush();
+            return sb.toString();
+        } catch (JAXBException e) {
+            System.err.println("Invalid XML file. Message: " + e.getMessage());
+        }
+
+        return "";
     }
 
     @Override

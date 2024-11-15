@@ -13,7 +13,13 @@ public class XmlParserImpl implements XmlParser {
 
     @Override
     public <T> T fromFile(String filePath, Class<T> tClass) {
-        //TODO
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(tClass);
+
+            return (T) jaxbContext.createUnmarshaller().unmarshal(new File(filePath));
+        } catch (JAXBException e) {
+            System.err.println(e.getMessage());
+        }
 
         return null;
     }

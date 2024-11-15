@@ -2,9 +2,11 @@ package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.DeviceExportDto;
 import softuni.exam.models.dto.DeviceImportDto;
 import softuni.exam.models.dto.DevicesListImportDto;
 import softuni.exam.models.entity.Device;
+import softuni.exam.models.entity.enums.DeviceType;
 import softuni.exam.repository.DeviceRepository;
 import softuni.exam.service.DeviceService;
 import softuni.exam.service.SaleService;
@@ -15,7 +17,10 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class DeviceServiceImpl implements DeviceService {
@@ -47,7 +52,7 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public String importDevices() throws IOException, JAXBException {
+    public String importDevices() {
         try {
             DevicesListImportDto devices = xmlParser.fromFile(DEVICE_XML_PATH, DevicesListImportDto.class);
             List<DeviceImportDto> devicesList = devices.getDevices();
@@ -80,6 +85,20 @@ public class DeviceServiceImpl implements DeviceService {
 
     @Override
     public String exportDevices() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+
+        this.deviceRepository.findByDeviceTypeAndPriceLessThanAndStorageGreaterThanEqual(DeviceType.SMART_PHONE,1000.0, 128)
+                .stream()
+                .map(d -> modelMapper.map(d, DeviceExportDto.class))
+                .sorted((d1, d2) -> d1.getBrand().compareToIgnoreCase(d2.getBrand()))
+                .forEach(d -> {
+                    String formattedDevice = String.format("Device brand: %s%n" +
+                            "   *Model: %s%n" +
+                            "   **Storage: %d%n" +
+                            "   ***Price: %.2f", d.getBrand(), d.getModel(), d.getStorage(), d.getPrice());
+                    sb.append(formattedDevice).append(System.lineSeparator());
+                });
+
+        return sb.toString();
     }
 }

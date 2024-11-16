@@ -67,4 +67,12 @@ public class Star extends BaseEntity {
     public void setConstellation(Constellation constellation) {
         this.constellation = constellation;
     }
+
+    public Set<Astronomer> getObservers() {
+        return observers;
+    }
+
+    public void setObservers(Set<Astronomer> observers) {
+        this.observers = observers;
+    }
 }

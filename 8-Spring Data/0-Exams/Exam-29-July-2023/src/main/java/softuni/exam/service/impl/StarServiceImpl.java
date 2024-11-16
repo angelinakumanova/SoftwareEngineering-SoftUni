@@ -3,8 +3,10 @@ package softuni.exam.service.impl;
 import com.google.gson.Gson;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.StarExportDto;
 import softuni.exam.models.dto.StarImportDto;
 import softuni.exam.models.entity.Star;
+import softuni.exam.models.enums.StarType;
 import softuni.exam.repository.StarRepository;
 import softuni.exam.service.ConstellationService;
 import softuni.exam.service.StarService;
@@ -86,7 +88,23 @@ public class StarServiceImpl implements StarService {
 
     @Override
     public String exportStars() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+
+        starRepository.findByObserversIsNullAndStarTypeOrderByLightYears(StarType.RED_GIANT)
+                .stream()
+                .map(s -> modelMapper.map(s, StarExportDto.class))
+                .forEach(s -> {
+                    String formatted = String.format("Star: %s%n" +
+                            "   *Distance: %.2f light years%n" +
+                            "   **Description: %s%n" +
+                            "   ***Constellation: %s",
+                            s.getName(), s.getLightYears(), s.getDescription(), s.getConstellationName());
+
+                    sb.append(formatted).append(System.lineSeparator());
+                });
+
+
+        return sb.toString();
     }
 
     @Override

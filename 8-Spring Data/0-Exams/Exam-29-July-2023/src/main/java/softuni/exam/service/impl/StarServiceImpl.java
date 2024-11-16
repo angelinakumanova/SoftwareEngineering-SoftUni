@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class StarServiceImpl implements StarService {
@@ -86,5 +87,10 @@ public class StarServiceImpl implements StarService {
     @Override
     public String exportStars() {
         return "";
+    }
+
+    @Override
+    public Optional<Star> findById(Long id) {
+        return starRepository.findById(id);
     }
 }

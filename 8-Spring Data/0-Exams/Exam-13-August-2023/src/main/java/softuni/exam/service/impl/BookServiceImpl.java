@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class BookServiceImpl implements BookService {
@@ -54,6 +55,11 @@ public class BookServiceImpl implements BookService {
 
         bookRepository.flush();
         return sb.toString();
+    }
+
+    @Override
+    public Optional<Book> findByTitle(String title) {
+        return bookRepository.findByTitle(title);
     }
 
     private void saveBook(Book book, StringBuilder sb) {

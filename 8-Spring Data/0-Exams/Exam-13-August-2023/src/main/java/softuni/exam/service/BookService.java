@@ -1,7 +1,10 @@
 package softuni.exam.service;
 
 
+import softuni.exam.models.entity.Book;
+
 import java.io.IOException;
+import java.util.Optional;
 
 // TODO: Implement all methods
 public interface BookService {
@@ -12,4 +15,5 @@ public interface BookService {
 
 	String importBooks() throws IOException;
 
+    Optional<Book> findByTitle(String title);
 }

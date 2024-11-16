@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class LibraryMemberServiceImpl implements LibraryMemberService {
@@ -58,6 +59,11 @@ public class LibraryMemberServiceImpl implements LibraryMemberService {
         libraryMemberRepository.flush();
 
         return sb.toString();
+    }
+
+    @Override
+    public Optional<LibraryMember> findById(Long id) {
+        return libraryMemberRepository.findById(id);
     }
 
     private void saveLibraryMember(LibraryMember lb, StringBuilder sb) {

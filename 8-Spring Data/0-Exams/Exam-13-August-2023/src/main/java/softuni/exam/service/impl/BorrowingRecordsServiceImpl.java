@@ -2,9 +2,11 @@ package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.BorrowingRecordExportDto;
 import softuni.exam.models.dto.BorrowingRecordImportDto;
 import softuni.exam.models.dto.BorrowingRecordsListDto;
 import softuni.exam.models.entity.BorrowingRecord;
+import softuni.exam.models.enums.Genre;
 import softuni.exam.repository.BorrowingRecordRepository;
 import softuni.exam.service.BookService;
 import softuni.exam.service.BorrowingRecordsService;
@@ -16,6 +18,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -64,6 +67,29 @@ public class BorrowingRecordsServiceImpl implements BorrowingRecordsService {
         return sb.toString();
     }
 
+    @Override
+    public String exportBorrowingRecords() {
+        StringBuilder sb = new StringBuilder();
+
+        borrowingRecordRepository
+                .findByBorrowDateBeforeAndBookGenreOrderByBorrowDateDesc(LocalDate.of(2021, 9, 10), Genre.SCIENCE_FICTION)
+                .stream()
+                .map(br -> modelMapper.map(br, BorrowingRecordExportDto.class))
+                .forEach(br -> {
+                    String formatted = String.format("Book title: %s%n" +
+                            "*Book author: %s%n" +
+                            "**Date borrowed: %s%n" +
+                            "***Borrowed by: %s %s",
+                            br.getBookTitle(), br.getBookAuthor(), br.getBorrowDate(),
+                            br.getLibraryMemberFirstName(), br.getLibraryMemberLastName());
+
+                    sb.append(formatted).append(System.lineSeparator());
+                });
+
+
+        return sb.toString();
+    }
+
     private void saveBorrowingRecord(BorrowingRecord br, StringBuilder sb) {
         String formatted = String.format("Successfully imported borrowing record %s - %s",
                 br.getBook().getTitle(), br.getBorrowDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
@@ -82,16 +108,11 @@ public class BorrowingRecordsServiceImpl implements BorrowingRecordsService {
 
     private boolean isValidBorrowingRecord(BorrowingRecordImportDto br, StringBuilder sb) {
         if (!validationUtil.isValid(br) || bookService.findByTitle(br.getBook().getTitle()).isEmpty() ||
-        libraryMemberService.findById(br.getMember().getId()).isEmpty()) {
+                libraryMemberService.findById(br.getMember().getId()).isEmpty()) {
             sb.append("Invalid borrowing record").append(System.lineSeparator());
             return false;
         }
 
         return true;
-    }
-
-    @Override
-    public String exportBorrowingRecords() {
-        return "";
     }
 }

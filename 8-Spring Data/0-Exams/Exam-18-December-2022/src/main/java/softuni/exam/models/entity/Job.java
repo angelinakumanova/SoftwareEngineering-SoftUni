@@ -1,9 +1,6 @@
 package softuni.exam.models.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "jobs")
@@ -14,6 +11,7 @@ public class Job extends BaseEntity {
     private Double salary;
     @Column(name = "hours_a_week", nullable = false)
     private Double hoursAWeek;
+    @Lob
     @Column(nullable = false)
     private String description;
     @ManyToOne

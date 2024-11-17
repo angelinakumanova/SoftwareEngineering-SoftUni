@@ -14,6 +14,7 @@ public class Company extends BaseEntity {
     @Column(name = "date_established", nullable = false)
     private LocalDate dateEstablished;
     @OneToMany
+    @JoinColumn(name = "job_id", referencedColumnName = "id")
     private Set<Job> jobs;
     @ManyToOne
     private Country country;

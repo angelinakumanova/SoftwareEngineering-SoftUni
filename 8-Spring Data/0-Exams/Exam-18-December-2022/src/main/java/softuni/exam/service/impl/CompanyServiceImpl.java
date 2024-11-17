@@ -15,6 +15,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -64,6 +65,11 @@ public class CompanyServiceImpl implements CompanyService {
 
         companyRepository.flush();
         return sb.toString();
+    }
+
+    @Override
+    public Optional<Company> findById(Long id) {
+        return companyRepository.findById(id);
     }
 
     private Company mapToCompany(CompanyImportDto c) {

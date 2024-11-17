@@ -10,15 +10,15 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class JobListImportDto {
     @XmlElement(name = "job")
-    private List<JobListImportDto> jobs;
+    private List<JobImportDto> jobs;
 
     public  JobListImportDto() {}
 
-    public List<JobListImportDto> getJobs() {
+    public List<JobImportDto> getJobs() {
         return jobs;
     }
 
-    public void setJobs(List<JobListImportDto> jobs) {
+    public void setJobs(List<JobImportDto> jobs) {
         this.jobs = jobs;
     }
 }

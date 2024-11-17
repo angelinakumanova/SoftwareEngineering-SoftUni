@@ -87,12 +87,20 @@ public class JobServiceImpl implements JobService {
     @Override
     public String getBestJobs() {
         StringBuilder sb = new StringBuilder();
+        
         jobRepository.findBySalaryGreaterThanEqualAndHoursAWeekLessThanEqualOrderBySalaryDesc(5000.0, 30.0)
                 .stream()
                 .map(j -> modelMapper.map(j, JobExportDto.class))
                 .forEach(job -> {
+                    //Job title {jobTitle}
+                    //-Salary: {jobSalary}$¬¬
+                    //      --Hours a week: {hoursAWeek}h.
+                    String formatted = String.format("Job title %s%n" +
+                            "-Salary: %.2f$%n" +
+                            "--Hours a week: %.2f", job.getTitle(), job.getSalary(), job.getHoursAWeek());
 
+                    sb.append(formatted).append(System.lineSeparator());
                 });
-        return "";
+        return sb.toString();
     }
 }

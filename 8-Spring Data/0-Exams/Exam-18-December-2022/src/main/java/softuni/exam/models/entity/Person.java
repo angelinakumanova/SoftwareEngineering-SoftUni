@@ -63,4 +63,12 @@ public class Person extends BaseEntity {
     public void setStatusType(StatusType statusType) {
         this.statusType = statusType;
     }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
 }

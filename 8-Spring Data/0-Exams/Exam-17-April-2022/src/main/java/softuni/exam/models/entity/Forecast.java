@@ -2,16 +2,14 @@ package softuni.exam.models.entity;
 
 import softuni.exam.models.enums.Weekday;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Time;
 
 @Entity
 @Table(name = "forecasts")
 public class Forecast extends BaseEntity{
     @Column(name = "day_of_week", nullable = false)
+    @Enumerated(EnumType.STRING)
     private Weekday dayOfWeek;
     @Column(name = "max_temperature", nullable = false)
     private Double maxTemperature;

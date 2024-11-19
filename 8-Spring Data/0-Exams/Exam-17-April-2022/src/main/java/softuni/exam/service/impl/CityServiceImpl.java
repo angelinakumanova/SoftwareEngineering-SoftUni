@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class CityServiceImpl implements CityService {
@@ -55,6 +56,12 @@ public class CityServiceImpl implements CityService {
 
         cityRepository.flush();
         return sb.toString();
+    }
+
+    @Override
+    public Optional<City> findById(Long id) {
+
+        return cityRepository.findById(id);
     }
 
     private void saveCity(City city, StringBuilder sb) {

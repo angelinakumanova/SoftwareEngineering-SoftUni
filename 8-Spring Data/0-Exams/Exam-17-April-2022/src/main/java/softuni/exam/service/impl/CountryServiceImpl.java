@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
+import java.util.Optional;
 
 @Service
 public class CountryServiceImpl implements CountryService {
@@ -59,6 +60,11 @@ public class CountryServiceImpl implements CountryService {
 
         countryRepository.flush();
         return sb.toString();
+    }
+
+    @Override
+    public Optional<Country> findById(Long id) {
+        return countryRepository.findById(id);
     }
 
     private boolean isValidCountry(CountryImportDto c, StringBuilder sb) {

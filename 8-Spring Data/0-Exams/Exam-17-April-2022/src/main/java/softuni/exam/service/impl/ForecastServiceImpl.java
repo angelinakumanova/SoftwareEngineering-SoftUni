@@ -2,9 +2,11 @@ package softuni.exam.service.impl;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
+import softuni.exam.models.dto.ForecastExportDto;
 import softuni.exam.models.dto.ForecastImportDto;
 import softuni.exam.models.dto.ForecastListImportDto;
 import softuni.exam.models.entity.Forecast;
+import softuni.exam.models.enums.Weekday;
 import softuni.exam.repository.ForecastRepository;
 import softuni.exam.service.CityService;
 import softuni.exam.service.ForecastService;
@@ -88,6 +90,28 @@ public class ForecastServiceImpl implements ForecastService {
 
     @Override
     public String exportForecasts() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+
+        //City: {cityName}:
+        //   		-min temperature: {minTemperature}
+        //   		--max temperature: {maxTemperature}
+        //   		---sunrise: {sunrise}
+        //----sunset: {sunset}
+        forecastRepository.findByDayOfWeekAndCityPopulationLessThanOrderByMaxTemperatureDescId(Weekday.SUNDAY, 150000)
+                .stream()
+                .map(f -> modelMapper.map(f, ForecastExportDto.class))
+                .forEach(f -> {
+                    String formatted = String.format("City: %s%n" +
+                            "-min temperature: %.2f%n" +
+                            "--max temperature: %.2f%n" +
+                            "---sunrise: %s%n" +
+                            "----sunset: %s",
+                            f.getCityName(), f.getMinTemperature(), f.getMaxTemperature(),
+                            f.getSunrise(), f.getSunset());
+
+                    sb.append(formatted).append(System.lineSeparator());
+                });
+        
+        return sb.toString().trim();
     }
 }

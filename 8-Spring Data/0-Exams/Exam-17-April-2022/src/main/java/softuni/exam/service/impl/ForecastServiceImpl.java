@@ -111,7 +111,7 @@ public class ForecastServiceImpl implements ForecastService {
 
                     sb.append(formatted).append(System.lineSeparator());
                 });
-        
+
         return sb.toString().trim();
     }
 }

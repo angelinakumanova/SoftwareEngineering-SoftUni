@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
@@ -51,4 +52,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
 
+    @Override
+    public Optional<Company> findByName(String name) {
+        return companyRepository.findByName(name);
+    }
 }

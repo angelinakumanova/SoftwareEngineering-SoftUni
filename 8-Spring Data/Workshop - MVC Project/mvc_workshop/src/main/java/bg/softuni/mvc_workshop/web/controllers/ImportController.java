@@ -55,4 +55,18 @@ public class ImportController {
         return modelAndView;
 
     }
+
+    @GetMapping("/projects")
+    public ModelAndView projects() throws IOException {
+        ModelAndView modelAndView = new ModelAndView("xml/import-projects");
+        modelAndView.addObject("projects",this.projectService.readFile());
+        return modelAndView;
+    }
+
+    @PostMapping("/projects")
+    public ModelAndView projectsPost() throws JAXBException, IOException {
+        ModelAndView modelAndView = new ModelAndView("redirect:xml");
+        this.projectService.seedData();
+        return modelAndView;
+    }
 }

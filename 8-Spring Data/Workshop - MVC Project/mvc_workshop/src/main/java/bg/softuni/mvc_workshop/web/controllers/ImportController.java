@@ -69,4 +69,18 @@ public class ImportController {
         this.projectService.seedData();
         return modelAndView;
     }
+
+    @GetMapping("/employees")
+    public ModelAndView employees() throws IOException {
+        ModelAndView modelAndView = new ModelAndView("xml/import-employees");
+        modelAndView.addObject("employees",this.employeeService.readFile());
+        return modelAndView;
+    }
+
+    @PostMapping("/employees")
+    public ModelAndView employeesPost() throws JAXBException, IOException {
+        ModelAndView modelAndView = new ModelAndView("redirect:xml");
+        this.employeeService.seedData();
+        return modelAndView;
+    }
 }

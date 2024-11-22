@@ -15,6 +15,7 @@ import javax.xml.bind.JAXBException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.Optional;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -56,5 +57,11 @@ public class ProjectServiceImpl implements ProjectService {
                 .forEach(projectRepository::save);
 
         projectRepository.flush();
+    }
+
+    @Override
+    public Optional<Project> findByName(String name) {
+        return projectRepository.findByName(name);
+
     }
 }

@@ -1,4 +1,4 @@
 package bg.softuni.mvc_workshop.service;
 
-public interface ProjectService {
+public interface ProjectService extends BaseService {
 }

@@ -15,4 +15,9 @@ public class HomeController {
     public String home() {
         return "home";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/";
+    }
 }

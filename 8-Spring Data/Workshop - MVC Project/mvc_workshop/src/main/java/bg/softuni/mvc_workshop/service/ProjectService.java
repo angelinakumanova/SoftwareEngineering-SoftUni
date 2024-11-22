@@ -6,4 +6,6 @@ import java.util.Optional;
 
 public interface ProjectService extends BaseService {
     Optional<Project> findByName(String name);
+
+    String getFinishedProjects();
 }

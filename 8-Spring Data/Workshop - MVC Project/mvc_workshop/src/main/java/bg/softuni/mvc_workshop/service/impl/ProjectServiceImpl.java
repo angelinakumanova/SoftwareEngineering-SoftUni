@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
@@ -63,5 +64,10 @@ public class ProjectServiceImpl implements ProjectService {
     public Optional<Project> findByName(String name) {
         return projectRepository.findByName(name);
 
+    }
+
+    @Override
+    public String getFinishedProjects() {
+        return projectRepository.findByIsFinishedTrue().stream().map(Project::toString).collect(Collectors.joining("\n"));
     }
 }

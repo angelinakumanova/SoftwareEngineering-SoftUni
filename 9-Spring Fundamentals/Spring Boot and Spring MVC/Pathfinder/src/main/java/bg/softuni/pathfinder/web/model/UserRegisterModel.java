@@ -1,8 +1,10 @@
 package bg.softuni.pathfinder.web.model;
 
+import bg.softuni.pathfinder.util.validation.EqualPasswords;
 import jakarta.validation.constraints.*;
 import org.hibernate.validator.constraints.Length;
 
+@EqualPasswords
 public class UserRegisterModel {
     @NotEmpty
     private String username;
@@ -11,6 +13,7 @@ public class UserRegisterModel {
     @Length(min = 5)
     private String fullName;
 
+    @NotEmpty
     @Email
     private String email;
 
@@ -18,9 +21,11 @@ public class UserRegisterModel {
     @Max(90)
     private Integer age;
 
+    @NotEmpty
     @Size(min = 5)
     private String password;
 
+    @NotEmpty
     private String confirmPassword;
 
     public UserRegisterModel() {}

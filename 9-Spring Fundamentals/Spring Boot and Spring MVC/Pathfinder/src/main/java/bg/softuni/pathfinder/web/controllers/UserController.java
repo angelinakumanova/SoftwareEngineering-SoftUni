@@ -1,6 +1,7 @@
 package bg.softuni.pathfinder.web.controllers;
 
 import bg.softuni.pathfinder.service.UserService;
+import bg.softuni.pathfinder.web.model.UserLoginModel;
 import bg.softuni.pathfinder.web.model.UserRegisterModel;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -54,13 +55,25 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String login() {
+    public String login(Model model) {
+
+        if (!model.containsAttribute("userModel")) {
+            model.addAttribute("userModel", new UserLoginModel());
+        }
+
         return "login";
     }
 
     @PostMapping("/login")
-    public String loginPost() {
+    public String loginPost(UserLoginModel userModel, RedirectAttributes rAtt) {
 
-        return "login";
+        if (userService.findByUsernameAndPassword(userModel.getUsername(), userModel.getPassword()).isEmpty()) {
+            rAtt.addFlashAttribute("userModel", userModel);
+            rAtt.addFlashAttribute("loginError", "Invalid username or password!");
+
+            return "redirect:/users/login";
+        }
+
+        return "redirect:/";
     }
 }

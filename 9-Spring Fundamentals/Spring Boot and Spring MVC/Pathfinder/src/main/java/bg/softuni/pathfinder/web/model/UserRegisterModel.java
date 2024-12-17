@@ -6,23 +6,19 @@ import org.hibernate.validator.constraints.Length;
 
 @EqualPasswords
 public class UserRegisterModel {
-    @NotEmpty
+    @Size(min = 5, max = 20, message = "Username length must be more than 3 characters")
     private String username;
 
-    @NotEmpty
-    @Length(min = 5)
+    @NotEmpty @Size(min = 5, max = 20)
     private String fullName;
 
-    @NotEmpty
-    @Email
+    @NotEmpty @Email
     private String email;
 
-    @Min(0)
-    @Max(90)
+    @NotNull @Min(0) @Max(90)
     private Integer age;
 
-    @NotEmpty
-    @Size(min = 5)
+    @NotEmpty @Length(min = 5, max = 20)
     private String password;
 
     @NotEmpty

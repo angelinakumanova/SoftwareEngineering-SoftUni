@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.web.controllers;
 
+import bg.softuni.pathfinder.service.UserService;
 import bg.softuni.pathfinder.web.model.UserRegisterModel;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/users")
 public class UserController {
+
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/register")
     public String register(Model model) {
@@ -33,14 +40,17 @@ public class UserController {
         if (bindingResult.hasErrors()) {
             rAtt.addFlashAttribute("userModel", userModel);
             rAtt.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.UserRegisterModel", bindingResult);
+                    "org.springframework.validation.BindingResult.userModel", bindingResult);
 
+            if (userService.findByUsername(userModel.getUsername()).isPresent()) {
+                bindingResult.rejectValue("username", "error.userModel", "Username is already occupied");
+            }
 
             return "redirect:/users/register";
         }
 
 
-        return "redirect:/login";
+        return "redirect:/users/login";
     }
 
     @GetMapping("/login")

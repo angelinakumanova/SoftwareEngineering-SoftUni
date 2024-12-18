@@ -15,7 +15,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 @RequestMapping("/users")
 public class UserController {
-
     private final UserService userService;
 
     public UserController(UserService userService) {
@@ -24,6 +23,9 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Model model) {
+        if (userService.isLoggedIn()) {
+            return "redirect:/";
+        }
 
         if (!model.containsAttribute("userModel")) {
             model.addAttribute("userModel", new UserRegisterModel());
@@ -56,6 +58,9 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model) {
+        if (userService.isLoggedIn()) {
+            return "redirect:/";
+        }
 
         if (!model.containsAttribute("userModel")) {
             model.addAttribute("userModel", new UserLoginModel());
@@ -74,6 +79,7 @@ public class UserController {
             return "redirect:/users/login";
         }
 
+        userService.loginUser(userModel);
         return "redirect:/";
     }
 }

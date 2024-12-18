@@ -1,0 +1,36 @@
+<nav class="main-nav" th:fragment="nav(isLoggedIn, isAdmin)">
+    <ul>
+        <li>
+            <a th:href="@{/}">Home</a>
+        </li>
+
+        <th:block th:if="${!isLoggedIn}">
+            <li >
+            <a th:href="@{/users/login}">Login</a>
+            </li>
+            <li>
+                <a th:href="@{/users/register}">Register</a>
+            </li>
+            <li>
+                <a href="/">About</a>
+            </li>
+        </th:block>
+
+
+        <th:block th:if="${isLoggedIn}">
+            <li>
+                <a href="/">Add new route</a>
+            </li>
+            <li th:if="${!isAdmin}">
+                <a href="/">Profile</a>
+            </li>
+            <li th:if="${isAdmin}">
+                <a href="/">Admin</a>
+            </li>
+            <li th:if="${isLoggedIn}">
+                <a th:href="@{/users/logout}">Logout</a>
+            </li>
+        </th:block>
+
+    </ul>
+</nav>

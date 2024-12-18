@@ -13,4 +13,8 @@ public interface UserService {
     void loginUser(UserLoginModel user);
 
     boolean isLoggedIn();
+
+    boolean isAdmin();
+
+    void logoutUser();
 }

@@ -7,6 +7,7 @@ import bg.softuni.pathfinder.data.enums.UserRoles;
 import bg.softuni.pathfinder.data.repositories.UserRepository;
 import bg.softuni.pathfinder.service.UserService;
 import bg.softuni.pathfinder.web.model.UserLoginModel;
+import bg.softuni.pathfinder.web.model.UserProfileDetails;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,10 +19,12 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final CurrentUser currentUser;
+    private final ModelMapper modelMapper;
 
-    public UserServiceImpl(UserRepository userRepository, CurrentUser currentUser) {
+    public UserServiceImpl(UserRepository userRepository, CurrentUser currentUser, ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.currentUser = currentUser;
+        this.modelMapper = modelMapper;
     }
 
 
@@ -44,6 +47,13 @@ public class UserServiceImpl implements UserService {
     @Override
     public void logoutUser() {
         this.currentUser.setUser(null);
+    }
+
+    @Override
+    public UserProfileDetails getUserDetails(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) return null;
+        else return modelMapper.map(user, UserProfileDetails.class);
     }
 
 }

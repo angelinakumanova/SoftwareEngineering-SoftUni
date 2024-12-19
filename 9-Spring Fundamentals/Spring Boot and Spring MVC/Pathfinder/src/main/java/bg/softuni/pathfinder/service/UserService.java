@@ -2,6 +2,7 @@ package bg.softuni.pathfinder.service;
 
 import bg.softuni.pathfinder.data.entities.User;
 import bg.softuni.pathfinder.web.model.UserLoginModel;
+import bg.softuni.pathfinder.web.model.UserProfileDetails;
 
 import java.util.Optional;
 
@@ -13,4 +14,6 @@ public interface UserService {
     void loginUser(UserLoginModel user);
 
     void logoutUser();
+
+    UserProfileDetails getUserDetails(Long id);
 }

@@ -3,6 +3,7 @@ package bg.softuni.pathfinder.web.controllers;
 import bg.softuni.pathfinder.config.CurrentUser;
 import bg.softuni.pathfinder.service.UserService;
 import bg.softuni.pathfinder.web.model.UserLoginModel;
+import bg.softuni.pathfinder.web.model.UserProfileDetails;
 import bg.softuni.pathfinder.web.model.UserRegisterModel;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.Objects;
 
 @Controller
 @RequestMapping("/users")
@@ -96,6 +99,12 @@ public class UserController {
 
     @GetMapping("/profile/{id}")
     public String profile(@PathVariable Long id, Model model) {
+        UserProfileDetails userDetails = userService.getUserDetails(id);
+
+        if (userDetails == null) {
+            return "redirect:/";
+        }
+        model.addAttribute("user", userDetails);
 
         return "profile";
     }

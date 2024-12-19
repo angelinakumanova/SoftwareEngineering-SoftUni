@@ -2,11 +2,19 @@ package bg.softuni.pathfinder.config;
 
 import bg.softuni.pathfinder.data.entities.User;
 import bg.softuni.pathfinder.data.enums.UserRoles;
+import bg.softuni.pathfinder.web.model.UserProfileDetails;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component("currentUser")
 public class CurrentUser {
+    private final ModelMapper modelMapper;
+
     private User user;
+
+    public CurrentUser(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+    }
 
     public boolean isLoggedIn() {
         return this.user != null;
@@ -14,6 +22,10 @@ public class CurrentUser {
 
     public boolean isAdmin() {
         return this.user.getRoles().stream().anyMatch(r -> r.getName().equals(UserRoles.ADMIN));
+    }
+
+    public UserProfileDetails mapToDto() {
+        return this.modelMapper.map(this.user, UserProfileDetails.class);
     }
 
     public User getUser() {

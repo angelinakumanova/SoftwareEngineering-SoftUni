@@ -1,8 +1,10 @@
 package bg.softuni.pathfinder.service.impl;
 
 import bg.softuni.pathfinder.data.entities.Picture;
+import bg.softuni.pathfinder.data.entities.Route;
 import bg.softuni.pathfinder.data.repositories.RouteRepository;
 import bg.softuni.pathfinder.service.RouteService;
+import bg.softuni.pathfinder.service.dtos.RouteDetailsDto;
 import bg.softuni.pathfinder.service.dtos.RouteDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -32,5 +34,13 @@ public class RouteServiceImpl implements RouteService {
 
             return mappedRoute;
         }).toList();
+    }
+
+    @Override
+    public RouteDetailsDto getRouteDetailsById(Long id) {
+        Route route = this.routeRepository.findById(id).orElse(null);
+
+        if (route == null) return null;
+        else return modelMapper.map(route, RouteDetailsDto.class);
     }
 }

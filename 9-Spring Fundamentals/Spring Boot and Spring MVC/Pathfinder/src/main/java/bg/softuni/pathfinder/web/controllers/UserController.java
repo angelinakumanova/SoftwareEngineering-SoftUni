@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.web.controllers;
 
+import bg.softuni.pathfinder.config.CurrentUser;
 import bg.softuni.pathfinder.service.UserService;
 import bg.softuni.pathfinder.web.model.UserLoginModel;
 import bg.softuni.pathfinder.web.model.UserRegisterModel;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -16,14 +18,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+    private final CurrentUser currentUser;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, CurrentUser currentUser) {
         this.userService = userService;
+        this.currentUser = currentUser;
     }
 
     @GetMapping("/register")
     public String register(Model model) {
-        if (userService.isLoggedIn()) {
+        if (this.currentUser.isLoggedIn()) {
             return "redirect:/";
         }
 
@@ -58,7 +62,7 @@ public class UserController {
 
     @GetMapping("/login")
     public String login(Model model) {
-        if (userService.isLoggedIn()) {
+        if (this.currentUser.isLoggedIn()) {
             return "redirect:/";
         }
 
@@ -88,5 +92,11 @@ public class UserController {
         userService.logoutUser();
 
         return "redirect:/";
+    }
+
+    @GetMapping("/profile/{id}")
+    public String profile(@PathVariable Long id, Model model) {
+
+        return "profile";
     }
 }

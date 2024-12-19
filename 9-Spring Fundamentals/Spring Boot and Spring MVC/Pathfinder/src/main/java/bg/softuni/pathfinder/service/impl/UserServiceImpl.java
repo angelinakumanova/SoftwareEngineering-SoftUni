@@ -1,5 +1,6 @@
 package bg.softuni.pathfinder.service.impl;
 
+import bg.softuni.pathfinder.config.CurrentUser;
 import bg.softuni.pathfinder.data.entities.Role;
 import bg.softuni.pathfinder.data.entities.User;
 import bg.softuni.pathfinder.data.enums.UserRoles;
@@ -15,12 +16,12 @@ import java.util.Set;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private User currentUser;
-
     private final UserRepository userRepository;
+    private final CurrentUser currentUser;
 
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, CurrentUser currentUser) {
         this.userRepository = userRepository;
+        this.currentUser = currentUser;
     }
 
 
@@ -36,36 +37,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void loginUser(UserLoginModel user) {
-        if (!isLoggedIn()) setCurrentUser(findByUsernameAndPassword(user.getUsername(), user.getPassword()).get());
-    }
-
-    @Override
-    public boolean isLoggedIn() {
-        return getCurrentUser() != null;
-    }
-
-    @Override
-    @Transactional
-    public boolean isAdmin() {
-        if (currentUser != null) {
-            return getCurrentUser().getRoles()
-                    .stream()
-                    .anyMatch(r -> r.getName().equals(UserRoles.ADMIN));
-        }
-
-        return false;
+        if (!this.currentUser.isLoggedIn()) this.currentUser
+                .setUser(findByUsernameAndPassword(user.getUsername(), user.getPassword()).get());
     }
 
     @Override
     public void logoutUser() {
-        setCurrentUser(null);
+        this.currentUser.setUser(null);
     }
 
-    private void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
-    }
-
-    private User getCurrentUser() {
-        return currentUser;
-    }
 }

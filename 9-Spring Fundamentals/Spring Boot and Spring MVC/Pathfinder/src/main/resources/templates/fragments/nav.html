@@ -1,10 +1,10 @@
-<nav class="main-nav" th:fragment="nav(isLoggedIn, isAdmin)">
+<nav class="main-nav" th:fragment="nav">
     <ul>
         <li>
             <a th:href="@{/}">Home</a>
         </li>
 
-        <th:block th:if="${!isLoggedIn}">
+        <th:block th:if="${!@currentUser.isLoggedIn()}">
             <li >
             <a th:href="@{/users/login}">Login</a>
             </li>
@@ -17,17 +17,17 @@
         </th:block>
 
 
-        <th:block th:if="${isLoggedIn}">
+        <th:block th:if="${@currentUser.isLoggedIn()}">
             <li>
                 <a href="/">Add new route</a>
             </li>
-            <li th:if="${!isAdmin}">
-                <a href="/">Profile</a>
+            <li th:if="${!@currentUser.isAdmin()}">
+                <a th:href="@{/users/profile/{id}(id = ${@currentUser.getUser().getId()})}">Profile</a>
             </li>
-            <li th:if="${isAdmin}">
+            <li th:if="${@currentUser.isAdmin()}">
                 <a href="/">Admin</a>
             </li>
-            <li th:if="${isLoggedIn}">
+            <li>
                 <a th:href="@{/users/logout}">Logout</a>
             </li>
         </th:block>

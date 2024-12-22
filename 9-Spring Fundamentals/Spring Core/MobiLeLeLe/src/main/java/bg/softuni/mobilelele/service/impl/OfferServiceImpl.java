@@ -13,13 +13,5 @@ public class OfferServiceImpl implements OfferService {
         this.offerRepository = offerRepository;
     }
 
-    @Override
-    public boolean isImported() {
-        return this.offerRepository.count() > 0;
-    }
 
-    @Override
-    public void seedData() {
-
-    }
 }

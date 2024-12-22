@@ -14,13 +14,5 @@ public class ModelServiceImpl implements ModelService {
     }
 
 
-    @Override
-    public boolean isImported() {
-        return false;
-    }
 
-    @Override
-    public void seedData() {
-
-    }
 }

@@ -14,13 +14,4 @@ public class BrandServiceImpl implements BrandService {
     }
 
 
-    @Override
-    public boolean isImported() {
-        return this.brandRepository.count() > 0;
-    }
-
-    @Override
-    public void seedData() {
-
-    }
 }

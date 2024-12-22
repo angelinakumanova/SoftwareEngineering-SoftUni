@@ -13,13 +13,5 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
 
-    @Override
-    public boolean isImported() {
-        return this.userRepository.count() > 0;
-    }
 
-    @Override
-    public void seedData() {
-
-    }
 }

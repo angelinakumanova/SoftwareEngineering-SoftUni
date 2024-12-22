@@ -5,8 +5,10 @@ import bg.softuni.pathfinder.data.enums.UserRoles;
 import bg.softuni.pathfinder.web.model.UserProfileDetails;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 @Component("currentUser")
+@SessionScope
 public class CurrentUser {
     private final ModelMapper modelMapper;
 

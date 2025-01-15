@@ -1,9 +1,11 @@
 package bg.softuni.smartwalletapp.user.model;
 
+import bg.softuni.smartwalletapp.wallet.model.Wallet;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -47,4 +49,7 @@ public class User {
 
     @Column(nullable = false)
     private LocalDateTime updatedOn;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
+    private List<Wallet> wallets;
 }

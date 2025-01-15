@@ -38,7 +38,7 @@ public class Subscription {
     private BigDecimal price;
 
     private boolean renewalAllowed;
-    
+
     @Column(nullable = false)
     private LocalDateTime createdOn;
 

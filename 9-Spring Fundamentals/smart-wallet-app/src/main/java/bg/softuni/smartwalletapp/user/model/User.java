@@ -1,5 +1,6 @@
 package bg.softuni.smartwalletapp.user.model;
 
+import bg.softuni.smartwalletapp.subscription.model.Subscription;
 import bg.softuni.smartwalletapp.wallet.model.Wallet;
 import jakarta.persistence.*;
 import lombok.*;
@@ -52,4 +53,7 @@ public class User {
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
     private List<Wallet> wallets;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner")
+    private List<Subscription> subscriptions;
 }

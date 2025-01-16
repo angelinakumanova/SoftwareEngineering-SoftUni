@@ -76,6 +76,38 @@ public class WalletService {
                 null);
     }
 
+    @Transactional
+    public Transaction charge(UUID walletId, BigDecimal amount, String chargeDescription) {
+        Wallet wallet = getWalletById(walletId);
+        String failureReason = null;
+        TransactionStatus status = TransactionStatus.FAILED;
+
+        if (wallet.getStatus() == WalletStatus.INACTIVE) {
+            failureReason = "Inactive wallet";
+        } else if (wallet.getBalance().compareTo(amount) < 0) {
+            failureReason = "Insufficient balance";
+        } else {
+            wallet.setBalance(wallet.getBalance().subtract(amount));
+            wallet.setUpdatedOn(LocalDateTime.now());
+            status = TransactionStatus.SUCCEEDED;
+
+            walletRepository.save(wallet);
+        }
+
+
+        return transactionService.createNewTransaction(
+                wallet.getOwner(),
+                walletId.toString(),
+                SMART_WALLET_LTD,
+                amount,
+                wallet.getBalance(),
+                wallet.getCurrency(),
+                TransactionType.WITHDRAWAL,
+                status,
+                chargeDescription,
+                failureReason);
+    }
+
 
     private Wallet getWalletById(UUID walletId) {
 

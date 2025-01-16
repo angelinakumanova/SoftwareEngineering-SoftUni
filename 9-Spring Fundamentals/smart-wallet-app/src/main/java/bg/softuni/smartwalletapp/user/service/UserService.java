@@ -8,6 +8,7 @@ import bg.softuni.smartwalletapp.user.model.UserRole;
 import bg.softuni.smartwalletapp.user.repository.UserRepository;
 import bg.softuni.smartwalletapp.wallet.model.Wallet;
 import bg.softuni.smartwalletapp.wallet.service.WalletService;
+import bg.softuni.smartwalletapp.web.dto.LoginRequest;
 import bg.softuni.smartwalletapp.web.dto.RegisterRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,6 +33,16 @@ public class UserService {
         this.walletService = walletService;
         this.passwordEncoder = passwordEncoder;
         this.subscriptionService = subscriptionService;
+    }
+
+
+    public User login(LoginRequest loginRequest) {
+        Optional<User> user = this.userRepository.getByUsername(loginRequest.getUsername());
+        if (user.isEmpty() || passwordEncoder.matches(loginRequest.getPassword(), user.get().getPassword())) {
+            throw new DomainException("Invalid username or password");
+        }
+
+        return user.get();
     }
 
     @Transactional

@@ -1,5 +1,7 @@
 package com.paintingscollectors.web;
 
+import com.paintingscollectors.painting.model.Painting;
+import com.paintingscollectors.painting.service.PaintingService;
 import com.paintingscollectors.user.model.User;
 import com.paintingscollectors.user.service.UserService;
 import com.paintingscollectors.web.dto.LoginRequest;
@@ -7,21 +9,23 @@ import com.paintingscollectors.web.dto.RegisterRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
 public class IndexController {
 
     private final UserService userService;
+    private final PaintingService paintingService;
 
-    public IndexController(UserService userService) {
+    public IndexController(UserService userService, PaintingService paintingService) {
         this.userService = userService;
+        this.paintingService = paintingService;
     }
 
     @GetMapping("/")
@@ -91,6 +95,9 @@ public class IndexController {
 
         User user = userService.getById((UUID) session.getAttribute("user_id"));
         modelAndView.addObject("user", user);
+
+        List<Painting> allPaintings = paintingService.getAllPaintings();
+        modelAndView.addObject("paintings", allPaintings);
 
         return modelAndView;
     }

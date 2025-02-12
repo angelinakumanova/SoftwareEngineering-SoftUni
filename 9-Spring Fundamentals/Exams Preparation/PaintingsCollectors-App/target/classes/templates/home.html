@@ -23,13 +23,13 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr class="my-paintings">
+                            <tr class="my-paintings" th:each="painting: ${paintings}" th:if="${painting.owner.id == user.id}">
                                 <td scope="row" style="width: 5%">
-                                    <img class="mr-2" src="https://media.istockphoto.com/id/1442179368/photo/maldives-island.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=t38FJQ6YhyyZGN91A8tpn3nz9Aqcy_aXolImsOXOZ34=" width="35px" height="35px">
+                                    <img class="mr-2" th:src="${painting.imageUrl}" width="35px" height="35px">
                                 </td>
-                                <td>Spring</td>
-                                <td>Viktor</td>
-                                <td>EXPRESSIONISM</td>
+                                <td th:text="${painting.name}">Spring</td>
+                                <td th:text="${painting.author}">Viktor</td>
+                                <td th:text="${painting.style}">EXPRESSIONISM</td>
                                 <td style="width: 15%">
                                     <form action="" method="">
                                         <button class="btn-danger btn">Delete</button>

@@ -14,7 +14,7 @@
     <nav>
         <div class="home">
             <a th:href="@{/home}">Paintings Collectors App</a>
-            <a href="/" th:if="${user}">Add Painting</a>
+            <a th:href="@{/paintings/new}" th:if="${user}">Add Painting</a>
         </div>
         <div class="links">
             <th:block th:unless="${user}">

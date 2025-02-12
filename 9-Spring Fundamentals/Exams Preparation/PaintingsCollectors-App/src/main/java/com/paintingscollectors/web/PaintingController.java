@@ -63,4 +63,31 @@ public class PaintingController {
 
         return "redirect:/home";
     }
+
+    @PostMapping("/favourites/{id}")
+    public String makeFavouritePainting(@PathVariable UUID id, HttpSession session) {
+
+        UUID userId = (UUID) session.getAttribute("user_id");
+        User user = userService.getById(userId);
+
+        paintingService.createFavouriteByPaintingId(id, user);
+
+        return "redirect:/home";
+    }
+
+    @DeleteMapping("/favourites/{id}")
+    public String deleteFavouritePainting(@PathVariable UUID id) {
+
+        paintingService.deleteFavouriteById(id);
+
+        return "redirect:/home";
+    }
+
+    @PutMapping("/{id}/votes")
+    public String updateVotes(@PathVariable UUID id) {
+
+        paintingService.incrementVotesByOne(id);
+
+        return "redirect:/home";
+    }
 }

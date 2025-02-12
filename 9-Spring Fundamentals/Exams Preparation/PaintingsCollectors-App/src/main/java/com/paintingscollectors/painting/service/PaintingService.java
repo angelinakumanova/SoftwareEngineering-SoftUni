@@ -1,11 +1,14 @@
 package com.paintingscollectors.painting.service;
 
+import com.paintingscollectors.painting.model.FavouritePainting;
 import com.paintingscollectors.painting.model.Painting;
+import com.paintingscollectors.painting.repository.FavouritePaintingRepository;
 import com.paintingscollectors.painting.repository.PaintingRepository;
 import com.paintingscollectors.user.model.User;
 import com.paintingscollectors.web.dto.CreatePaintingRequest;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,9 +16,11 @@ import java.util.UUID;
 public class PaintingService {
 
     private final PaintingRepository paintingRepository;
+    private final FavouritePaintingRepository favouritePaintingRepository;
 
-    public PaintingService(PaintingRepository paintingRepository) {
+    public PaintingService(PaintingRepository paintingRepository, FavouritePaintingRepository favouritePaintingRepository) {
         this.paintingRepository = paintingRepository;
+        this.favouritePaintingRepository = favouritePaintingRepository;
     }
 
     public void createNewPainting(CreatePaintingRequest createPaintingRequest, User user) {
@@ -38,5 +43,47 @@ public class PaintingService {
 
     public void deletePaintingById(UUID id) {
         paintingRepository.deleteById(id);
+    }
+
+    public void deleteFavouriteById(UUID id) {
+        favouritePaintingRepository.deleteById(id);
+    }
+
+    public void createFavouriteByPaintingId(UUID paintingId, User user) {
+
+        Painting painting = getById(paintingId);
+
+        boolean isAlreadyFavourite = user.getFavouritePaintings()
+                .stream()
+                .anyMatch(fp -> fp.getName().equals(painting.getName()) && fp.getAuthor().equals(painting.getAuthor()));
+        if (isAlreadyFavourite){
+            return;
+        }
+
+        FavouritePainting favouritePainting = FavouritePainting.builder()
+                .name(painting.getName())
+                .author(painting.getAuthor())
+                .owner(user)
+                .imageUrl(painting.getImageUrl())
+                .createdOn(LocalDateTime.now())
+                .build();
+
+        favouritePaintingRepository.save(favouritePainting);
+    }
+
+    public void incrementVotesByOne(UUID paintingId) {
+
+        Painting painting = getById(paintingId);
+
+        painting.setVotes(painting.getVotes() + 1);
+        paintingRepository.save(painting);
+    }
+
+    private Painting getById(UUID paintingId) {
+        return paintingRepository.findById(paintingId).orElseThrow(() -> new RuntimeException("Painting with id %s does not exist".formatted(paintingId)));
+    }
+
+    public List<Painting> getPaintingsByVotes() {
+        return paintingRepository.findAllByOrderByVotesDesc();
     }
 }

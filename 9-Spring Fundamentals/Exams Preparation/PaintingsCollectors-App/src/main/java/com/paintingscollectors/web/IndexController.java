@@ -99,6 +99,9 @@ public class IndexController {
         List<Painting> allPaintings = paintingService.getAllPaintings();
         modelAndView.addObject("paintings", allPaintings);
 
+        List<Painting> mostRatedPaintings = paintingService.getPaintingsByVotes();
+        modelAndView.addObject("mostRatedPaintings", mostRatedPaintings);
+
         return modelAndView;
     }
 }

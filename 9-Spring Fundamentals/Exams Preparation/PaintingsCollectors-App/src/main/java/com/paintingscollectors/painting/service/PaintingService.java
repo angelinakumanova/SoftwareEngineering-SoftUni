@@ -7,6 +7,7 @@ import com.paintingscollectors.web.dto.CreatePaintingRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PaintingService {
@@ -33,5 +34,9 @@ public class PaintingService {
 
     public List<Painting> getAllPaintings() {
         return paintingRepository.findAll();
+    }
+
+    public void deletePaintingById(UUID id) {
+        paintingRepository.deleteById(id);
     }
 }

@@ -31,7 +31,7 @@
                                 <td th:text="${painting.author}">Viktor</td>
                                 <td th:text="${painting.style}">EXPRESSIONISM</td>
                                 <td style="width: 15%">
-                                    <form action="" method="">
+                                    <form th:action="@{/paintings/{id}(id=${painting.id})}" th:method="DELETE">
                                         <button class="btn-danger btn">Delete</button>
                                     </form>
                                 </td>

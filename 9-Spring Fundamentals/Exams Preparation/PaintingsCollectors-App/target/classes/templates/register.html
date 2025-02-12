@@ -14,7 +14,7 @@
             <div class="label-holder textCol d-flex justify-content-center">
                 <label for="username" class="h4 mb-2 text-white">Username</label>
             </div>
-            <input type="text" class="form-control" id="username" name="username"/>
+            <input type="text" class="form-control" id="username" name="username" th:field="*{username}"/>
             <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="danger">Error message</small>
         </div>
 
@@ -22,7 +22,7 @@
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="email" class="h4 mb-2">Email</label>
             </div>
-            <input type="email" class="form-control" id="email" name="email"/>
+            <input type="email" class="form-control" id="email" name="email" th:field="*{email}"/>
             <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="danger">Error message</small>
         </div>
 
@@ -30,7 +30,7 @@
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="password" class="h4 mb-2">Password</label>
             </div>
-            <input type="password" class="form-control" id="password" name="password"/>
+            <input type="password" class="form-control" id="password" name="password" th:field="*{password}"/>
             <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="danger">Error message</small>
         </div>
 
@@ -38,7 +38,7 @@
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="confirmPassword" class="h4 mb-2">Confirm Password</label>
             </div>
-            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"/>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" th:field="*{confirmPassword}">
             <small th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="danger">Error message</small>
         </div>
 

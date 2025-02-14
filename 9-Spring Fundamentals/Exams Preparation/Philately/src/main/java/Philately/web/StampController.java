@@ -66,4 +66,12 @@ public class StampController {
 
         return "redirect:/home";
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteWishedStamp(@PathVariable UUID id) {
+
+        stampService.deleteWishedStampById(id);
+
+        return "redirect:/home";
+    }
 }

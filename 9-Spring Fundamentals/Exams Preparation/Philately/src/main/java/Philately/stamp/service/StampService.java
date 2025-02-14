@@ -55,4 +55,8 @@ public class StampService {
     private Stamp getById(UUID id) {
         return stampRepository.findById(id).orElseThrow(() -> new RuntimeException("Stamp not found"));
     }
+
+    public void deleteWishedStampById(UUID id) {
+        wishedStampRepository.deleteById(id);
+    }
 }

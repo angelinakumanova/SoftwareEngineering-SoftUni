@@ -9,10 +9,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.UUID;
@@ -58,5 +55,15 @@ public class StampController {
 
 
         return new ModelAndView("redirect:/home");
+    }
+
+    @PostMapping("/{id}/wishlist")
+    public String createNewWishlistItemForStamp(@PathVariable UUID id, HttpSession session) {
+
+        User user = userService.getById((UUID) session.getAttribute("user_id"));
+
+        stampService.createWished(id, user);
+
+        return "redirect:/home";
     }
 }

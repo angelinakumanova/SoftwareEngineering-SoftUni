@@ -1,18 +1,29 @@
 package Philately.stamp.service;
 
 import Philately.stamp.model.Stamp;
+import Philately.stamp.model.WishedStamp;
 import Philately.stamp.repository.StampRepository;
+import Philately.stamp.repository.WishedStampRepository;
 import Philately.user.model.User;
 import Philately.web.dto.CreateNewStamp;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class StampService {
 
     private final StampRepository stampRepository;
+    private final WishedStampRepository wishedStampRepository;
 
-    public StampService(StampRepository stampRepository) {
+    public StampService(StampRepository stampRepository, WishedStampRepository wishedStampRepository) {
         this.stampRepository = stampRepository;
+        this.wishedStampRepository = wishedStampRepository;
+    }
+
+    public List<Stamp> getAllStamps() {
+        return stampRepository.findAll();
     }
 
 
@@ -26,5 +37,22 @@ public class StampService {
                 .build();
 
         stampRepository.save(stamp);
+    }
+
+    public void createWished(UUID stampId, User user) {
+        Stamp stamp = getById(stampId);
+
+        WishedStamp wishedStamp = WishedStamp.builder()
+                .imageUrl(stamp.getImageUrl())
+                .name(stamp.getName())
+                .description(stamp.getDescription())
+                .owner(user)
+                .build();
+
+        wishedStampRepository.save(wishedStamp);
+    }
+
+    private Stamp getById(UUID id) {
+        return stampRepository.findById(id).orElseThrow(() -> new RuntimeException("Stamp not found"));
     }
 }
